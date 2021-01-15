@@ -1,38 +1,38 @@
-bin_PROGRAMS = xfdesktop-settings
+bin_PROGRAMS = esdesktop-settings
 
-xfdesktop_settings_SOURCES = \
-	xfdesktop-settings-appearance-frame-ui.h \
-	xfdesktop-settings-ui.h \
+esdesktop_settings_SOURCES = \
+	esdesktop-settings-appearance-frame-ui.h \
+	esdesktop-settings-ui.h \
 	main.c
 
-xfdesktop_settings_CFLAGS =						\
+esdesktop_settings_CFLAGS =						\
 	-I$(top_srcdir)								\
 	-I$(top_srcdir)/common						\
 	-I$(top_srcdir)/src 						\
-	$(LIBEXO_CFLAGS)							\
-	$(LIBXFCE4UI_CFLAGS)						\
-	$(XFCONF_CFLAGS)							\
+	$(LIBENDO_CFLAGS)							\
+	$(LIBEXPIDUS1UI_CFLAGS)						\
+	$(ESCONF_CFLAGS)							\
 	$(GTHREAD_CFLAGS)							\
 	$(LIBX11_CFLAGS)							\
 	$(LIBWNCK_CFLAGS) 							\
-	-DG_LOG_DOMAIN=\"xfdesktop-settings\"		\
-	-DEXO_API_SUBJECT_TO_CHANGE					\
+	-DG_LOG_DOMAIN=\"esdesktop-settings\"		\
+	-DENDO_API_SUBJECT_TO_CHANGE					\
 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE 				\
 	-DLOCALEDIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
 	-DBINDIR=\"$(bindir)\"
 
-xfdesktop_settings_LDADD =						\
-	$(top_builddir)/common/libxfdesktop.la		\
-	$(XFCONF_LIBS)								\
-	$(LIBXFCE4UI_LIBS)							\
-	$(LIBEXO_LIBS)								\
+esdesktop_settings_LDADD =						\
+	$(top_builddir)/common/libesdesktop.la		\
+	$(ESCONF_LIBS)								\
+	$(LIBEXPIDUS1UI_LIBS)							\
+	$(LIBENDO_LIBS)								\
 	$(GTHREAD_LIBS)								\
 	$(LIBWNCK_LIBS) 							\
 	$(LIBX11_LIBS)								\
 	$(GTK_LIBS)
 
-desktop_in_files = xfce-backdrop-settings.desktop.in
+desktop_in_files = expidus-backdrop-settings.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
@@ -40,8 +40,8 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 if MAINTAINER_MODE
 
 BUILT_SOURCES = \
-	xfdesktop-settings-appearance-frame-ui.h \
-	xfdesktop-settings-ui.h
+	esdesktop-settings-appearance-frame-ui.h \
+	esdesktop-settings-ui.h
 
 SUFFIXES: .ui
 
@@ -51,8 +51,8 @@ SUFFIXES: .ui
 endif
 
 EXTRA_DIST = \
-	xfdesktop-settings-ui.glade \
-	xfdesktop-settings-appearance-frame-ui.glade \
+	esdesktop-settings-ui.glade \
+	esdesktop-settings-appearance-frame-ui.glade \
 	$(desktop_in_files)
 
 CLEANFILES = \

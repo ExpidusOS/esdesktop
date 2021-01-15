@@ -1,46 +1,46 @@
 icons16dir = $(datadir)/icons/hicolor/16x16/apps
 
 icons16_DATA = \
-	16x16/org.xfce.xfdesktop.png
+	16x16/com.expidus.esdesktop.png
 
 icons24dir = $(datadir)/icons/hicolor/24x24/apps
 
 icons24_DATA = \
-	24x24/org.xfce.xfdesktop.png
+	24x24/com.expidus.esdesktop.png
 
 icons32dir = $(datadir)/icons/hicolor/32x32/apps
 
 icons32_DATA = \
-	32x32/org.xfce.xfdesktop.png
+	32x32/com.expidus.esdesktop.png
 
 icons48dir = $(datadir)/icons/hicolor/48x48/apps
 
 icons48_DATA = \
-	48x48/org.xfce.xfdesktop.png
+	48x48/com.expidus.esdesktop.png
 
 icons128dir = $(datadir)/icons/hicolor/128x128/apps
 
 icons128_DATA = \
-	128x128/org.xfce.xfdesktop.png
+	128x128/com.expidus.esdesktop.png
 
 iconsscdir = $(datadir)/icons/hicolor/scalable/apps
 
 iconssc_DATA = \
-	scalable/org.xfce.xfdesktop.svg
+	scalable/com.expidus.esdesktop.svg
 
 pixmapsdir = $(datadir)/pixmaps
 
 pixmaps_DATA = \
-	xfce4_xicon.png \
-	xfce4_xicon1.png \
-	xfce4_xicon2.png \
-	xfce4_xicon3.png \
-	xfce4_xicon4.png
+	expidus1_xicon.png \
+	expidus1_xicon1.png \
+	expidus1_xicon2.png \
+	expidus1_xicon3.png \
+	expidus1_xicon4.png
 
-pixmapsxdir = $(datadir)/pixmaps/xfdesktop
+pixmapsxdir = $(datadir)/pixmaps/esdesktop
 
 pixmapsx_DATA = \
-	xfdesktop-fallback-icon.png
+	esdesktop-fallback-icon.png
 
 EXTRA_DIST = \
 	$(icons16_DATA) \

@@ -6,29 +6,29 @@
 # Steve Harris <steve@cultureofweb.com>, 2018-2020
 msgid ""
 msgstr ""
-"Project-Id-Version: Xfdesktop\n"
+"Project-Id-Version: Esdesktop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-13 00:48+0200\n"
 "PO-Revision-Date: 2020-10-12 22:48+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: English (Canada) (http://www.transifex.com/xfce/xfdesktop/language/en_CA/)\n"
+"Last-Translator: Expidus Bot <transifex@expidus.org>\n"
+"Language-Team: English (Canada) (http://www.transifex.com/expidus/esdesktop/language/en_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_CA\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../settings/main.c:419 ../src/xfdesktop-special-file-icon.c:292
-#: ../src/xfdesktop-special-file-icon.c:478
+#: ../settings/main.c:419 ../src/esdesktop-special-file-icon.c:292
+#: ../src/esdesktop-special-file-icon.c:478
 msgid "Home"
 msgstr "Home"
 
-#: ../settings/main.c:421 ../src/xfdesktop-special-file-icon.c:294
-#: ../src/xfdesktop-special-file-icon.c:476
+#: ../settings/main.c:421 ../src/esdesktop-special-file-icon.c:294
+#: ../src/esdesktop-special-file-icon.c:476
 msgid "File System"
 msgstr "File System"
 
-#: ../settings/main.c:423 ../src/xfdesktop-special-file-icon.c:296
+#: ../settings/main.c:423 ../src/esdesktop-special-file-icon.c:296
 msgid "Trash"
 msgstr "Trash"
 
@@ -124,38 +124,38 @@ msgid "Arrange icons"
 msgstr "Arrange icons"
 
 #. printf is to be translator-friendly
-#: ../settings/main.c:1757 ../src/xfdesktop-file-icon-manager.c:798
-#: ../src/xfdesktop-file-icon-manager.c:1353
+#: ../settings/main.c:1757 ../src/esdesktop-file-icon-manager.c:798
+#: ../src/esdesktop-file-icon-manager.c:1353
 #, c-format
 msgid "Unable to launch \"%s\":"
 msgstr "Unable to launch \"%s\":"
 
-#: ../settings/main.c:1758 ../src/xfdesktop-file-icon-manager.c:800
-#: ../src/xfdesktop-file-icon-manager.c:1102
-#: ../src/xfdesktop-file-icon-manager.c:1354 ../src/xfdesktop-file-utils.c:683
-#: ../src/xfdesktop-file-utils.c:1217 ../src/xfdesktop-file-utils.c:1295
-#: ../src/xfdesktop-file-utils.c:1319 ../src/xfdesktop-file-utils.c:1381
+#: ../settings/main.c:1758 ../src/esdesktop-file-icon-manager.c:800
+#: ../src/esdesktop-file-icon-manager.c:1102
+#: ../src/esdesktop-file-icon-manager.c:1354 ../src/esdesktop-file-utils.c:683
+#: ../src/esdesktop-file-utils.c:1217 ../src/esdesktop-file-utils.c:1295
+#: ../src/esdesktop-file-utils.c:1319 ../src/esdesktop-file-utils.c:1381
 msgid "Launch Error"
 msgstr "Launch Error"
 
-#: ../settings/main.c:1760 ../settings/xfdesktop-settings-ui.glade.h:21
-#: ../src/xfdesktop-file-icon-manager.c:562
-#: ../src/xfdesktop-file-icon-manager.c:581
-#: ../src/xfdesktop-file-icon-manager.c:666
-#: ../src/xfdesktop-file-icon-manager.c:802
-#: ../src/xfdesktop-file-icon-manager.c:1106
-#: ../src/xfdesktop-file-icon-manager.c:1356
-#: ../src/xfdesktop-file-icon-manager.c:2961 ../src/xfdesktop-file-utils.c:686
-#: ../src/xfdesktop-file-utils.c:706 ../src/xfdesktop-file-utils.c:761
-#: ../src/xfdesktop-file-utils.c:825 ../src/xfdesktop-file-utils.c:886
-#: ../src/xfdesktop-file-utils.c:947 ../src/xfdesktop-file-utils.c:995
-#: ../src/xfdesktop-file-utils.c:1050 ../src/xfdesktop-file-utils.c:1108
-#: ../src/xfdesktop-file-utils.c:1160 ../src/xfdesktop-file-utils.c:1221
-#: ../src/xfdesktop-file-utils.c:1297 ../src/xfdesktop-file-utils.c:1323
-#: ../src/xfdesktop-file-utils.c:1385 ../src/xfdesktop-file-utils.c:1444
-#: ../src/xfdesktop-file-utils.c:1460 ../src/xfdesktop-file-utils.c:1522
-#: ../src/xfdesktop-file-utils.c:1540 ../src/xfdesktop-volume-icon.c:523
-#: ../src/xfdesktop-volume-icon.c:569 ../src/xfdesktop-volume-icon.c:605
+#: ../settings/main.c:1760 ../settings/esdesktop-settings-ui.glade.h:21
+#: ../src/esdesktop-file-icon-manager.c:562
+#: ../src/esdesktop-file-icon-manager.c:581
+#: ../src/esdesktop-file-icon-manager.c:666
+#: ../src/esdesktop-file-icon-manager.c:802
+#: ../src/esdesktop-file-icon-manager.c:1106
+#: ../src/esdesktop-file-icon-manager.c:1356
+#: ../src/esdesktop-file-icon-manager.c:2961 ../src/esdesktop-file-utils.c:686
+#: ../src/esdesktop-file-utils.c:706 ../src/esdesktop-file-utils.c:761
+#: ../src/esdesktop-file-utils.c:825 ../src/esdesktop-file-utils.c:886
+#: ../src/esdesktop-file-utils.c:947 ../src/esdesktop-file-utils.c:995
+#: ../src/esdesktop-file-utils.c:1050 ../src/esdesktop-file-utils.c:1108
+#: ../src/esdesktop-file-utils.c:1160 ../src/esdesktop-file-utils.c:1221
+#: ../src/esdesktop-file-utils.c:1297 ../src/esdesktop-file-utils.c:1323
+#: ../src/esdesktop-file-utils.c:1385 ../src/esdesktop-file-utils.c:1444
+#: ../src/esdesktop-file-utils.c:1460 ../src/esdesktop-file-utils.c:1522
+#: ../src/esdesktop-file-utils.c:1540 ../src/esdesktop-volume-icon.c:523
+#: ../src/esdesktop-volume-icon.c:569 ../src/esdesktop-volume-icon.c:605
 msgid "_Close"
 msgstr "_Close"
 
@@ -180,7 +180,7 @@ msgstr "SOCKET ID"
 msgid "Version information"
 msgstr "Version information"
 
-#: ../settings/main.c:2130 ../src/xfdesktop-application.c:842
+#: ../settings/main.c:2130 ../src/esdesktop-application.c:842
 msgid "Enable debug messages"
 msgstr "Enable debug messages"
 
@@ -190,8 +190,8 @@ msgid "Type '%s --help' for usage."
 msgstr "Type '%s --help' for usage."
 
 #: ../settings/main.c:2170
-msgid "The Xfce development team. All rights reserved."
-msgstr "The Xfce development team. All rights reserved."
+msgid "The Expidus development team. All rights reserved."
+msgstr "The Expidus development team. All rights reserved."
 
 #: ../settings/main.c:2171
 #, c-format
@@ -210,17 +210,17 @@ msgstr "Unable to contact settings server"
 msgid "Quit"
 msgstr "Quit"
 
-#: ../settings/xfce-backdrop-settings.desktop.in.h:1
-#: ../settings/xfdesktop-settings-ui.glade.h:18 ../src/xfce-desktop.c:1174
+#: ../settings/expidus-backdrop-settings.desktop.in.h:1
+#: ../settings/esdesktop-settings-ui.glade.h:18 ../src/expidus-desktop.c:1174
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../settings/xfce-backdrop-settings.desktop.in.h:2
-#: ../settings/xfdesktop-settings-ui.glade.h:19
+#: ../settings/expidus-backdrop-settings.desktop.in.h:2
+#: ../settings/esdesktop-settings-ui.glade.h:19
 msgid "Set desktop background and menu and icon behavior"
 msgstr "Set desktop background and menu and icon behaviour"
 
-#: ../settings/xfce-backdrop-settings.desktop.in.h:3
+#: ../settings/expidus-backdrop-settings.desktop.in.h:3
 msgid ""
 "desktop;settings;background;wallpaper;color;gradient;menu;applications;right"
 " click;window list;middle "
@@ -228,353 +228,353 @@ msgid ""
 "click;default;"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:1
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:1
 msgid "Solid color"
 msgstr "Solid colour"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:2
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:2
 msgid "Horizontal gradient"
 msgstr "Horizontal gradient"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:3
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:3
 msgid "Vertical gradient"
 msgstr "Vertical gradient"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:4
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:4
 msgid "Transparent"
 msgstr "Transparent"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:5
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:5
 msgid "Choose the folder to select wallpapers from."
 msgstr "Choose the folder to select wallpapers from."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:6
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:6
 msgid "St_yle:"
 msgstr "St_yle:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:7
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:7
 msgid "Specify how the image will be resized to fit the screen."
 msgstr "Specify how the image will be resized to fit the screen."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:8
-#: ../settings/xfdesktop-settings-ui.glade.h:4
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:8
+#: ../settings/esdesktop-settings-ui.glade.h:4
 msgid "None"
 msgstr "None"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:9
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:9
 msgid "Centered"
 msgstr "Centred"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:10
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:10
 msgid "Tiled"
 msgstr "Tiled"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:11
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:11
 msgid "Stretched"
 msgstr "Stretched"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:12
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:12
 msgid "Scaled"
 msgstr "Scaled"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:13
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:13
 msgid "Zoomed"
 msgstr "Zoomed"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:14
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:14
 msgid "Spanning Screens"
 msgstr "Spanning Screens"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:15
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:15
 msgid "Specify the style of the color drawn behind the backdrop image."
 msgstr "Specify the style of the colour drawn behind the backdrop image."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:16
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:16
 msgid "Specifies the solid color, or the \"left\" or \"top\" color of the gradient."
 msgstr "Specifies the solid colour, or the \"left\" or \"top\" color of the gradient."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:17
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:17
 msgid "Select First Color"
 msgstr "Select First Colour"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:18
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:18
 msgid "Specifies the \"right\" or \"bottom\" color of the gradient."
 msgstr "Specifies the \"right\" or \"bottom\" color of the gradient."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:19
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:19
 msgid "Select Second Color"
 msgstr "Select Second Colour"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:20
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:20
 msgid "Apply to all _workspaces"
 msgstr "Apply to all _workspaces"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:21
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:21
 msgid "_Folder:"
 msgstr "_Folder:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:22
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:22
 msgid "C_olor:"
 msgstr "C_olour:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:23
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:23
 msgid "Change the _background "
 msgstr "Change the _background "
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:24
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:24
 msgid ""
 "Automatically select a different background from the current directory."
 msgstr "Automatically select a different background from the current directory."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:25
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:25
 msgid "Specify how often the background will change."
 msgstr "Specify how often the background will change."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:26
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:26
 msgid "in seconds:"
 msgstr "in seconds:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:27
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:27
 msgid "in minutes:"
 msgstr "in minutes:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:28
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:28
 msgid "in hours:"
 msgstr "in hours:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:29
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:29
 msgid "at start up"
 msgstr "at start up"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:30
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:30
 msgid "every hour"
 msgstr "every hour"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:31
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:31
 msgid "every day"
 msgstr "every day"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:32
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:32
 msgid "chronologically"
 msgstr "chronologically"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:33
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:33
 msgid "Amount of time before a different background is selected."
 msgstr "Amount of time before a different background is selected."
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:34
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:34
 msgid "_Random Order"
 msgstr "_Random Order"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:35
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:35
 msgid ""
 "Randomly selects another image from the same directory when the wallpaper is"
 " to cycle."
 msgstr "Randomly selects another image from the same directory when the wallpaper is to cycle."
 
-#: ../settings/xfdesktop-settings-ui.glade.h:1
+#: ../settings/esdesktop-settings-ui.glade.h:1
 msgid "Left"
 msgstr "Left"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:2
+#: ../settings/esdesktop-settings-ui.glade.h:2
 msgid "Middle"
 msgstr "Middle"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:3
+#: ../settings/esdesktop-settings-ui.glade.h:3
 msgid "Right"
 msgstr "Right"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:5
+#: ../settings/esdesktop-settings-ui.glade.h:5
 msgid "Shift"
 msgstr "Shift"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:6
+#: ../settings/esdesktop-settings-ui.glade.h:6
 msgid "Alt"
 msgstr "Alt"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:7
+#: ../settings/esdesktop-settings-ui.glade.h:7
 msgid "Control"
 msgstr "Control"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:8
+#: ../settings/esdesktop-settings-ui.glade.h:8
 msgid "Minimized application icons"
 msgstr "Minimized application icons"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:9
+#: ../settings/esdesktop-settings-ui.glade.h:9
 msgid "File/launcher icons"
 msgstr "File/launcher icons"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:10
+#: ../settings/esdesktop-settings-ui.glade.h:10
 msgid "Top Left Vertical"
 msgstr "Top Left Vertical"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:11
+#: ../settings/esdesktop-settings-ui.glade.h:11
 msgid "Top Left Horizontal"
 msgstr "Top Left Horizontal"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:12
+#: ../settings/esdesktop-settings-ui.glade.h:12
 msgid "Top Right Vertical"
 msgstr "Top Right Vertical"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:13
+#: ../settings/esdesktop-settings-ui.glade.h:13
 msgid "Top Right Horizontal"
 msgstr "Top Right Horizontal"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:14
+#: ../settings/esdesktop-settings-ui.glade.h:14
 msgid "Bottom Left Vertical"
 msgstr "Bottom Left Vertical"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:15
+#: ../settings/esdesktop-settings-ui.glade.h:15
 msgid "Bottom Left Horizontal"
 msgstr "Bottom Left Horizontal"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:16
+#: ../settings/esdesktop-settings-ui.glade.h:16
 msgid "Bottom Right Vertical"
 msgstr "Bottom Right Vertical"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:17
+#: ../settings/esdesktop-settings-ui.glade.h:17
 msgid "Bottom Right Horizontal"
 msgstr "Bottom Right Horizontal"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:20
+#: ../settings/esdesktop-settings-ui.glade.h:20
 msgid "_Help"
 msgstr "_Help"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:22
+#: ../settings/esdesktop-settings-ui.glade.h:22
 msgid "_Background"
 msgstr "_Background"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:23
+#: ../settings/esdesktop-settings-ui.glade.h:23
 msgid "Include applications menu on _desktop right click"
 msgstr "Include applications menu on _desktop right click"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:24
+#: ../settings/esdesktop-settings-ui.glade.h:24
 msgid "_Button:"
 msgstr "_Button:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:25
+#: ../settings/esdesktop-settings-ui.glade.h:25
 msgid "Mo_difier:"
 msgstr "Mo_difier:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:26
+#: ../settings/esdesktop-settings-ui.glade.h:26
 msgid "Show _application icons in menu"
 msgstr "Show _application icons in menu"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:27
+#: ../settings/esdesktop-settings-ui.glade.h:27
 msgid "_Edit desktop menu"
 msgstr "_Edit desktop menu"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:28
+#: ../settings/esdesktop-settings-ui.glade.h:28
 msgid "<b>Desktop Menu</b>"
 msgstr "<b>Desktop Menu</b>"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:29
+#: ../settings/esdesktop-settings-ui.glade.h:29
 msgid "Show _window list menu on desktop middle click"
 msgstr "Show _window list menu on desktop middle click"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:30
+#: ../settings/esdesktop-settings-ui.glade.h:30
 msgid "B_utton:"
 msgstr "B_utton:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:31
+#: ../settings/esdesktop-settings-ui.glade.h:31
 msgid "Modi_fier:"
 msgstr "Modi_fier:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:32
+#: ../settings/esdesktop-settings-ui.glade.h:32
 msgid "Sh_ow application icons in menu"
 msgstr "Sh_ow application icons in menu"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:33
+#: ../settings/esdesktop-settings-ui.glade.h:33
 msgid "Show workspace _names in list"
 msgstr "Show workspace _names in list"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:34
+#: ../settings/esdesktop-settings-ui.glade.h:34
 msgid "Use _submenus for the windows in each workspace"
 msgstr "Use _submenus for the windows in each workspace"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:35
+#: ../settings/esdesktop-settings-ui.glade.h:35
 msgid "Show s_ticky windows only in active workspace"
 msgstr "Show s_ticky windows only in active workspace"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:36
+#: ../settings/esdesktop-settings-ui.glade.h:36
 msgid "Show a_dd and remove workspace options in list"
 msgstr "Show a_dd and remove workspace options in list"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:37
+#: ../settings/esdesktop-settings-ui.glade.h:37
 msgid "<b>Window List Menu</b>"
 msgstr "<b>Window List Menu</b>"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:38
+#: ../settings/esdesktop-settings-ui.glade.h:38
 msgid "_Menus"
 msgstr "_Menus"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:39
+#: ../settings/esdesktop-settings-ui.glade.h:39
 msgid "Icon _type:"
 msgstr "Icon _type:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:40
+#: ../settings/esdesktop-settings-ui.glade.h:40
 msgid "Icon _size:"
 msgstr "Icon _size:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:41
+#: ../settings/esdesktop-settings-ui.glade.h:41
 msgid "48"
 msgstr "48"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:42
+#: ../settings/esdesktop-settings-ui.glade.h:42
 msgid "Icons _orientation:"
 msgstr "Icons _orientation:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:43
+#: ../settings/esdesktop-settings-ui.glade.h:43
 msgid "Show icons on primary display"
 msgstr "Show icons on primary display"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:44
+#: ../settings/esdesktop-settings-ui.glade.h:44
 msgid "Use custom _font size:"
 msgstr "Use custom _font size:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:45
+#: ../settings/esdesktop-settings-ui.glade.h:45
 msgid "12"
 msgstr "12"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:46
+#: ../settings/esdesktop-settings-ui.glade.h:46
 msgid "Show icon tooltips. Size:"
 msgstr "Show icon tooltips. Size:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:47
+#: ../settings/esdesktop-settings-ui.glade.h:47
 msgid "Size of the tooltip preview image."
 msgstr "Size of the tooltip preview image."
 
-#: ../settings/xfdesktop-settings-ui.glade.h:48
+#: ../settings/esdesktop-settings-ui.glade.h:48
 msgid "128"
 msgstr "128"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:49
+#: ../settings/esdesktop-settings-ui.glade.h:49
 msgid "Show t_humbnails"
 msgstr "Show t_humbnails"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:50
+#: ../settings/esdesktop-settings-ui.glade.h:50
 msgid ""
 "Select this option to display preview-able files on the desktop as "
 "automatically generated thumbnail icons."
 msgstr "Select this option to display preview-able files on the desktop as automatically generated thumbnail icons."
 
-#: ../settings/xfdesktop-settings-ui.glade.h:51
+#: ../settings/esdesktop-settings-ui.glade.h:51
 msgid "Show hidden files on the desktop"
 msgstr "Show hidden files on the desktop"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:52
+#: ../settings/esdesktop-settings-ui.glade.h:52
 msgid "Single _click to activate items"
 msgstr "Single _click to activate items"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:53
+#: ../settings/esdesktop-settings-ui.glade.h:53
 msgid "<b>Appearance</b>"
 msgstr "<b>Appearance</b>"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:54
+#: ../settings/esdesktop-settings-ui.glade.h:54
 msgid "<b>Default Icons</b>"
 msgstr "<b>Default Icons</b>"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:55
+#: ../settings/esdesktop-settings-ui.glade.h:55
 msgid "_Icons"
 msgstr "_Icons"
 
@@ -635,439 +635,439 @@ msgstr "_Remove Workspace %d"
 msgid "_Remove Workspace '%s'"
 msgstr "_Remove Workspace '%s'"
 
-#: ../src/xfdesktop-application.c:834
+#: ../src/esdesktop-application.c:834
 msgid "Display version information"
 msgstr "Display version information"
 
-#: ../src/xfdesktop-application.c:835
+#: ../src/esdesktop-application.c:835
 msgid "Reload all settings"
 msgstr "Reload all settings"
 
-#: ../src/xfdesktop-application.c:836
+#: ../src/esdesktop-application.c:836
 msgid "Advance to the next wallpaper on the current workspace"
 msgstr "Advance to the next wallpaper on the current workspace"
 
-#: ../src/xfdesktop-application.c:837
+#: ../src/esdesktop-application.c:837
 msgid "Pop up the menu (at the current mouse position)"
 msgstr "Pop up the menu (at the current mouse position)"
 
-#: ../src/xfdesktop-application.c:838
+#: ../src/esdesktop-application.c:838
 msgid "Pop up the window list (at the current mouse position)"
 msgstr "Pop up the window list (at the current mouse position)"
 
-#: ../src/xfdesktop-application.c:840
+#: ../src/esdesktop-application.c:840
 msgid "Automatically arrange all the icons on the desktop"
 msgstr "Automatically arrange all the icons on the desktop"
 
-#: ../src/xfdesktop-application.c:843
+#: ../src/esdesktop-application.c:843
 msgid "Disable debug messages"
 msgstr "Disable debug messages"
 
-#: ../src/xfdesktop-application.c:844
+#: ../src/esdesktop-application.c:844
 msgid "Do not wait for a window manager on startup"
 msgstr "Do not wait for a window manager on startup"
 
-#: ../src/xfdesktop-application.c:845
-msgid "Cause xfdesktop to quit"
-msgstr "Cause xfdesktop to quit"
+#: ../src/esdesktop-application.c:845
+msgid "Cause esdesktop to quit"
+msgstr "Cause esdesktop to quit"
 
-#: ../src/xfdesktop-application.c:860
+#: ../src/esdesktop-application.c:860
 #, c-format
 msgid "Failed to parse arguments: %s\n"
 msgstr "Failed to parse arguments: %s\n"
 
-#: ../src/xfdesktop-application.c:871
+#: ../src/esdesktop-application.c:871
 #, c-format
-msgid "This is %s version %s, running on Xfce %s.\n"
-msgstr "This is %s version %s, running on Xfce %s.\n"
+msgid "This is %s version %s, running on Expidus %s.\n"
+msgstr "This is %s version %s, running on Expidus %s.\n"
 
-#: ../src/xfdesktop-application.c:873
+#: ../src/esdesktop-application.c:873
 #, c-format
 msgid "Built with GTK+ %d.%d.%d, linked with GTK+ %d.%d.%d."
 msgstr "Built with GTK+ %d.%d.%d, linked with GTK+ %d.%d.%d."
 
-#: ../src/xfdesktop-application.c:877
+#: ../src/esdesktop-application.c:877
 #, c-format
 msgid "Build options:\n"
 msgstr "Build options:\n"
 
-#: ../src/xfdesktop-application.c:878
+#: ../src/esdesktop-application.c:878
 #, c-format
 msgid "    Desktop Menu:        %s\n"
 msgstr "    Desktop Menu:        %s\n"
 
-#: ../src/xfdesktop-application.c:880 ../src/xfdesktop-application.c:887
-#: ../src/xfdesktop-application.c:894
+#: ../src/esdesktop-application.c:880 ../src/esdesktop-application.c:887
+#: ../src/esdesktop-application.c:894
 msgid "enabled"
 msgstr "enabled"
 
-#: ../src/xfdesktop-application.c:882 ../src/xfdesktop-application.c:889
-#: ../src/xfdesktop-application.c:896
+#: ../src/esdesktop-application.c:882 ../src/esdesktop-application.c:889
+#: ../src/esdesktop-application.c:896
 msgid "disabled"
 msgstr "disabled"
 
-#: ../src/xfdesktop-application.c:885
+#: ../src/esdesktop-application.c:885
 #, c-format
 msgid "    Desktop Icons:       %s\n"
 msgstr "    Desktop Icons:       %s\n"
 
-#: ../src/xfdesktop-application.c:892
+#: ../src/esdesktop-application.c:892
 #, c-format
 msgid "    Desktop File Icons:  %s\n"
 msgstr "    Desktop File Icons:  %s\n"
 
-#: ../src/xfdesktop-file-icon-manager.c:554
-#: ../src/xfdesktop-file-icon-manager.c:572
+#: ../src/esdesktop-file-icon-manager.c:554
+#: ../src/esdesktop-file-icon-manager.c:572
 #, c-format
 msgid "Could not create the desktop folder \"%s\""
 msgstr "Could not create the desktop folder \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:559
-#: ../src/xfdesktop-file-icon-manager.c:577
+#: ../src/esdesktop-file-icon-manager.c:559
+#: ../src/esdesktop-file-icon-manager.c:577
 msgid "Desktop Folder Error"
 msgstr "Desktop Folder Error"
 
-#: ../src/xfdesktop-file-icon-manager.c:579
+#: ../src/esdesktop-file-icon-manager.c:579
 msgid ""
 "A normal file with the same name already exists. Please delete or rename it."
 msgstr "A normal file with the same name already exists. Please delete or rename it."
 
-#: ../src/xfdesktop-file-icon-manager.c:663 ../src/xfdesktop-file-utils.c:757
-#: ../src/xfdesktop-file-utils.c:821
+#: ../src/esdesktop-file-icon-manager.c:663 ../src/esdesktop-file-utils.c:757
+#: ../src/esdesktop-file-utils.c:821
 msgid "Rename Error"
 msgstr "Rename Error"
 
-#: ../src/xfdesktop-file-icon-manager.c:664 ../src/xfdesktop-file-utils.c:822
+#: ../src/esdesktop-file-icon-manager.c:664 ../src/esdesktop-file-utils.c:822
 msgid "The files could not be renamed"
 msgstr "The files could not be renamed"
 
-#: ../src/xfdesktop-file-icon-manager.c:665
+#: ../src/esdesktop-file-icon-manager.c:665
 msgid "None of the icons selected support being renamed."
 msgstr "None of the icons selected support being renamed."
 
-#: ../src/xfdesktop-file-icon-manager.c:1027
+#: ../src/esdesktop-file-icon-manager.c:1027
 #, c-format
 msgid "_Open With \"%s\""
 msgstr "_Open With \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:1030
+#: ../src/esdesktop-file-icon-manager.c:1030
 #, c-format
 msgid "Open With \"%s\""
 msgstr "Open With \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:1104
+#: ../src/esdesktop-file-icon-manager.c:1104
 msgid ""
-"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"Unable to launch \"endo-desktop-item-edit\", which is required to create and "
 "edit launchers and links on the desktop."
-msgstr "Unable to launch \"exo-desktop-item-edit\", which is required to create and edit launchers and links on the desktop."
+msgstr "Unable to launch \"endo-desktop-item-edit\", which is required to create and edit launchers and links on the desktop."
 
-#: ../src/xfdesktop-file-icon-manager.c:1423
+#: ../src/esdesktop-file-icon-manager.c:1423
 msgid "_Open all"
 msgstr "_Open all"
 
-#: ../src/xfdesktop-file-icon-manager.c:1443
+#: ../src/esdesktop-file-icon-manager.c:1443
 msgid "Create _Launcher..."
 msgstr "Create _Launcher..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1457
+#: ../src/esdesktop-file-icon-manager.c:1457
 msgid "Create _URL Link..."
 msgstr "Create _URL Link..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1471
+#: ../src/esdesktop-file-icon-manager.c:1471
 msgid "Create _Folder..."
 msgstr "Create _Folder..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1483
+#: ../src/esdesktop-file-icon-manager.c:1483
 msgid "Create _Document"
 msgstr "Create _Document"
 
-#: ../src/xfdesktop-file-icon-manager.c:1508
+#: ../src/esdesktop-file-icon-manager.c:1508
 msgid "No templates installed"
 msgstr "No templates installed"
 
-#: ../src/xfdesktop-file-icon-manager.c:1524
+#: ../src/esdesktop-file-icon-manager.c:1524
 msgid "_Empty File"
 msgstr "_Empty File"
 
-#: ../src/xfdesktop-file-icon-manager.c:1534
-#: ../src/xfdesktop-special-file-icon.c:545 ../src/xfdesktop-volume-icon.c:811
+#: ../src/esdesktop-file-icon-manager.c:1534
+#: ../src/esdesktop-special-file-icon.c:545 ../src/esdesktop-volume-icon.c:811
 msgid "_Open"
 msgstr "_Open"
 
-#: ../src/xfdesktop-file-icon-manager.c:1550
+#: ../src/esdesktop-file-icon-manager.c:1550
 msgid "_Execute"
 msgstr "_Execute"
 
-#: ../src/xfdesktop-file-icon-manager.c:1568
+#: ../src/esdesktop-file-icon-manager.c:1568
 msgid "_Edit Launcher"
 msgstr "_Edit Launcher"
 
-#: ../src/xfdesktop-file-icon-manager.c:1627
+#: ../src/esdesktop-file-icon-manager.c:1627
 msgid "Open With"
 msgstr "Open With"
 
-#: ../src/xfdesktop-file-icon-manager.c:1654
-#: ../src/xfdesktop-file-icon-manager.c:1668
+#: ../src/esdesktop-file-icon-manager.c:1654
+#: ../src/esdesktop-file-icon-manager.c:1668
 msgid "Open With Other _Application..."
 msgstr "Open With Other _Application..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1686
+#: ../src/esdesktop-file-icon-manager.c:1686
 msgid "_Paste"
 msgstr "_Paste"
 
-#: ../src/xfdesktop-file-icon-manager.c:1704
+#: ../src/esdesktop-file-icon-manager.c:1704
 msgid "Cu_t"
 msgstr "Cu_t"
 
-#: ../src/xfdesktop-file-icon-manager.c:1716
+#: ../src/esdesktop-file-icon-manager.c:1716
 msgid "_Copy"
 msgstr "_Copy"
 
-#: ../src/xfdesktop-file-icon-manager.c:1728
+#: ../src/esdesktop-file-icon-manager.c:1728
 msgid "Paste Into Folder"
 msgstr "Paste Into Folder"
 
-#: ../src/xfdesktop-file-icon-manager.c:1747
+#: ../src/esdesktop-file-icon-manager.c:1747
 msgid "Mo_ve to Trash"
 msgstr "Mo_ve to Trash"
 
-#: ../src/xfdesktop-file-icon-manager.c:1759
+#: ../src/esdesktop-file-icon-manager.c:1759
 msgid "_Delete"
 msgstr "_Delete"
 
-#: ../src/xfdesktop-file-icon-manager.c:1776
+#: ../src/esdesktop-file-icon-manager.c:1776
 msgid "_Rename..."
 msgstr "_Rename..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1842
+#: ../src/esdesktop-file-icon-manager.c:1842
 msgid "_Open in New Window"
 msgstr "_Open in New Window"
 
-#: ../src/xfdesktop-file-icon-manager.c:1851
+#: ../src/esdesktop-file-icon-manager.c:1851
 msgid "Arrange Desktop _Icons"
 msgstr "Arrange Desktop _Icons"
 
-#: ../src/xfdesktop-file-icon-manager.c:1861
+#: ../src/esdesktop-file-icon-manager.c:1861
 msgid "_Next Background"
 msgstr "_Next Background"
 
-#: ../src/xfdesktop-file-icon-manager.c:1871
+#: ../src/esdesktop-file-icon-manager.c:1871
 msgid "Desktop _Settings..."
 msgstr "Desktop _Settings..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1879
-#: ../src/xfdesktop-volume-icon.c:852
+#: ../src/esdesktop-file-icon-manager.c:1879
+#: ../src/esdesktop-volume-icon.c:852
 msgid "P_roperties..."
 msgstr "P_roperties..."
 
-#: ../src/xfdesktop-file-icon-manager.c:2958
+#: ../src/esdesktop-file-icon-manager.c:2958
 msgid "Load Error"
 msgstr "Load Error"
 
-#: ../src/xfdesktop-file-icon-manager.c:2960
+#: ../src/esdesktop-file-icon-manager.c:2960
 msgid "Failed to load the desktop folder"
 msgstr "Failed to load the desktop folder"
 
-#: ../src/xfdesktop-file-icon-manager.c:3530
+#: ../src/esdesktop-file-icon-manager.c:3530
 msgid "Copy _Here"
 msgstr "Copy _Here"
 
-#: ../src/xfdesktop-file-icon-manager.c:3530
+#: ../src/esdesktop-file-icon-manager.c:3530
 msgid "_Move Here"
 msgstr "_Move Here"
 
-#: ../src/xfdesktop-file-icon-manager.c:3530
+#: ../src/esdesktop-file-icon-manager.c:3530
 msgid "_Link Here"
 msgstr "_Link Here"
 
-#: ../src/xfdesktop-file-icon-manager.c:3565
+#: ../src/esdesktop-file-icon-manager.c:3565
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: ../src/xfdesktop-file-icon-manager.c:3694
+#: ../src/esdesktop-file-icon-manager.c:3694
 msgid "Untitled document"
 msgstr "Untitled document"
 
 #. TRANSLATORS: file was modified less than one day ago
-#: ../src/xfdesktop-file-utils.c:159
+#: ../src/esdesktop-file-utils.c:159
 #, c-format
 msgid "Today at %X"
 msgstr "Today at %X"
 
 #. TRANSLATORS: file was modified less than two days ago
-#: ../src/xfdesktop-file-utils.c:163
+#: ../src/esdesktop-file-utils.c:163
 #, c-format
 msgid "Yesterday at %X"
 msgstr "Yesterday at %X"
 
 #. Days from last week
-#: ../src/xfdesktop-file-utils.c:168
+#: ../src/esdesktop-file-utils.c:168
 #, c-format
 msgid "%A at %X"
 msgstr "%A at %X"
 
 #. Any other date
-#: ../src/xfdesktop-file-utils.c:171
+#: ../src/esdesktop-file-utils.c:171
 #, c-format
 msgid "%x at %X"
 msgstr "%x at %X"
 
 #. the file_time is invalid
-#: ../src/xfdesktop-file-utils.c:181
+#: ../src/esdesktop-file-utils.c:181
 msgid "Unknown"
 msgstr "Unknown"
 
-#: ../src/xfdesktop-file-utils.c:684
+#: ../src/esdesktop-file-utils.c:684
 msgid "The folder could not be opened"
 msgstr "The folder could not be opened"
 
-#: ../src/xfdesktop-file-utils.c:703
+#: ../src/esdesktop-file-utils.c:703
 msgid "Error"
 msgstr "Error"
 
-#: ../src/xfdesktop-file-utils.c:704
+#: ../src/esdesktop-file-utils.c:704
 msgid "The requested operation could not be completed"
 msgstr "The requested operation could not be completed"
 
-#: ../src/xfdesktop-file-utils.c:758
+#: ../src/esdesktop-file-utils.c:758
 msgid "The file could not be renamed"
 msgstr "The file could not be renamed"
 
-#: ../src/xfdesktop-file-utils.c:759 ../src/xfdesktop-file-utils.c:823
-#: ../src/xfdesktop-file-utils.c:884 ../src/xfdesktop-file-utils.c:1048
-#: ../src/xfdesktop-file-utils.c:1106 ../src/xfdesktop-file-utils.c:1158
-#: ../src/xfdesktop-file-utils.c:1219 ../src/xfdesktop-file-utils.c:1321
-#: ../src/xfdesktop-file-utils.c:1383 ../src/xfdesktop-file-utils.c:1458
-#: ../src/xfdesktop-file-utils.c:1538
+#: ../src/esdesktop-file-utils.c:759 ../src/esdesktop-file-utils.c:823
+#: ../src/esdesktop-file-utils.c:884 ../src/esdesktop-file-utils.c:1048
+#: ../src/esdesktop-file-utils.c:1106 ../src/esdesktop-file-utils.c:1158
+#: ../src/esdesktop-file-utils.c:1219 ../src/esdesktop-file-utils.c:1321
+#: ../src/esdesktop-file-utils.c:1383 ../src/esdesktop-file-utils.c:1458
+#: ../src/esdesktop-file-utils.c:1538
 msgid ""
 "This feature requires a file manager service to be present (such as the one "
-"supplied by Thunar)."
-msgstr "This feature requires a file manager service to be present (such as the one supplied by Thunar)."
+"supplied by Lunar)."
+msgstr "This feature requires a file manager service to be present (such as the one supplied by Lunar)."
 
-#: ../src/xfdesktop-file-utils.c:882
+#: ../src/esdesktop-file-utils.c:882
 msgid "Delete Error"
 msgstr "Delete Error"
 
-#: ../src/xfdesktop-file-utils.c:883
+#: ../src/esdesktop-file-utils.c:883
 msgid "The selected files could not be deleted"
 msgstr "The selected files could not be deleted"
 
-#: ../src/xfdesktop-file-utils.c:943 ../src/xfdesktop-file-utils.c:991
+#: ../src/esdesktop-file-utils.c:943 ../src/esdesktop-file-utils.c:991
 msgid "Trash Error"
 msgstr "Trash Error"
 
-#: ../src/xfdesktop-file-utils.c:944
+#: ../src/esdesktop-file-utils.c:944
 msgid "The selected files could not be moved to the trash"
 msgstr "The selected files could not be moved to the trash"
 
-#: ../src/xfdesktop-file-utils.c:945 ../src/xfdesktop-file-utils.c:993
+#: ../src/esdesktop-file-utils.c:945 ../src/esdesktop-file-utils.c:993
 msgid ""
 "This feature requires a trash service to be present (such as the one "
-"supplied by Thunar)."
-msgstr "This feature requires a trash service to be present (such as the one supplied by Thunar)."
+"supplied by Lunar)."
+msgstr "This feature requires a trash service to be present (such as the one supplied by Lunar)."
 
-#: ../src/xfdesktop-file-utils.c:992
+#: ../src/esdesktop-file-utils.c:992
 msgid "Could not empty the trash"
 msgstr "Could not empty the trash"
 
-#: ../src/xfdesktop-file-utils.c:1046
+#: ../src/esdesktop-file-utils.c:1046
 msgid "Create File Error"
 msgstr "Create File Error"
 
-#: ../src/xfdesktop-file-utils.c:1047
+#: ../src/esdesktop-file-utils.c:1047
 msgid "Could not create a new file"
 msgstr "Could not create a new file"
 
-#: ../src/xfdesktop-file-utils.c:1104
+#: ../src/esdesktop-file-utils.c:1104
 msgid "Create Document Error"
 msgstr "Create Document Error"
 
-#: ../src/xfdesktop-file-utils.c:1105
+#: ../src/esdesktop-file-utils.c:1105
 msgid "Could not create a new document from the template"
 msgstr "Could not create a new document from the template"
 
-#: ../src/xfdesktop-file-utils.c:1156
+#: ../src/esdesktop-file-utils.c:1156
 msgid "File Properties Error"
 msgstr "File Properties Error"
 
-#: ../src/xfdesktop-file-utils.c:1157
+#: ../src/esdesktop-file-utils.c:1157
 msgid "The file properties dialog could not be opened"
 msgstr "The file properties dialog could not be opened"
 
-#: ../src/xfdesktop-file-utils.c:1218
+#: ../src/esdesktop-file-utils.c:1218
 msgid "The file could not be opened"
 msgstr "The file could not be opened"
 
-#: ../src/xfdesktop-file-utils.c:1292 ../src/xfdesktop-file-utils.c:1316
+#: ../src/esdesktop-file-utils.c:1292 ../src/esdesktop-file-utils.c:1316
 #, c-format
 msgid "Failed to run \"%s\""
 msgstr "Failed to run \"%s\""
 
-#: ../src/xfdesktop-file-utils.c:1382
+#: ../src/esdesktop-file-utils.c:1382
 msgid "The application chooser could not be opened"
 msgstr "The application chooser could not be opened"
 
-#: ../src/xfdesktop-file-utils.c:1441 ../src/xfdesktop-file-utils.c:1456
-#: ../src/xfdesktop-file-utils.c:1519 ../src/xfdesktop-file-utils.c:1536
+#: ../src/esdesktop-file-utils.c:1441 ../src/esdesktop-file-utils.c:1456
+#: ../src/esdesktop-file-utils.c:1519 ../src/esdesktop-file-utils.c:1536
 msgid "Transfer Error"
 msgstr "Transfer Error"
 
-#: ../src/xfdesktop-file-utils.c:1442 ../src/xfdesktop-file-utils.c:1457
-#: ../src/xfdesktop-file-utils.c:1520 ../src/xfdesktop-file-utils.c:1537
+#: ../src/esdesktop-file-utils.c:1442 ../src/esdesktop-file-utils.c:1457
+#: ../src/esdesktop-file-utils.c:1520 ../src/esdesktop-file-utils.c:1537
 msgid "The file transfer could not be performed"
 msgstr "The file transfer could not be performed"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:127
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:127
 msgid "Unmounting device"
 msgstr "Unmounting device"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:130
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:130
 #, c-format
 msgid ""
 "The device \"%s\" is being unmounted by the system. Please do not remove the"
 " media or disconnect the drive"
 msgstr "The device \"%s\" is being unmounted by the system. Please do not remove the media or disconnect the drive"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:137 ../src/xfdesktop-notify.c:322
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:137 ../src/esdesktop-notify.c:322
 msgid "Writing data to device"
 msgstr "Writing data to device"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:140 ../src/xfdesktop-notify.c:325
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:140 ../src/esdesktop-notify.c:325
 #, c-format
 msgid ""
 "There is data that needs to be written to the device \"%s\" before it can be"
 " removed. Please do not remove the media or disconnect the drive"
 msgstr "There is data that needs to be written to the device \"%s\" before it can be removed. Please do not remove the media or disconnect the drive"
 
-#: ../src/xfdesktop-notify.c:221
+#: ../src/esdesktop-notify.c:221
 msgid "Unmount Finished"
 msgstr "Unmount Finished"
 
-#: ../src/xfdesktop-notify.c:223 ../src/xfdesktop-notify.c:408
+#: ../src/esdesktop-notify.c:223 ../src/esdesktop-notify.c:408
 #, c-format
 msgid "The device \"%s\" has been safely removed from the system. "
 msgstr "The device \"%s\" has been safely removed from the system. "
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:313
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:313
 msgid "Ejecting device"
 msgstr "Ejecting device"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:316
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:316
 #, c-format
 msgid "The device \"%s\" is being ejected. This may take some time"
 msgstr "The device \"%s\" is being ejected. This may take some time"
 
-#: ../src/xfdesktop-notify.c:406
+#: ../src/esdesktop-notify.c:406
 msgid "Eject Finished"
 msgstr "Eject Finished"
 
-#: ../src/xfdesktop-regular-file-icon.c:817
+#: ../src/esdesktop-regular-file-icon.c:817
 #, c-format
 msgid ""
 "Name: %s\n"
@@ -1076,20 +1076,20 @@ msgid ""
 "Last modified: %s"
 msgstr "Name: %s\nType: %s\nSize: %s\nLast modified: %s"
 
-#: ../src/xfdesktop-special-file-icon.c:461
+#: ../src/esdesktop-special-file-icon.c:461
 msgid "Trash is empty"
 msgstr "Trash is empty"
 
-#: ../src/xfdesktop-special-file-icon.c:464
+#: ../src/esdesktop-special-file-icon.c:464
 msgid "Trash contains one item"
 msgstr "Trash contains one item"
 
-#: ../src/xfdesktop-special-file-icon.c:465
+#: ../src/esdesktop-special-file-icon.c:465
 #, c-format
 msgid "Trash contains %d items"
 msgstr "Trash contains %d items"
 
-#: ../src/xfdesktop-special-file-icon.c:494
+#: ../src/esdesktop-special-file-icon.c:494
 #, c-format
 msgid ""
 "%s\n"
@@ -1097,11 +1097,11 @@ msgid ""
 "Last modified: %s"
 msgstr "%s\nSize: %s\nLast modified: %s"
 
-#: ../src/xfdesktop-special-file-icon.c:561
+#: ../src/esdesktop-special-file-icon.c:561
 msgid "_Empty Trash"
 msgstr "_Empty Trash"
 
-#: ../src/xfdesktop-volume-icon.c:480
+#: ../src/esdesktop-volume-icon.c:480
 #, c-format
 msgid ""
 "Removable Volume\n"
@@ -1109,42 +1109,42 @@ msgid ""
 "%s left (%s total)"
 msgstr "Removable Volume\nMounted in \"%s\"\n%s left (%s total)"
 
-#: ../src/xfdesktop-volume-icon.c:487
+#: ../src/esdesktop-volume-icon.c:487
 msgid ""
 "Removable Volume\n"
 "Not mounted yet"
 msgstr "Removable Volume\nNot mounted yet"
 
-#: ../src/xfdesktop-volume-icon.c:516 ../src/xfdesktop-volume-icon.c:562
+#: ../src/esdesktop-volume-icon.c:516 ../src/esdesktop-volume-icon.c:562
 #, c-format
 msgid "Failed to eject \"%s\""
 msgstr "Failed to eject \"%s\""
 
-#: ../src/xfdesktop-volume-icon.c:521 ../src/xfdesktop-volume-icon.c:567
+#: ../src/esdesktop-volume-icon.c:521 ../src/esdesktop-volume-icon.c:567
 msgid "Eject Failed"
 msgstr "Eject Failed"
 
-#: ../src/xfdesktop-volume-icon.c:600
+#: ../src/esdesktop-volume-icon.c:600
 #, c-format
 msgid "Failed to mount \"%s\""
 msgstr "Failed to mount \"%s\""
 
-#: ../src/xfdesktop-volume-icon.c:603
+#: ../src/esdesktop-volume-icon.c:603
 msgid "Mount Failed"
 msgstr "Mount Failed"
 
-#: ../src/xfdesktop-volume-icon.c:825
+#: ../src/esdesktop-volume-icon.c:825
 msgid "E_ject Volume"
 msgstr "E_ject Volume"
 
-#: ../src/xfdesktop-volume-icon.c:832
+#: ../src/esdesktop-volume-icon.c:832
 msgid "_Unmount Volume"
 msgstr "_Unmount Volume"
 
-#: ../src/xfdesktop-volume-icon.c:839
+#: ../src/esdesktop-volume-icon.c:839
 msgid "_Mount Volume"
 msgstr "_Mount Volume"
 
-#: ../src/xfdesktop-window-icon.c:193
+#: ../src/esdesktop-window-icon.c:193
 msgid "_Window Actions"
 msgstr "_Window Actions"

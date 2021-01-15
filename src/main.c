@@ -1,5 +1,5 @@
 /*
- *  xfdesktop - xfce4's desktop manager
+ *  esdesktop - expidus1's desktop manager
  *
  *  Copyright (c) 2004-2009 Brian Tarricone, <bjt23@cornell.edu>
  *
@@ -17,7 +17,7 @@
  *  along with this program; if not, write to the Free Software Foundation,
  *  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  *
- *  Random portions taken from or inspired by the original xfdesktop for xfce4:
+ *  Random portions taken from or inspired by the original esdesktop for expidus1:
  *     Copyright (C) 2002-2003 Jasper Huijsmans (huysmans@users.sourceforge.net)
  *     Copyright (C) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  *  X event forwarding code:
@@ -30,14 +30,14 @@
 
 #include <gtk/gtk.h>
 
-#include <libxfce4util/libxfce4util.h>
+#include <libexpidus1util/libexpidus1util.h>
 
-#include "xfdesktop-application.h"
+#include "esdesktop-application.h"
 
 int
 main(int argc, char **argv)
 {
-    XfdesktopApplication *app;
+    EsdesktopApplication *app;
     int ret = 0;
 
 #ifdef G_ENABLE_DEBUG
@@ -47,11 +47,11 @@ main(int argc, char **argv)
 #endif
 
     /* bind gettext textdomain */
-    xfce_textdomain(GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
+    expidus_textdomain(GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
-    app = xfdesktop_application_get();
+    app = esdesktop_application_get();
 
-    ret = xfdesktop_application_run(app, argc, argv);
+    ret = esdesktop_application_run(app, argc, argv);
 
     g_object_unref(app);
 

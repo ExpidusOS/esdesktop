@@ -1,69 +1,69 @@
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
 
-bin_PROGRAMS = xfdesktop
+bin_PROGRAMS = esdesktop
 
-xfdesktop_built_sources = \
-	xfce-desktop-enum-types.c \
-	xfce-desktop-enum-types.h \
-	xfdesktop-file-manager-proxy.c \
-	xfdesktop-file-manager-proxy.h \
-	xfdesktop-thunar-proxy.c \
-	xfdesktop-thunar-proxy.h \
-	xfdesktop-trash-proxy.c \
-	xfdesktop-trash-proxy.h
+esdesktop_built_sources = \
+	expidus-desktop-enum-types.c \
+	expidus-desktop-enum-types.h \
+	esdesktop-file-manager-proxy.c \
+	esdesktop-file-manager-proxy.h \
+	esdesktop-lunar-proxy.c \
+	esdesktop-lunar-proxy.h \
+	esdesktop-trash-proxy.c \
+	esdesktop-trash-proxy.h
 
 if HAVE_LIBNOTIFY
-xfdesktop_notify_sources = \
-	xfdesktop-notify.c \
-	xfdesktop-notify.h
+esdesktop_notify_sources = \
+	esdesktop-notify.c \
+	esdesktop-notify.h
 endif
 
-xfdesktop_SOURCES = \
-	$(xfdesktop_built_sources) \
-	$(xfdesktop_notify_sources) \
+esdesktop_SOURCES = \
+	$(esdesktop_built_sources) \
+	$(esdesktop_notify_sources) \
 	main.c \
 	menu.c \
 	menu.h \
 	windowlist.c \
 	windowlist.h \
-	xfce-backdrop.c \
-	xfce-backdrop.h \
-	xfce-workspace.c \
-	xfce-workspace.h \
-	xfce-desktop.c \
-	xfce-desktop.h \
-	xfdesktop-application.c \
-	xfdesktop-application.h
+	expidus-backdrop.c \
+	expidus-backdrop.h \
+	expidus-workspace.c \
+	expidus-workspace.h \
+	expidus-desktop.c \
+	expidus-desktop.h \
+	esdesktop-application.c \
+	esdesktop-application.h
 
 desktop_icon_sources = \
-	xfdesktop-icon.c \
-	xfdesktop-icon.h \
-	xfdesktop-icon-view.c \
-	xfdesktop-icon-view.h \
-	xfdesktop-icon-view-manager.c \
-	xfdesktop-icon-view-manager.h \
-	xfdesktop-window-icon.c \
-	xfdesktop-window-icon.h \
-	xfdesktop-window-icon-manager.c \
-	xfdesktop-window-icon-manager.h
+	esdesktop-icon.c \
+	esdesktop-icon.h \
+	esdesktop-icon-view.c \
+	esdesktop-icon-view.h \
+	esdesktop-icon-view-manager.c \
+	esdesktop-icon-view-manager.h \
+	esdesktop-window-icon.c \
+	esdesktop-window-icon.h \
+	esdesktop-window-icon-manager.c \
+	esdesktop-window-icon-manager.h
 
 desktop_file_icon_sources = \
-	xfdesktop-clipboard-manager.c \
-	xfdesktop-clipboard-manager.h \
-	xfdesktop-file-icon.c \
-	xfdesktop-file-icon.h \
-	xfdesktop-file-icon-manager.c \
-	xfdesktop-file-icon-manager.h \
-	xfdesktop-file-utils.c \
-	xfdesktop-file-utils.h \
-	xfdesktop-regular-file-icon.c \
-	xfdesktop-regular-file-icon.h \
-	xfdesktop-special-file-icon.c \
-	xfdesktop-special-file-icon.h \
-	xfdesktop-volume-icon.c \
-	xfdesktop-volume-icon.h
+	esdesktop-clipboard-manager.c \
+	esdesktop-clipboard-manager.h \
+	esdesktop-file-icon.c \
+	esdesktop-file-icon.h \
+	esdesktop-file-icon-manager.c \
+	esdesktop-file-icon-manager.h \
+	esdesktop-file-utils.c \
+	esdesktop-file-utils.h \
+	esdesktop-regular-file-icon.c \
+	esdesktop-regular-file-icon.h \
+	esdesktop-special-file-icon.c \
+	esdesktop-special-file-icon.h \
+	esdesktop-volume-icon.c \
+	esdesktop-volume-icon.h
 
-xfdesktop_CFLAGS = \
+esdesktop_CFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/common	\
 	-I$(top_builddir)/common \
@@ -72,7 +72,7 @@ xfdesktop_CFLAGS = \
 	-DLOCALEDIR=\"$(localedir)\" \
 	-DDATADIR=\"$(datadir)\" \
 	-DSYSCONFDIR=\"$(sysconfdir)\" \
-	-DXFCEMODDIR=\"$(libdir)/xfce4/modules\" \
+	-DEXPIDUSMODDIR=\"$(libdir)/expidus1/modules\" \
         $(GIO_CFLAGS) \
 	$(GIO_UNIX_CFLAGS) \
         $(GLIB_CFLAGS) \
@@ -80,20 +80,20 @@ xfdesktop_CFLAGS = \
         $(GTK_CFLAGS) \
 	$(LIBNOTIFY_CFLAGS) \
 	$(LIBX11_CFLAGS) \
-	$(LIBXFCE4UTIL_CFLAGS) \
-	$(LIBXFCE4UI_CFLAGS) \
-	$(LIBXFCE4SMCLIENT_PRIVATE_CFLAGS) \
+	$(LIBEXPIDUS1UTIL_CFLAGS) \
+	$(LIBEXPIDUS1UI_CFLAGS) \
+	$(LIBEXPIDUS1SMCLIENT_PRIVATE_CFLAGS) \
 	$(LIBWNCK_CFLAGS) \
-	$(XFCONF_CFLAGS) \
-	-DEXO_API_SUBJECT_TO_CHANGE \
-	$(LIBEXO_CFLAGS)
+	$(ESCONF_CFLAGS) \
+	-DENDO_API_SUBJECT_TO_CHANGE \
+	$(LIBENDO_CFLAGS)
 
-xfdesktop_LDFLAGS = \
+esdesktop_LDFLAGS = \
 	-export-dynamic
 
 # cygwin link order requires this split
-xfdesktop_LDADD = $(top_builddir)/common/libxfdesktop.la
-xfdesktop_LDADD += \
+esdesktop_LDADD = $(top_builddir)/common/libesdesktop.la
+esdesktop_LDADD += \
         $(GIO_LIBS) \
 	$(GIO_UNIX_LIBS) \
         $(GLIB_LIBS) \
@@ -102,39 +102,39 @@ xfdesktop_LDADD += \
 	$(LIBNOTIFY_LIBS) \
 	$(LIBX11_LDFLAGS) \
 	$(LIBX11_LIBS) \
-	$(LIBXFCE4UTIL_LIBS) \
-	$(LIBXFCE4UI_LIBS) \
-	$(LIBXFCE4SMCLIENT_PRIVATE_LIBS) \
+	$(LIBEXPIDUS1UTIL_LIBS) \
+	$(LIBEXPIDUS1UI_LIBS) \
+	$(LIBEXPIDUS1SMCLIENT_PRIVATE_LIBS) \
 	$(LIBWNCK_LIBS) \
-	$(XFCONF_LIBS) \
-	$(LIBEXO_LIBS) \
+	$(ESCONF_LIBS) \
+	$(LIBENDO_LIBS) \
 	-lm
 
 if BUILD_DESKTOP_MENU
 
-xfdesktop_CFLAGS += \
-	$(GARCON_CFLAGS) \
-	$(GARCON_GTK3_CFLAGS)
+esdesktop_CFLAGS += \
+	$(MARKON_CFLAGS) \
+	$(MARKON_GTK3_CFLAGS)
 
-xfdesktop_LDADD += \
-	$(GARCON_LIBS) \
-	$(GARCON_GTK3_LIBS)
+esdesktop_LDADD += \
+	$(MARKON_LIBS) \
+	$(MARKON_GTK3_LIBS)
 
 endif
 
 if ENABLE_DESKTOP_ICONS
 
-xfdesktop_SOURCES += $(desktop_icon_sources)
+esdesktop_SOURCES += $(desktop_icon_sources)
 
 if ENABLE_FILE_ICONS
 
-xfdesktop_SOURCES += $(desktop_file_icon_sources)
+esdesktop_SOURCES += $(desktop_file_icon_sources)
 
-xfdesktop_CFLAGS += \
-	$(THUNARX_CFLAGS)
+esdesktop_CFLAGS += \
+	$(LUNARX_CFLAGS)
 
-xfdesktop_LDADD += \
-	$(THUNARX_LIBS)
+esdesktop_LDADD += \
+	$(LUNARX_LIBS)
 
 endif
 endif
@@ -142,61 +142,61 @@ endif
 if MAINTAINER_MODE
 
 BUILT_SOURCES = \
-	$(xfdesktop_built_sources)
+	$(esdesktop_built_sources)
 
 DISTCLEANFILES = \
-	$(xfdesktop_built_sources) \
-	stamp-xfce-desktop-enum-types.h
+	$(esdesktop_built_sources) \
+	stamp-expidus-desktop-enum-types.h
 
 
 enum_headers = \
-	xfce-backdrop.h \
-	xfce-desktop.h
+	expidus-backdrop.h \
+	expidus-desktop.h
 
-xfce-desktop-enum-types.h: stamp-xfce-desktop-enum-types.h
+expidus-desktop-enum-types.h: stamp-expidus-desktop-enum-types.h
 	@true
-stamp-xfce-desktop-enum-types.h: $(enum_headers) Makefile
+stamp-expidus-desktop-enum-types.h: $(enum_headers) Makefile
 	$(AM_V_GEN) ( cd $(srcdir) && glib-mkenums \
-	      --fhead "#ifndef __XFCE_DESKTOP_ENUM_TYPES_H__\n#define __XFCE_DESKTOP_ENUM_TYPES_H__\nG_BEGIN_DECLS\n" \
+	      --fhead "#ifndef __EXPIDUS_DESKTOP_ENUM_TYPES_H__\n#define __EXPIDUS_DESKTOP_ENUM_TYPES_H__\nG_BEGIN_DECLS\n" \
 	      --fprod "/* enumerations from \"@filename@\" */\n" \
-	      --vhead "GType @enum_name@_get_type (void) G_GNUC_CONST;\n#define XFCE_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n" \
-	      --ftail "G_END_DECLS\n\n#endif /* !__XFCE_DESKTOP_ENUM_TYPES_H__ */" \
+	      --vhead "GType @enum_name@_get_type (void) G_GNUC_CONST;\n#define EXPIDUS_TYPE_@ENUMSHORT@ (@enum_name@_get_type())\n" \
+	      --ftail "G_END_DECLS\n\n#endif /* !__EXPIDUS_DESKTOP_ENUM_TYPES_H__ */" \
 	      $(enum_headers) ) >> xgen-xdeth \
-	      && ( cmp -s xgen-xdeth xfce-desktop-enum-types.h || cp xgen-xdeth xfce-desktop-enum-types.h ) \
+	      && ( cmp -s xgen-xdeth expidus-desktop-enum-types.h || cp xgen-xdeth expidus-desktop-enum-types.h ) \
 	      && rm -f xgen-xdeth \
 		  && echo timestamp > $(@F)
-xfce-desktop-enum-types.c: $(enum_headers) Makefile
+expidus-desktop-enum-types.c: $(enum_headers) Makefile
 	$(AM_V_GEN) ( cd $(srcdir) && glib-mkenums \
-	      --fhead "#undef GTK_DISABLE_DEPRECATED\n#define GTK_ENABLE_BROKEN\n#include \"xfce-desktop.h\"\n#include \"xfce-backdrop.h\"\n#include \"xfce-desktop-enum-types.h\"" \
+	      --fhead "#undef GTK_DISABLE_DEPRECATED\n#define GTK_ENABLE_BROKEN\n#include \"expidus-desktop.h\"\n#include \"expidus-backdrop.h\"\n#include \"expidus-desktop-enum-types.h\"" \
 	      --fprod "\n/* enumerations from \"@filename@\" */" \
 	      --vhead "GType\n@enum_name@_get_type (void)\n{\n\tstatic GType type = 0;\n\tif (type == 0) {\n\tstatic const G@Type@Value values[] = {"\
 	      --vprod "\t{ @VALUENAME@, \"@VALUENAME@\", \"@valuenick@\" }," \
 	      --vtail "\t{ 0, NULL, NULL }\n\t};\n\ttype = g_@type@_register_static (\"@EnumName@\", values);\n  }\n\treturn type;\n}\n" \
 	      $(enum_headers) ) >> xgen-xdetc \
-	      && cp xgen-xdetc xfce-desktop-enum-types.c \
+	      && cp xgen-xdetc expidus-desktop-enum-types.c \
 	      && rm -f xgen-xdetc
 
 
-xfdesktop-file-manager-proxy.c xfdesktop-file-manager-proxy.h : $(srcdir)/xfdesktop-file-manager-dbus.xml Makefile
+esdesktop-file-manager-proxy.c esdesktop-file-manager-proxy.h : $(srcdir)/esdesktop-file-manager-dbus.xml Makefile
 	gdbus-codegen \
-		--c-namespace=Xfdesktop \
-		--interface-prefix=org.xfce. \
-		--generate-c-code=xfdesktop-file-manager-proxy \
-		$(srcdir)/xfdesktop-file-manager-dbus.xml
+		--c-namespace=Esdesktop \
+		--interface-prefix=com.expidus. \
+		--generate-c-code=esdesktop-file-manager-proxy \
+		$(srcdir)/esdesktop-file-manager-dbus.xml
 
-xfdesktop-thunar-proxy.c xfdesktop-thunar-proxy.h : $(srcdir)/xfdesktop-thunar-dbus.xml Makefile
+esdesktop-lunar-proxy.c esdesktop-lunar-proxy.h : $(srcdir)/esdesktop-lunar-dbus.xml Makefile
 	gdbus-codegen \
-		--c-namespace=Xfdesktop \
-		--interface-prefix=org.xfce. \
-		--generate-c-code=xfdesktop-thunar-proxy \
-		$(srcdir)/xfdesktop-thunar-dbus.xml
+		--c-namespace=Esdesktop \
+		--interface-prefix=com.expidus. \
+		--generate-c-code=esdesktop-lunar-proxy \
+		$(srcdir)/esdesktop-lunar-dbus.xml
 
-xfdesktop-trash-proxy.c xfdesktop-trash-proxy.h : $(srcdir)/xfdesktop-trash-dbus.xml Makefile
+esdesktop-trash-proxy.c esdesktop-trash-proxy.h : $(srcdir)/esdesktop-trash-dbus.xml Makefile
 	gdbus-codegen \
-		--c-namespace=Xfdesktop \
-		--interface-prefix=org.xfce. \
-		--generate-c-code=xfdesktop-trash-proxy \
-		$(srcdir)/xfdesktop-trash-dbus.xml
+		--c-namespace=Esdesktop \
+		--interface-prefix=com.expidus. \
+		--generate-c-code=esdesktop-trash-proxy \
+		$(srcdir)/esdesktop-trash-dbus.xml
 
 endif
 

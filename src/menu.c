@@ -1,5 +1,5 @@
 /*
- *  xfdesktop - xfce4's desktop manager
+ *  esdesktop - expidus1's desktop manager
  *
  *  Copyright (c) 2004-2008 Brian J. Tarricone <bjt23@cornell.edu>
  *
@@ -17,7 +17,7 @@
  *  along with this program; if not, write to the Free Software Foundation,
  *  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  *
- *  Random portions taken from or inspired by the original xfdesktop for xfce4:
+ *  Random portions taken from or inspired by the original esdesktop for expidus1:
  *     Copyright (C) 2002-2003 Jasper Huijsmans (huysmans@users.sourceforge.net)
  *     Copyright (C) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  */
@@ -33,25 +33,25 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
+#include <libexpidus1util/libexpidus1util.h>
+#include <libexpidus1ui/libexpidus1ui.h>
 
-#include "xfdesktop-common.h"
+#include "esdesktop-common.h"
 #include "menu.h"
 #ifdef USE_DESKTOP_MENU
-#include <garcon/garcon.h>
-#include <garcon-gtk/garcon-gtk.h>
+#include <markon/markon.h>
+#include <markon-gtk/markon-gtk.h>
 #endif
 
 #ifdef USE_DESKTOP_MENU
 static gboolean show_desktop_menu = TRUE;
 static gboolean show_desktop_menu_icons = TRUE;
-static GarconMenu *garcon_menu = NULL;
+static MarkonMenu *markon_menu = NULL;
 #endif
 
 #ifdef USE_DESKTOP_MENU
 static void
-menu_populate(XfceDesktop *desktop,
+menu_populate(ExpidusDesktop *desktop,
               GtkMenuShell *menu,
               gpointer user_data)
 {
@@ -65,15 +65,15 @@ menu_populate(XfceDesktop *desktop,
     if(!show_desktop_menu)
         return;
 
-    /* init garcon environment */
-    garcon_set_environment_xdg(GARCON_ENVIRONMENT_XFCE);
+    /* init markon environment */
+    markon_set_environment_xdg(MARKON_ENVIRONMENT_EXPIDUS);
 
-    if(garcon_menu == NULL) {
-        garcon_menu = garcon_menu_new_applications();
+    if(markon_menu == NULL) {
+        markon_menu = markon_menu_new_applications();
     }
-    desktop_menu = garcon_gtk_menu_new (garcon_menu);
+    desktop_menu = markon_gtk_menu_new (markon_menu);
     XF_DEBUG("show desktop menu icons %s", show_desktop_menu_icons ? "TRUE" : "FALSE");
-    garcon_gtk_menu_set_show_menu_icons(GARCON_GTK_MENU(desktop_menu), show_desktop_menu_icons);
+    markon_gtk_menu_set_show_menu_icons(MARKON_GTK_MENU(desktop_menu), show_desktop_menu_icons);
 
     /* check to see if the menu is empty.  if not, add the desktop menu
     * to a submenu */
@@ -90,7 +90,7 @@ menu_populate(XfceDesktop *desktop,
             gtk_widget_show(img);
         }
 
-        mi = xfdesktop_menu_create_menu_item_with_mnemonic(_("_Applications"), img);
+        mi = esdesktop_menu_create_menu_item_with_mnemonic(_("_Applications"), img);
         gtk_widget_show(mi);
 
         gtk_menu_item_set_submenu (GTK_MENU_ITEM(mi), desktop_menu);
@@ -101,14 +101,14 @@ menu_populate(XfceDesktop *desktop,
     * a toplevel menu */
     else
     {
-        xfce_gtk_menu_popup_until_mapped(GTK_MENU(desktop_menu), NULL, NULL, NULL, NULL, 3, gtk_get_current_event_time());
+        expidus_gtk_menu_popup_until_mapped(GTK_MENU(desktop_menu), NULL, NULL, NULL, NULL, 3, gtk_get_current_event_time());
     }
 }
 #endif /* USE_DESKTOP_MENU */
 
 #ifdef USE_DESKTOP_MENU
 static void
-menu_settings_changed(XfconfChannel *channel,
+menu_settings_changed(EsconfChannel *channel,
                       const gchar *property,
                       const GValue *value,
                       gpointer user_data)
@@ -126,14 +126,14 @@ menu_settings_changed(XfconfChannel *channel,
 #endif
 
 void
-menu_init(XfconfChannel *channel)
+menu_init(EsconfChannel *channel)
 {
 #ifdef USE_DESKTOP_MENU
-    if(!channel || xfconf_channel_get_bool(channel, "/desktop-menu/show", TRUE))
+    if(!channel || esconf_channel_get_bool(channel, "/desktop-menu/show", TRUE))
     {
         show_desktop_menu = TRUE;
         if(channel) {
-            show_desktop_menu_icons = xfconf_channel_get_bool(channel,
+            show_desktop_menu_icons = esconf_channel_get_bool(channel,
                                                               "/desktop-menu/show-icons",
                                                               TRUE);
         }
@@ -149,7 +149,7 @@ menu_init(XfconfChannel *channel)
 }
 
 void
-menu_attach(XfceDesktop *desktop)
+menu_attach(ExpidusDesktop *desktop)
 {
 #ifdef USE_DESKTOP_MENU
     DBG("attached default menu");

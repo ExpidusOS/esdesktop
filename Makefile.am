@@ -12,7 +12,7 @@ SUBDIRS = \
 	pixmaps
 
 manpagedir = $(mandir)/man1
-manpage_DATA = xfdesktop.1
+manpage_DATA = esdesktop.1
 
 EXTRA_DIST = \
 	README.md \

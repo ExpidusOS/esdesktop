@@ -1,28 +1,28 @@
 # List of source files containing translatable strings.
 
-common/xfdesktop-common.c
+common/esdesktop-common.c
 
 settings/main.c
-settings/xfce-backdrop-settings.desktop.in.in
-settings/xfdesktop-settings-appearance-frame-ui.glade
-settings/xfdesktop-settings-ui.glade
+settings/expidus-backdrop-settings.desktop.in.in
+settings/esdesktop-settings-appearance-frame-ui.glade
+settings/esdesktop-settings-ui.glade
 
 src/main.c
 src/menu.c
 src/windowlist.c
-src/xfce-backdrop.c
-src/xfce-desktop.c
-src/xfdesktop-application.c
-src/xfdesktop-clipboard-manager.c
-src/xfdesktop-file-icon.c
-src/xfdesktop-file-icon-manager.c
-src/xfdesktop-file-utils.c
-src/xfdesktop-icon.c
-src/xfdesktop-icon-view.c
-src/xfdesktop-icon-view-manager.c
-src/xfdesktop-notify.c
-src/xfdesktop-regular-file-icon.c
-src/xfdesktop-special-file-icon.c
-src/xfdesktop-volume-icon.c
-src/xfdesktop-window-icon.c
-src/xfdesktop-window-icon-manager.c
+src/expidus-backdrop.c
+src/expidus-desktop.c
+src/esdesktop-application.c
+src/esdesktop-clipboard-manager.c
+src/esdesktop-file-icon.c
+src/esdesktop-file-icon-manager.c
+src/esdesktop-file-utils.c
+src/esdesktop-icon.c
+src/esdesktop-icon-view.c
+src/esdesktop-icon-view-manager.c
+src/esdesktop-notify.c
+src/esdesktop-regular-file-icon.c
+src/esdesktop-special-file-icon.c
+src/esdesktop-volume-icon.c
+src/esdesktop-window-icon.c
+src/esdesktop-window-icon-manager.c

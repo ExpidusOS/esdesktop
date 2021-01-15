@@ -1,21 +1,21 @@
-noinst_LTLIBRARIES = libxfdesktop.la
+noinst_LTLIBRARIES = libesdesktop.la
 
-libxfdesktop_built_sources = \
-	xfdesktop-marshal.c \
-	xfdesktop-marshal.h \
+libesdesktop_built_sources = \
+	esdesktop-marshal.c \
+	esdesktop-marshal.h \
 	tumbler.c \
 	tumbler.h
 
-libxfdesktop_la_SOURCES = \
-	$(libxfdesktop_built_sources) \
-	xfdesktop-common.c \
-	xfdesktop-common.h \
-	xfdesktop-thumbnailer.c \
-	xfdesktop-thumbnailer.h
+libesdesktop_la_SOURCES = \
+	$(libesdesktop_built_sources) \
+	esdesktop-common.c \
+	esdesktop-common.h \
+	esdesktop-thumbnailer.c \
+	esdesktop-thumbnailer.h
 
-libxfdesktop_la_CFLAGS = \
+libesdesktop_la_CFLAGS = \
 	-I$(top_srcdir)/src \
-	$(LIBXFCE4UTIL_CFLAGS) \
+	$(LIBEXPIDUS1UTIL_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GIO_CFLAGS) \
 	$(GIO_UNIX_CFLAGS)
@@ -23,12 +23,12 @@ libxfdesktop_la_CFLAGS = \
 
 if MAINTAINER_MODE
 
-xfdesktop-marshal.h: xfdesktop-marshal.list Makefile
-	$(AM_V_GEN) glib-genmarshal --prefix=xfdesktop_marshal --internal --header $< > $@
+esdesktop-marshal.h: esdesktop-marshal.list Makefile
+	$(AM_V_GEN) glib-genmarshal --prefix=esdesktop_marshal --internal --header $< > $@
 
-xfdesktop-marshal.c: xfdesktop-marshal.list Makefile
-	$(AM_V_GEN) echo '#include "xfdesktop-marshal.h"' > $@ \
-	&& glib-genmarshal --prefix=xfdesktop_marshal --body $< >> $@
+esdesktop-marshal.c: esdesktop-marshal.list Makefile
+	$(AM_V_GEN) echo '#include "esdesktop-marshal.h"' > $@ \
+	&& glib-genmarshal --prefix=esdesktop_marshal --body $< >> $@
 
 tumbler.c tumbler.h : $(srcdir)/tumbler-service-dbus.xml Makefile.am
 	gdbus-codegen \
@@ -38,12 +38,12 @@ tumbler.c tumbler.h : $(srcdir)/tumbler-service-dbus.xml Makefile.am
 		$(srcdir)/tumbler-service-dbus.xml
 
 DISTCLEANFILES = \
-	$(libxfdesktop_built_sources)
+	$(libesdesktop_built_sources)
 
 BUILT_SOURCES = \
-	$(libxfdesktop_built_sources)
+	$(libesdesktop_built_sources)
 
 endif
 
 EXTRA_DIST = \
-	xfdesktop-marshal.list
+	esdesktop-marshal.list

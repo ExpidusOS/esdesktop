@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+_Name=Desktop
+_Comment=Set desktop background and menu and icon behavior
+Exec=esdesktop-settings
+Icon=com.expidus.esdesktop
+Terminal=false
+Type=Application
+Categories=EXPIDUS;GTK;Settings;DesktopSettings;X-EXPIDUS-SettingsDialog;X-EXPIDUS-PersonalSettings;
+OnlyShowIn=EXPIDUS;
+StartupNotify=true
+X-ExpidusPluggable=true
+X-ExpidusHelpComponent=esdesktop
+X-ExpidusHelpPage=start
+X-ExpidusHelpVersion=@ESDESKTOP_VERSION_SHORT@

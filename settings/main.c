@@ -1,10 +1,10 @@
 /*
- *  xfdesktop
+ *  esdesktop
  *
- *  Copyright (c) 2008 Stephan Arts <stephan@xfce.org>
+ *  Copyright (c) 2008 Stephan Arts <stephan@expidus.org>
  *  Copyright (c) 2008 Brian Tarricone <bjt23@cornell.edu>
  *  Copyright (c) 2008 Jérôme Guelfucci <jerome.guelfucci@gmail.com>
- *  Copyright (c) 2011 Jannis Pohlmann <jannis@xfce.org>
+ *  Copyright (c) 2011 Jannis Pohlmann <jannis@expidus.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -49,18 +49,18 @@
 #include <glib/gstdio.h>
 #include <gio/gio.h>
 
-#include <libxfce4util/libxfce4util.h>
-#include <xfconf/xfconf.h>
-#include <libxfce4ui/libxfce4ui.h>
+#include <libexpidus1util/libexpidus1util.h>
+#include <esconf/esconf.h>
+#include <libexpidus1ui/libexpidus1ui.h>
 #include <libwnck/libwnck.h>
-#include <exo/exo.h>
+#include <endo/endo.h>
 
-#include "xfdesktop-common.h"
-#include "xfdesktop-thumbnailer.h"
-#include "xfdesktop-settings-ui.h"
-#include "xfdesktop-settings-appearance-frame-ui.h"
-/* for XfceBackdropImageStyle && XfceBackdropColorStyle */
-#include "xfce-backdrop.h"
+#include "esdesktop-common.h"
+#include "esdesktop-thumbnailer.h"
+#include "esdesktop-settings-ui.h"
+#include "esdesktop-settings-appearance-frame-ui.h"
+/* for ExpidusBackdropImageStyle && ExpidusBackdropColorStyle */
+#include "expidus-backdrop.h"
 
 #define MAX_ASPECT_RATIO 1.5f
 #define PREVIEW_HEIGHT   96
@@ -99,7 +99,7 @@ typedef struct
 
 typedef struct
 {
-    XfconfChannel *channel;
+    EsconfChannel *channel;
     gint screen;
     gint monitor;
     gint workspace;
@@ -134,7 +134,7 @@ typedef struct
     guint preview_id;
     GAsyncQueue *preview_queue;
 
-    XfdesktopThumbnailer *thumbnailer;
+    EsdesktopThumbnailer *thumbnailer;
 
     GFile *selected_folder;
     GCancellable *cancel_enumeration;
@@ -171,11 +171,11 @@ enum
     N_ICON_COLS,
 };
 
-static void cb_xfdesktop_chk_apply_to_all(GtkCheckButton *button,
+static void cb_esdesktop_chk_apply_to_all(GtkCheckButton *button,
                                           gpointer user_data);
-static gchar *xfdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
+static gchar *esdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
                                                                        const gchar* property);
-static gchar *xfdesktop_settings_get_backdrop_image(AppearancePanel *panel);
+static gchar *esdesktop_settings_get_backdrop_image(AppearancePanel *panel);
 
 
 
@@ -200,7 +200,7 @@ system_data_lookup (void)
 }
 
 static void
-xfdesktop_settings_free_pdata(gpointer data)
+esdesktop_settings_free_pdata(gpointer data)
 {
     PreviewData *pdata = data;
 
@@ -215,7 +215,7 @@ xfdesktop_settings_free_pdata(gpointer data)
 }
 
 static void
-xfdesktop_settings_do_single_preview(PreviewData *pdata)
+esdesktop_settings_do_single_preview(PreviewData *pdata)
 {
     GtkTreeModel *model;
     GtkTreeIter *iter;
@@ -257,11 +257,11 @@ xfdesktop_settings_do_single_preview(PreviewData *pdata)
                        COL_PIX, pdata->pix,
                        -1);
     }
-        xfdesktop_settings_free_pdata(pdata);
+        esdesktop_settings_free_pdata(pdata);
 }
 
 static gboolean
-xfdesktop_settings_create_previews(gpointer data)
+esdesktop_settings_create_previews(gpointer data)
 {
     AppearancePanel *panel = data;
 
@@ -272,7 +272,7 @@ xfdesktop_settings_create_previews(gpointer data)
         pdata = g_async_queue_try_pop(panel->preview_queue);
 
         if(pdata != NULL) {
-            xfdesktop_settings_do_single_preview(pdata);
+            esdesktop_settings_do_single_preview(pdata);
             /* Continue on the next idle time */
             return TRUE;
         } else {
@@ -290,7 +290,7 @@ xfdesktop_settings_create_previews(gpointer data)
 }
 
 static void
-xfdesktop_settings_add_file_to_queue(AppearancePanel *panel, PreviewData *pdata)
+esdesktop_settings_add_file_to_queue(AppearancePanel *panel, PreviewData *pdata)
 {
     TRACE("entering");
 
@@ -300,19 +300,19 @@ xfdesktop_settings_add_file_to_queue(AppearancePanel *panel, PreviewData *pdata)
     /* Create the queue if it doesn't exist */
     if(panel->preview_queue == NULL) {
         XF_DEBUG("creating preview queue");
-        panel->preview_queue = g_async_queue_new_full(xfdesktop_settings_free_pdata);
+        panel->preview_queue = g_async_queue_new_full(esdesktop_settings_free_pdata);
     }
 
     g_async_queue_push(panel->preview_queue, pdata);
 
     /* Create the previews in an idle callback */
     if(panel->preview_id == 0) {
-        panel->preview_id = g_idle_add(xfdesktop_settings_create_previews, panel);
+        panel->preview_id = g_idle_add(esdesktop_settings_create_previews, panel);
     }
 }
 
 static void
-cb_thumbnail_ready(XfdesktopThumbnailer *thumbnailer,
+cb_thumbnail_ready(EsdesktopThumbnailer *thumbnailer,
                    gchar *src_file, gchar *thumb_file,
                    gpointer user_data)
 {
@@ -338,7 +338,7 @@ cb_thumbnail_ready(XfdesktopThumbnailer *thumbnailer,
                 pdata->pix = NULL;
 
                 /* Create the preview image */
-                xfdesktop_settings_add_file_to_queue(panel, pdata);
+                esdesktop_settings_add_file_to_queue(panel, pdata);
 
                 g_free(filename);
                 return;
@@ -350,7 +350,7 @@ cb_thumbnail_ready(XfdesktopThumbnailer *thumbnailer,
 }
 
 static void
-xfdesktop_settings_queue_preview(GtkTreeModel *model,
+esdesktop_settings_queue_preview(GtkTreeModel *model,
                                  GtkTreeIter *iter,
                                  AppearancePanel *panel)
 {
@@ -359,7 +359,7 @@ xfdesktop_settings_queue_preview(GtkTreeModel *model,
     gtk_tree_model_get(model, iter, COL_FILENAME, &filename, -1);
 
     /* Attempt to use the thumbnailer if possible */
-    if(!xfdesktop_thumbnailer_queue_thumbnail(panel->thumbnailer, filename)) {
+    if(!esdesktop_thumbnailer_queue_thumbnail(panel->thumbnailer, filename)) {
         /* Thumbnailing not possible, add it to the queue to be loaded manually */
         PreviewData *pdata;
         pdata = g_new0(PreviewData, 1);
@@ -367,7 +367,7 @@ xfdesktop_settings_queue_preview(GtkTreeModel *model,
         pdata->iter = gtk_tree_iter_copy(iter);
 
         XF_DEBUG("Thumbnailing failed, adding %s manually.", filename);
-        xfdesktop_settings_add_file_to_queue(panel, pdata);
+        esdesktop_settings_add_file_to_queue(panel, pdata);
     }
 
     if(filename)
@@ -377,8 +377,8 @@ xfdesktop_settings_queue_preview(GtkTreeModel *model,
 static void
 cb_special_icon_toggled(GtkCellRendererToggle *render, gchar *path, gpointer user_data)
 {
-    XfconfChannel *channel = g_object_get_data(G_OBJECT(user_data),
-                                               "xfconf-channel");
+    EsconfChannel *channel = g_object_get_data(G_OBJECT(user_data),
+                                               "esconf-channel");
     GtkTreePath *tree_path = gtk_tree_path_new_from_string(path);
     GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(user_data));
     GtkTreeIter iter;
@@ -391,7 +391,7 @@ cb_special_icon_toggled(GtkCellRendererToggle *render, gchar *path, gpointer use
 
     show_icon = !show_icon;
 
-    xfconf_channel_set_bool(channel, icon_property, show_icon);
+    esconf_channel_set_bool(channel, icon_property, show_icon);
 
     gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
                        COL_ICON_ENABLED, show_icon, -1);
@@ -402,7 +402,7 @@ cb_special_icon_toggled(GtkCellRendererToggle *render, gchar *path, gpointer use
 
 static void
 setup_special_icon_list(GtkBuilder *gxml,
-                        XfconfChannel *channel)
+                        EsconfChannel *channel)
 {
     GtkWidget *treeview;
     GtkTreeStore *ts;
@@ -413,7 +413,7 @@ setup_special_icon_list(GtkBuilder *gxml,
         const gchar *name;
         const gchar *icon;
         const gchar *icon_fallback;
-        const gchar *xfconf_property;
+        const gchar *esconf_property;
         gboolean state;
     } icons[] = {
         { N_("Home"), "user-home", "gnome-fs-desktop",
@@ -459,10 +459,10 @@ setup_special_icon_list(GtkBuilder *gxml,
         gtk_tree_store_set(ts, &iter,
                            COL_ICON_NAME, _(icons[i].name),
                            COL_ICON_PIX, pix,
-                           COL_ICON_PROPERTY, icons[i].xfconf_property,
+                           COL_ICON_PROPERTY, icons[i].esconf_property,
                            COL_ICON_ENABLED,
-                           xfconf_channel_get_bool(channel,
-                                                   icons[i].xfconf_property,
+                           esconf_channel_get_bool(channel,
+                                                   icons[i].esconf_property,
                                                    icons[i].state),
                            -1);
         if(pix)
@@ -470,7 +470,7 @@ setup_special_icon_list(GtkBuilder *gxml,
     }
 
     treeview = GTK_WIDGET(gtk_builder_get_object(gxml, "treeview_default_icons"));
-    g_object_set_data(G_OBJECT(treeview), "xfconf-channel", channel);
+    g_object_set_data(G_OBJECT(treeview), "esconf-channel", channel);
     col = gtk_tree_view_column_new();
     gtk_tree_view_column_set_spacing(col, 6);
     gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), col);
@@ -513,7 +513,7 @@ image_list_compare(GtkTreeModel *model,
 }
 
 static GtkTreeIter *
-xfdesktop_settings_image_iconview_add(GtkTreeModel *model,
+esdesktop_settings_image_iconview_add(GtkTreeModel *model,
                                       const char *path,
                                       GFileInfo *info,
                                       AppearancePanel *panel)
@@ -526,7 +526,7 @@ xfdesktop_settings_image_iconview_add(GtkTreeModel *model,
     const gchar *content_type = g_file_info_get_content_type(info);
     goffset file_size = g_file_info_get_size(info);
 
-    if(!xfdesktop_image_file_is_valid(path))
+    if(!esdesktop_image_file_is_valid(path))
         return NULL;
 
     name = g_path_get_basename(path);
@@ -542,7 +542,7 @@ xfdesktop_settings_image_iconview_add(GtkTreeModel *model,
                                                   name_utf8, content_type, size_string);
 
             /* create a case sensitive collation key for sorting filenames like
-             * Thunar does */
+             * Lunar does */
             collate_key = g_utf8_collate_key_for_filename(name, name_length);
 
             /* Insert sorted */
@@ -563,7 +563,7 @@ xfdesktop_settings_image_iconview_add(GtkTreeModel *model,
                                               COL_FILENAME, path,
                                               COL_COLLATE_KEY, collate_key,
                                               -1);
-            xfdesktop_settings_queue_preview(model, &iter, panel);
+            esdesktop_settings_queue_preview(model, &iter, panel);
 
             added = TRUE;
         }
@@ -606,7 +606,7 @@ cb_destroy_add_dir_enumeration(gpointer user_data)
 }
 
 static gboolean
-xfdesktop_image_list_add_item(gpointer user_data)
+esdesktop_image_list_add_item(gpointer user_data)
 {
     AddDirData *dir_data = user_data;
     AppearancePanel *panel = dir_data->panel;
@@ -623,7 +623,7 @@ xfdesktop_image_list_add_item(gpointer user_data)
         const gchar *file_name = g_file_info_get_name(info);
         gchar *buf = g_strconcat(dir_data->file_path, "/", file_name, NULL);
 
-        iter = xfdesktop_settings_image_iconview_add(GTK_TREE_MODEL(dir_data->ls), buf, info, panel);
+        iter = esdesktop_settings_image_iconview_add(GTK_TREE_MODEL(dir_data->ls), buf, info, panel);
         if(iter) {
             if(!dir_data->selected_iter &&
                !strcmp(buf, dir_data->last_image))
@@ -662,7 +662,7 @@ xfdesktop_image_list_add_item(gpointer user_data)
 }
 
 static void
-xfdesktop_image_list_add_dir(GObject *source_object,
+esdesktop_image_list_add_dir(GObject *source_object,
                              GAsyncResult *res,
                              gpointer user_data)
 {
@@ -678,7 +678,7 @@ xfdesktop_image_list_add_dir(GObject *source_object,
 
     /* Get the last image/current image displayed so we can select it in the
      * icon view */
-    dir_data->last_image = xfdesktop_settings_get_backdrop_image(panel);
+    dir_data->last_image = esdesktop_settings_get_backdrop_image(panel);
 
     dir_data->file_path = g_file_get_path(panel->selected_folder);
 
@@ -689,13 +689,13 @@ xfdesktop_image_list_add_dir(GObject *source_object,
     /* Individual items are added in an idle callback so everything is more
      * responsive */
     panel->add_dir_idle_id = g_idle_add_full(G_PRIORITY_DEFAULT_IDLE,
-                                             xfdesktop_image_list_add_item,
+                                             esdesktop_image_list_add_item,
                                              dir_data,
                                              cb_destroy_add_dir_enumeration);
 }
 
 static void
-xfdesktop_settings_update_iconview_frame_name(AppearancePanel *panel,
+esdesktop_settings_update_iconview_frame_name(AppearancePanel *panel,
                                               WnckWorkspace *wnck_workspace)
 {
     gchar buf[1024];
@@ -785,7 +785,7 @@ xfdesktop_settings_update_iconview_frame_name(AppearancePanel *panel,
 
 /* Free the returned string when done using it */
 static gchar*
-xfdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
+esdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
                                                          const gchar* property)
 {
     gchar *buf = NULL;
@@ -795,7 +795,7 @@ xfdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
                               panel->screen, panel->monitor, panel->workspace,
                               property);
     } else {
-        buf = xfdesktop_remove_whitspaces(g_strdup_printf("/backdrop/screen%d/monitor%s/workspace%d/%s",
+        buf = esdesktop_remove_whitspaces(g_strdup_printf("/backdrop/screen%d/monitor%s/workspace%d/%s",
                               panel->screen, panel->monitor_name, panel->workspace,
                               property));
     }
@@ -806,7 +806,7 @@ xfdesktop_settings_generate_per_workspace_binding_string(AppearancePanel *panel,
 }
 
 static gchar*
-xfdesktop_settings_generate_old_binding_string(AppearancePanel *panel,
+esdesktop_settings_generate_old_binding_string(AppearancePanel *panel,
                                                const gchar* property)
 {
     gchar *buf = NULL;
@@ -820,25 +820,25 @@ xfdesktop_settings_generate_old_binding_string(AppearancePanel *panel,
 }
 
 /* Attempts to load the backdrop from the current location followed by using
- * how previous versions of xfdesktop (before 4.11) did. This matches how
- * xfdesktop searches for backdrops.
+ * how previous versions of esdesktop (before 4.11) did. This matches how
+ * esdesktop searches for backdrops.
  * Free the returned string when done using it. */
 static gchar *
-xfdesktop_settings_get_backdrop_image(AppearancePanel *panel)
+esdesktop_settings_get_backdrop_image(AppearancePanel *panel)
 {
     gchar *last_image;
     gchar *property, *old_property = NULL;
 
     /* Get the last image/current image displayed, if available */
-    property = xfdesktop_settings_generate_per_workspace_binding_string(panel, "last-image");
+    property = esdesktop_settings_generate_per_workspace_binding_string(panel, "last-image");
 
-    last_image = xfconf_channel_get_string(panel->channel, property, NULL);
+    last_image = esconf_channel_get_string(panel->channel, property, NULL);
 
     /* Try the previous version or fall back to our provided default */
     if(last_image == NULL) {
-        old_property = xfdesktop_settings_generate_old_binding_string(panel,
+        old_property = esdesktop_settings_generate_old_binding_string(panel,
                                                                       "image-path");
-        last_image = xfconf_channel_get_string(panel->channel,
+        last_image = esconf_channel_get_string(panel->channel,
                                                old_property,
                                                DEFAULT_BACKDROP);
     }
@@ -879,7 +879,7 @@ cb_image_selection_changed(GtkIconView *icon_view,
     gtk_tree_model_get(model, &iter, COL_FILENAME, &filename, -1);
 
     /* Get the current/last image, handles migrating from old versions */
-    current_filename = xfdesktop_settings_get_backdrop_image(panel);
+    current_filename = esdesktop_settings_get_backdrop_image(panel);
 
     /* check to see if the selection actually did change */
     if(g_strcmp0(current_filename, filename) != 0) {
@@ -893,10 +893,10 @@ cb_image_selection_changed(GtkIconView *icon_view,
 
         /* Get the property location to save our changes, always save to new
          * location */
-        buf = xfdesktop_settings_generate_per_workspace_binding_string(panel,
+        buf = esdesktop_settings_generate_per_workspace_binding_string(panel,
                                                                        "last-image");
         XF_DEBUG("Saving to %s/%s", buf, filename);
-        xfconf_channel_set_string(panel->channel, buf, filename);
+        esconf_channel_set_string(panel->channel, buf, filename);
     }
 
     g_list_foreach (selected_items, (GFunc)gtk_tree_path_free, NULL);
@@ -907,7 +907,7 @@ cb_image_selection_changed(GtkIconView *icon_view,
 }
 
 static gint
-xfdesktop_settings_get_active_workspace(AppearancePanel *panel,
+esdesktop_settings_get_active_workspace(AppearancePanel *panel,
                                         WnckWindow *wnck_window)
 {
     WnckWorkspace *wnck_workspace;
@@ -925,7 +925,7 @@ xfdesktop_settings_get_active_workspace(AppearancePanel *panel,
         workspace_num = panel->active_workspace;
     }
 
-    single_workspace = xfconf_channel_get_bool(panel->channel,
+    single_workspace = esconf_channel_get_bool(panel->channel,
                                                SINGLE_WORKSPACE_MODE,
                                                TRUE);
 
@@ -933,7 +933,7 @@ xfdesktop_settings_get_active_workspace(AppearancePanel *panel,
      * it was set to, if that workspace exists, otherwise return the current
      * workspace and turn off the single workspace mode */
     if(single_workspace) {
-        single_workspace_num = xfconf_channel_get_int(panel->channel,
+        single_workspace_num = esconf_channel_get_int(panel->channel,
                                                       SINGLE_WORKSPACE_NUMBER,
                                                       0);
         if(single_workspace_num < wnck_screen_get_workspace_count(wnck_screen)) {
@@ -950,7 +950,7 @@ xfdesktop_settings_get_active_workspace(AppearancePanel *panel,
 /* This works for both the custom font size and show tooltips check buttons,
  * it just enables the associated spin button */
 static void
-cb_xfdesktop_chk_button_toggled(GtkCheckButton *button,
+cb_esdesktop_chk_button_toggled(GtkCheckButton *button,
                                 gpointer user_data)
 {
     GtkWidget *spin_button = GTK_WIDGET(user_data);
@@ -971,7 +971,7 @@ update_backdrop_random_order_chkbox(AppearancePanel *panel)
      * needs to be active and needs to not be set to chronological */
     if(gtk_widget_get_sensitive(panel->combo_backdrop_cycle_period)) {
         period = gtk_combo_box_get_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period));
-        if(period != XFCE_BACKDROP_PERIOD_CHRONOLOGICAL)
+        if(period != EXPIDUS_BACKDROP_PERIOD_CHRONOLOGICAL)
             sensitive = TRUE;
     }
 
@@ -988,9 +988,9 @@ update_backdrop_cycle_spinbox(AppearancePanel *panel)
      * active and needs to be set to something where the spinbox would apply */
     if(gtk_widget_get_sensitive(panel->combo_backdrop_cycle_period)) {
         period = gtk_combo_box_get_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period));
-        if(period == XFCE_BACKDROP_PERIOD_SECONDS ||
-           period == XFCE_BACKDROP_PERIOD_MINUTES  ||
-           period == XFCE_BACKDROP_PERIOD_HOURS)
+        if(period == EXPIDUS_BACKDROP_PERIOD_SECONDS ||
+           period == EXPIDUS_BACKDROP_PERIOD_MINUTES  ||
+           period == EXPIDUS_BACKDROP_PERIOD_HOURS)
         {
             sensitive = TRUE;
         }
@@ -1012,7 +1012,7 @@ cb_combo_backdrop_cycle_period_change(GtkComboBox *combo,
 }
 
 static void
-cb_xfdesktop_chk_cycle_backdrop_toggled(GtkCheckButton *button,
+cb_esdesktop_chk_cycle_backdrop_toggled(GtkCheckButton *button,
                                         gpointer user_data)
 {
     AppearancePanel *panel = user_data;
@@ -1033,16 +1033,16 @@ cb_xfdesktop_chk_cycle_backdrop_toggled(GtkCheckButton *button,
 }
 
 static gboolean
-xfdesktop_spin_icon_size_timer(gpointer user_data)
+esdesktop_spin_icon_size_timer(gpointer user_data)
 {
     GtkSpinButton *button = user_data;
-    XfconfChannel *channel = g_object_get_data(G_OBJECT(button), "xfconf-chanel");
+    EsconfChannel *channel = g_object_get_data(G_OBJECT(button), "esconf-chanel");
 
     TRACE("entering");
 
-    g_return_val_if_fail(XFCONF_IS_CHANNEL(channel), FALSE);
+    g_return_val_if_fail(ESCONF_IS_CHANNEL(channel), FALSE);
 
-    xfconf_channel_set_uint(channel,
+    esconf_channel_set_uint(channel,
                             DESKTOP_ICONS_ICON_SIZE_PROP,
                             gtk_spin_button_get_value(button));
 
@@ -1052,14 +1052,14 @@ xfdesktop_spin_icon_size_timer(gpointer user_data)
 }
 
 static void
-cb_xfdesktop_spin_icon_size_changed(GtkSpinButton *button,
+cb_esdesktop_spin_icon_size_changed(GtkSpinButton *button,
                                     gpointer user_data)
 {
     guint timer_id = 0;
 
     TRACE("entering");
 
-    g_object_set_data(G_OBJECT(button), "xfconf-chanel", user_data);
+    g_object_set_data(G_OBJECT(button), "esconf-chanel", user_data);
 
     timer_id = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(button), "timer-id"));
     if(timer_id != 0) {
@@ -1067,17 +1067,17 @@ cb_xfdesktop_spin_icon_size_changed(GtkSpinButton *button,
         timer_id = 0;
     }
 
-    timer_id = g_timeout_add(500, xfdesktop_spin_icon_size_timer, button);
+    timer_id = g_timeout_add(500, esdesktop_spin_icon_size_timer, button);
 
     g_object_set_data(G_OBJECT(button), "timer-id", GUINT_TO_POINTER(timer_id));
 }
 
 static void
-xfdesktop_settings_stop_image_loading(AppearancePanel *panel)
+esdesktop_settings_stop_image_loading(AppearancePanel *panel)
 {
-    XF_DEBUG("xfdesktop_settings_stop_image_loading");
+    XF_DEBUG("esdesktop_settings_stop_image_loading");
     /* stop any thumbnailing in progress */
-    xfdesktop_thumbnailer_dequeue_all_thumbnails(panel->thumbnailer);
+    esdesktop_thumbnailer_dequeue_all_thumbnails(panel->thumbnailer);
 
     /* stop the idle preview callback */
     if(panel->preview_id != 0) {
@@ -1106,11 +1106,11 @@ xfdesktop_settings_stop_image_loading(AppearancePanel *panel)
 }
 
 static void
-cb_xfdesktop_bnt_exit_clicked(GtkButton *button, gpointer user_data)
+cb_esdesktop_bnt_exit_clicked(GtkButton *button, gpointer user_data)
 {
     AppearancePanel *panel = user_data;
 
-    xfdesktop_settings_stop_image_loading(panel);
+    esdesktop_settings_stop_image_loading(panel);
 }
 
 static void
@@ -1128,7 +1128,7 @@ cb_folder_selection_changed(GtkWidget *button,
 
     /* Check to see if the folder actually did change */
     if(g_strcmp0(filename, previous_filename) == 0) {
-        const gchar *current_folder = xfdesktop_settings_get_backdrop_image(panel);
+        const gchar *current_folder = esdesktop_settings_get_backdrop_image(panel);
         gchar *dirname;
 
         dirname = g_path_get_dirname(current_folder);
@@ -1156,16 +1156,16 @@ cb_folder_selection_changed(GtkWidget *button,
     panel->selected_folder = g_file_new_for_path(filename);
 
     /* Stop any previous loading since something changed */
-    xfdesktop_settings_stop_image_loading(panel);
+    esdesktop_settings_stop_image_loading(panel);
 
     panel->cancel_enumeration = g_cancellable_new();
 
     g_file_enumerate_children_async(panel->selected_folder,
-                                    XFDESKTOP_FILE_INFO_NAMESPACE,
+                                    ESDESKTOP_FILE_INFO_NAMESPACE,
                                     G_FILE_QUERY_INFO_NONE,
                                     G_PRIORITY_DEFAULT,
                                     panel->cancel_enumeration,
-                                    xfdesktop_image_list_add_dir,
+                                    esdesktop_image_list_add_dir,
                                     panel);
 
     g_free(filename);
@@ -1173,14 +1173,14 @@ cb_folder_selection_changed(GtkWidget *button,
 }
 
 static void
-cb_xfdesktop_combo_image_style_changed(GtkComboBox *combo,
+cb_esdesktop_combo_image_style_changed(GtkComboBox *combo,
                                        gpointer user_data)
 {
     AppearancePanel *panel = user_data;
 
     TRACE("entering");
 
-    if(gtk_combo_box_get_active(combo) == XFCE_BACKDROP_IMAGE_NONE) {
+    if(gtk_combo_box_get_active(combo) == EXPIDUS_BACKDROP_IMAGE_NONE) {
         /* No wallpaper so set the iconview to insensitive so the user doesn't
          * pick wallpapers that have no effect. Stop popping up tooltips for
          * the now insensitive iconview and provide a tooltip explaining why
@@ -1211,7 +1211,7 @@ cb_xfdesktop_combo_image_style_changed(GtkComboBox *combo,
 }
 
 static void
-cb_xfdesktop_combo_color_changed(GtkComboBox *combo,
+cb_esdesktop_combo_color_changed(GtkComboBox *combo,
                                  gpointer user_data)
 {
     enum {
@@ -1237,7 +1237,7 @@ cb_xfdesktop_combo_color_changed(GtkComboBox *combo,
 }
 
 static void
-xfdesktop_settings_update_iconview_folder(AppearancePanel *panel)
+esdesktop_settings_update_iconview_folder(AppearancePanel *panel)
 {
     gchar *current_folder, *dirname;
 
@@ -1247,7 +1247,7 @@ xfdesktop_settings_update_iconview_folder(AppearancePanel *panel)
 
     TRACE("entering");
 
-    current_folder = xfdesktop_settings_get_backdrop_image(panel);
+    current_folder = esdesktop_settings_get_backdrop_image(panel);
     dirname = g_path_get_dirname(current_folder);
 
     XF_DEBUG("current_folder %s, dirname %s", current_folder, dirname);
@@ -1266,59 +1266,59 @@ xfdesktop_settings_update_iconview_folder(AppearancePanel *panel)
  * It reverts the items back to their defaults before binding any new settings
  * that way if the setting isn't present, the default correctly displays. */
 static void
-xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
+esdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
                                                   gboolean remove_binding)
 {
     gchar *buf, *old_property = NULL;
-    XfconfChannel *channel = panel->channel;
+    EsconfChannel *channel = panel->channel;
 
     /* Image style combo box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "image-style");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "image-style");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                                G_OBJECT(panel->image_style_combo), "active");
     } else {
         /* If the current image style doesn't exist, try to load the old one */
-        if(!xfconf_channel_has_property(channel, buf)) {
+        if(!esconf_channel_has_property(channel, buf)) {
             gint image_style;
-            old_property = xfdesktop_settings_generate_old_binding_string(panel, "image-style");
+            old_property = esdesktop_settings_generate_old_binding_string(panel, "image-style");
 
             /* default to zoomed when trying to migrate (zoomed was part of how
              * auto worked in 4.10)*/
-            image_style = xfconf_channel_get_int(channel, old_property, XFCE_BACKDROP_IMAGE_ZOOMED);
+            image_style = esconf_channel_get_int(channel, old_property, EXPIDUS_BACKDROP_IMAGE_ZOOMED);
 
-            /* xfce_translate_image_styles will do sanity checking */
+            /* expidus_translate_image_styles will do sanity checking */
             gtk_combo_box_set_active(GTK_COMBO_BOX(panel->image_style_combo),
-                                     xfce_translate_image_styles(image_style));
+                                     expidus_translate_image_styles(image_style));
 
             g_free(old_property);
         }
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_INT,
+        esconf_g_property_bind(channel, buf, G_TYPE_INT,
                                G_OBJECT(panel->image_style_combo), "active");
         /* determine if the iconview is sensitive */
-        cb_xfdesktop_combo_image_style_changed(GTK_COMBO_BOX(panel->image_style_combo), panel);
+        cb_esdesktop_combo_image_style_changed(GTK_COMBO_BOX(panel->image_style_combo), panel);
     }
     g_free(buf);
 
     /* Color style combo box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "color-style");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "color-style");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                            G_OBJECT(panel->color_style_combo), "active");
     } else {
         /* If the current color style doesn't exist, try to load the old one */
-        if(!xfconf_channel_has_property(channel, buf)) {
+        if(!esconf_channel_has_property(channel, buf)) {
             gint color_style;
-            old_property = xfdesktop_settings_generate_old_binding_string(panel, "color-style");
+            old_property = esdesktop_settings_generate_old_binding_string(panel, "color-style");
 
             /* default to solid when trying to migrate */
-            color_style = xfconf_channel_get_int(channel, old_property, XFCE_BACKDROP_COLOR_SOLID);
+            color_style = esconf_channel_get_int(channel, old_property, EXPIDUS_BACKDROP_COLOR_SOLID);
 
             /* sanity check */
-            if(color_style < 0 || color_style > XFCE_BACKDROP_COLOR_TRANSPARENT) {
+            if(color_style < 0 || color_style > EXPIDUS_BACKDROP_COLOR_TRANSPARENT) {
                 g_warning("invalid color style, setting to solid");
-                color_style = XFCE_BACKDROP_COLOR_SOLID;
+                color_style = EXPIDUS_BACKDROP_COLOR_SOLID;
             }
 
             gtk_combo_box_set_active(GTK_COMBO_BOX(panel->color_style_combo),
@@ -1326,25 +1326,25 @@ xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
             g_free(old_property);
         }
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_INT,
+        esconf_g_property_bind(channel, buf, G_TYPE_INT,
                                G_OBJECT(panel->color_style_combo), "active");
         /* update the color button sensitivity */
-        cb_xfdesktop_combo_color_changed(GTK_COMBO_BOX(panel->color_style_combo), panel);
+        cb_esdesktop_combo_color_changed(GTK_COMBO_BOX(panel->color_style_combo), panel);
     }
     g_free(buf);
 
     /* color 1 button */
     /* Fixme: we will need to migrate from color1 to rgba1 (GdkColor to GdkRGBA) */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "rgba1");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "rgba1");
     if(remove_binding) {
-        xfconf_g_property_unbind(panel->color1_btn_id);
+        esconf_g_property_unbind(panel->color1_btn_id);
     } else {
         /* If the first color doesn't exist, try to load the old one */
-        if(!xfconf_channel_has_property(channel, buf)) {
+        if(!esconf_channel_has_property(channel, buf)) {
             GValue value = { 0, };
-            old_property = xfdesktop_settings_generate_old_binding_string(panel, "rgba1");
+            old_property = esdesktop_settings_generate_old_binding_string(panel, "rgba1");
 
-            xfconf_channel_get_property(channel, old_property, &value);
+            esconf_channel_get_property(channel, old_property, &value);
 
             if(G_VALUE_HOLDS_BOXED(&value)) {
                 gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(panel->color1_btn),
@@ -1364,7 +1364,7 @@ xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
         }
 
         /* Now bind to the new value */
-        panel->color1_btn_id = xfconf_g_property_bind_gdkrgba(channel, buf,
+        panel->color1_btn_id = esconf_g_property_bind_gdkrgba(channel, buf,
                                                               G_OBJECT(panel->color1_btn),
                                                               "rgba");
     }
@@ -1372,16 +1372,16 @@ xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
 
     /* color 2 button */
     /* Fixme: we will need to migrate from color1 to rgba1 (GdkColor to GdkRGBA) */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "rgba2");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "rgba2");
     if(remove_binding) {
-        xfconf_g_property_unbind(panel->color2_btn_id);
+        esconf_g_property_unbind(panel->color2_btn_id);
     } else {
         /* If the 2nd color doesn't exist, try to load the old one */
-        if(!xfconf_channel_has_property(channel, buf)) {
+        if(!esconf_channel_has_property(channel, buf)) {
             GValue value = { 0, };
-            old_property = xfdesktop_settings_generate_old_binding_string(panel, "rgba2");
+            old_property = esdesktop_settings_generate_old_binding_string(panel, "rgba2");
 
-            xfconf_channel_get_property(channel, old_property, &value);
+            esconf_channel_get_property(channel, old_property, &value);
 
             if(G_VALUE_HOLDS_BOXED(&value)) {
                 gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(panel->color2_btn),
@@ -1401,36 +1401,36 @@ xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
         }
 
         /* Now bind to the new value */
-        panel->color2_btn_id = xfconf_g_property_bind_gdkrgba(channel, buf,
+        panel->color2_btn_id = esconf_g_property_bind_gdkrgba(channel, buf,
                                                               G_OBJECT(panel->color2_btn),
                                                               "rgba");
     }
     g_free(buf);
 
     /* enable cycle timer check box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-enable");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-enable");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                            G_OBJECT(panel->backdrop_cycle_chkbox), "active");
     } else {
         /* The default is disable cycling, set that before we bind to anything */
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(panel->backdrop_cycle_chkbox), FALSE);
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_BOOLEAN,
+        esconf_g_property_bind(channel, buf, G_TYPE_BOOLEAN,
                                G_OBJECT(panel->backdrop_cycle_chkbox), "active");
     }
     g_free(buf);
 
     /* backdrop cycle period combo box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-period");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-period");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                                G_OBJECT(panel->combo_backdrop_cycle_period), "active");
     } else {
         /* default is minutes, set that before we bind to it */
-        gtk_combo_box_set_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period), XFCE_BACKDROP_PERIOD_MINUTES);
+        gtk_combo_box_set_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period), EXPIDUS_BACKDROP_PERIOD_MINUTES);
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_INT,
+        esconf_g_property_bind(channel, buf, G_TYPE_INT,
                                G_OBJECT(panel->combo_backdrop_cycle_period), "active");
         /* determine if the cycle timer spin box is sensitive */
         cb_combo_backdrop_cycle_period_change(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period), panel);
@@ -1438,32 +1438,32 @@ xfdesktop_settings_background_tab_change_bindings(AppearancePanel *panel,
     g_free(buf);
 
     /* cycle timer spin box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-timer");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-timer");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                    G_OBJECT(gtk_spin_button_get_adjustment(GTK_SPIN_BUTTON(panel->backdrop_cycle_spinbox))),
                    "value");
     } else {
-        guint current_timer = xfconf_channel_get_uint(channel, buf, 10);
+        guint current_timer = esconf_channel_get_uint(channel, buf, 10);
         /* Update the spin box before we bind to it */
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(panel->backdrop_cycle_spinbox), current_timer);
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_UINT,
+        esconf_g_property_bind(channel, buf, G_TYPE_UINT,
                        G_OBJECT(gtk_spin_button_get_adjustment(GTK_SPIN_BUTTON(panel->backdrop_cycle_spinbox))),
                        "value");
     }
     g_free(buf);
 
     /* cycle random order check box */
-    buf = xfdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-random-order");
+    buf = esdesktop_settings_generate_per_workspace_binding_string(panel, "backdrop-cycle-random-order");
     if(remove_binding) {
-        xfconf_g_property_unbind_by_property(channel, buf,
+        esconf_g_property_unbind_by_property(channel, buf,
                            G_OBJECT(panel->random_backdrop_order_chkbox), "active");
     } else {
         /* The default is sequential, set that before we bind to anything */
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(panel->random_backdrop_order_chkbox), FALSE);
 
-        xfconf_g_property_bind(channel, buf, G_TYPE_BOOLEAN,
+        esconf_g_property_bind(channel, buf, G_TYPE_BOOLEAN,
                                G_OBJECT(panel->random_backdrop_order_chkbox), "active");
     }
     g_free(buf);
@@ -1498,13 +1498,13 @@ cb_update_background_tab(WnckWindow *wnck_window,
     wnck_screen = wnck_window_get_screen(panel->wnck_window);
     wnck_workspace = wnck_window_get_workspace(panel->wnck_window);
 
-    workspace_num = xfdesktop_settings_get_active_workspace(panel, wnck_window);
+    workspace_num = esdesktop_settings_get_active_workspace(panel, wnck_window);
     screen_num = wnck_screen_get_number(wnck_screen);
     window = gtk_widget_get_window(panel->image_iconview);
     display = gdk_window_get_display(window);
     monitor = gdk_display_get_monitor_at_window(display, window);
-    monitor_num = xfdesktop_get_monitor_num(display, monitor);
-    monitor_name = xfdesktop_get_monitor_name_from_gtk_widget(panel->image_iconview, monitor_num);
+    monitor_num = esdesktop_get_monitor_num(display, monitor);
+    monitor_name = esdesktop_get_monitor_name_from_gtk_widget(panel->image_iconview, monitor_num);
 
     /* Most of the time we won't change monitor, screen, or workspace so try
      * to bail out now if we can */
@@ -1526,7 +1526,7 @@ cb_update_background_tab(WnckWindow *wnck_window,
     /* remove the old bindings if there are any */
     if(panel->color1_btn_id || panel->color2_btn_id) {
         XF_DEBUG("removing old bindings");
-        xfdesktop_settings_background_tab_change_bindings(panel,
+        esdesktop_settings_background_tab_change_bindings(panel,
                                                           TRUE);
     }
 
@@ -1538,7 +1538,7 @@ cb_update_background_tab(WnckWindow *wnck_window,
     panel->workspace = workspace_num;
     panel->screen = screen_num;
     panel->monitor = monitor_num;
-    panel->monitor_name = xfdesktop_get_monitor_name_from_gtk_widget(panel->image_iconview, monitor_num);
+    panel->monitor_name = esdesktop_get_monitor_name_from_gtk_widget(panel->image_iconview, monitor_num);
 
     /* The first monitor has the option of doing the "spanning screens" style,
      * but only if there's multiple monitors attached. Remove it in all other cases.
@@ -1546,7 +1546,7 @@ cb_update_background_tab(WnckWindow *wnck_window,
      * Remove the spanning screens option before we potentially add it again
      */
     gtk_combo_box_text_remove(GTK_COMBO_BOX_TEXT(panel->image_style_combo),
-                              XFCE_BACKDROP_IMAGE_SPANNING_SCREENS);
+                              EXPIDUS_BACKDROP_IMAGE_SPANNING_SCREENS);
 
     if(panel->monitor == 0 && gdk_display_get_n_monitors(gtk_widget_get_display(panel->image_style_combo)) > 1) {
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(panel->image_style_combo),
@@ -1555,11 +1555,11 @@ cb_update_background_tab(WnckWindow *wnck_window,
 
 
     /* connect the new bindings */
-    xfdesktop_settings_background_tab_change_bindings(panel,
+    esdesktop_settings_background_tab_change_bindings(panel,
                                                       FALSE);
 
-    xfdesktop_settings_update_iconview_frame_name(panel, wnck_workspace);
-    xfdesktop_settings_update_iconview_folder(panel);
+    esdesktop_settings_update_iconview_frame_name(panel, wnck_workspace);
+    esdesktop_settings_update_iconview_folder(panel);
 }
 
 static void
@@ -1644,7 +1644,7 @@ cb_window_opened(WnckScreen *screen,
         workspace = wnck_screen_get_workspace(screen, panel->active_workspace);
 
     /* Update the frame name */
-    xfdesktop_settings_update_iconview_frame_name(panel, workspace);
+    esdesktop_settings_update_iconview_frame_name(panel, workspace);
 }
 
 static void
@@ -1657,11 +1657,11 @@ cb_monitor_changed(GdkScreen *gscreen,
     cb_update_background_tab(panel->wnck_window, user_data);
 
     /* Update the frame name because we may change from/to a single monitor */
-    xfdesktop_settings_update_iconview_frame_name(panel, wnck_window_get_workspace(panel->wnck_window));
+    esdesktop_settings_update_iconview_frame_name(panel, wnck_window_get_workspace(panel->wnck_window));
 }
 
 static void
-cb_xfdesktop_chk_apply_to_all(GtkCheckButton *button,
+cb_esdesktop_chk_apply_to_all(GtkCheckButton *button,
                               gpointer user_data)
 {
     AppearancePanel *panel = user_data;
@@ -1670,12 +1670,12 @@ cb_xfdesktop_chk_apply_to_all(GtkCheckButton *button,
 
     TRACE("entering");
 
-    xfconf_channel_set_bool(panel->channel,
+    esconf_channel_set_bool(panel->channel,
                             SINGLE_WORKSPACE_MODE,
                             active);
 
     if(active) {
-        xfconf_channel_set_int(panel->channel,
+        esconf_channel_set_int(panel->channel,
                                SINGLE_WORKSPACE_NUMBER,
                                panel->workspace);
     } else {
@@ -1683,17 +1683,17 @@ cb_xfdesktop_chk_apply_to_all(GtkCheckButton *button,
     }
 
     /* update the frame name to since we changed to/from single workspace mode */
-    xfdesktop_settings_update_iconview_frame_name(panel, wnck_window_get_workspace(panel->wnck_window));
+    esdesktop_settings_update_iconview_frame_name(panel, wnck_window_get_workspace(panel->wnck_window));
 }
 
 static void
-xfdesktop_settings_setup_image_iconview(AppearancePanel *panel)
+esdesktop_settings_setup_image_iconview(AppearancePanel *panel)
 {
     GtkIconView *iconview = GTK_ICON_VIEW(panel->image_iconview);
 
     TRACE("entering");
 
-    panel->thumbnailer = xfdesktop_thumbnailer_new();
+    panel->thumbnailer = esdesktop_thumbnailer_new();
 
     g_object_set(G_OBJECT(iconview),
                 "pixbuf-column", COL_PIX,
@@ -1713,10 +1713,10 @@ xfdesktop_settings_setup_image_iconview(AppearancePanel *panel)
 }
 
 static void
-cb_xfdesktop_icon_orientation_changed(GtkComboBox *combo,
+cb_esdesktop_icon_orientation_changed(GtkComboBox *combo,
                                       gpointer user_data)
 {
-    const gchar *cmd = "xfdesktop --arrange";
+    const gchar *cmd = "esdesktop --arrange";
     /* TRANSLATORS: Please split the message in half with '\n' so the dialog will not be too wide. */
     const gchar *question = _("Would you like to arrange all existing\n"
                               "icons according to the selected orientation?");
@@ -1724,7 +1724,7 @@ cb_xfdesktop_icon_orientation_changed(GtkComboBox *combo,
 
     GtkWindow *window = GTK_WINDOW (gtk_widget_get_toplevel(GTK_WIDGET(combo)));
 
-    if(!xfce_dialog_confirm(window, "view-sort-ascending", _("Arrange icons"),
+    if(!expidus_dialog_confirm(window, "view-sort-ascending", _("Arrange icons"),
                             NULL, "%s", question))
     {
         return;
@@ -1733,9 +1733,9 @@ cb_xfdesktop_icon_orientation_changed(GtkComboBox *combo,
     if(!g_spawn_command_line_async(cmd, &error))
     {
         gchar *primary = g_strdup_printf(_("Unable to launch \"%s\":"), cmd);
-        xfce_message_dialog(window, _("Launch Error"),
+        expidus_message_dialog(window, _("Launch Error"),
                             "dialog-error", primary, error->message,
-                            XFCE_BUTTON_TYPE_MIXED, "window-close", _("_Close"),
+                            EXPIDUS_BUTTON_TYPE_MIXED, "window-close", _("_Close"),
                             GTK_RESPONSE_ACCEPT, NULL);
         g_free(primary);
         g_clear_error(&error);
@@ -1743,7 +1743,7 @@ cb_xfdesktop_icon_orientation_changed(GtkComboBox *combo,
 }
 
 static void
-xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
+esdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
                                      AppearancePanel *panel)
 {
     GtkWidget *appearance_container, *chk_custom_font_size,
@@ -1756,7 +1756,7 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
     GtkFileFilter *filter;
     GdkScreen *screen;
     WnckScreen *wnck_screen;
-    XfconfChannel *channel = panel->channel;
+    EsconfChannel *channel = panel->channel;
     const gchar *path;
     GFile *file;
     gchar *uri_path;
@@ -1769,7 +1769,7 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
     bnt_exit = GTK_WIDGET(gtk_builder_get_object(main_gxml, "bnt_exit"));
 
     g_signal_connect(G_OBJECT(bnt_exit), "clicked",
-                     G_CALLBACK(cb_xfdesktop_bnt_exit_clicked),
+                     G_CALLBACK(cb_esdesktop_bnt_exit_clicked),
                      panel);
 
     /* Icons tab */
@@ -1777,11 +1777,11 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
     spin_icon_size = GTK_WIDGET(gtk_builder_get_object(main_gxml, "spin_icon_size"));
 
     g_signal_connect(G_OBJECT(spin_icon_size), "value-changed",
-                     G_CALLBACK(cb_xfdesktop_spin_icon_size_changed),
+                     G_CALLBACK(cb_esdesktop_spin_icon_size_changed),
                      channel);
 
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(spin_icon_size),
-                              xfconf_channel_get_uint(channel,
+                              esconf_channel_get_uint(channel,
                                                       DESKTOP_ICONS_ICON_SIZE_PROP,
                                                       DEFAULT_ICON_SIZE));
 
@@ -1806,11 +1806,11 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 
     /* connect up the signals */
     g_signal_connect(G_OBJECT(chk_custom_font_size), "toggled",
-                     G_CALLBACK(cb_xfdesktop_chk_button_toggled),
+                     G_CALLBACK(cb_esdesktop_chk_button_toggled),
                      spin_font_size);
 
     g_signal_connect(G_OBJECT(chk_show_tooltips), "toggled",
-                     G_CALLBACK(cb_xfdesktop_chk_button_toggled),
+                     G_CALLBACK(cb_esdesktop_chk_button_toggled),
                      spin_tooltip_size);
 
     /* thumbnails */
@@ -1845,8 +1845,8 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 
     appearance_gxml = gtk_builder_new();
     if(!gtk_builder_add_from_string(appearance_gxml,
-                                    xfdesktop_settings_appearance_frame_ui,
-                                    xfdesktop_settings_appearance_frame_ui_length,
+                                    esdesktop_settings_appearance_frame_ui,
+                                    esdesktop_settings_appearance_frame_ui_length,
                                     &error))
     {
         g_printerr("Failed to parse appearance settings UI description: %s\n",
@@ -1882,7 +1882,7 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 
     panel->image_iconview = GTK_WIDGET(gtk_builder_get_object(appearance_gxml,
                                                               "iconview_imagelist"));
-    xfdesktop_settings_setup_image_iconview(panel);
+    esdesktop_settings_setup_image_iconview(panel);
 
     /* folder: file chooser button */
     panel->btn_folder = GTK_WIDGET(gtk_builder_get_object(appearance_gxml, "btn_folder"));
@@ -1927,27 +1927,27 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
                                                           "color2_btn"));
 
     g_signal_connect(G_OBJECT(panel->image_style_combo), "changed",
-                     G_CALLBACK(cb_xfdesktop_combo_image_style_changed),
+                     G_CALLBACK(cb_esdesktop_combo_image_style_changed),
                      panel);
 
     g_signal_connect(G_OBJECT(panel->color_style_combo), "changed",
-                     G_CALLBACK(cb_xfdesktop_combo_color_changed),
+                     G_CALLBACK(cb_esdesktop_combo_color_changed),
                      panel);
 
     /* Pick the first entries so something shows up */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->image_style_combo), XFCE_BACKDROP_IMAGE_ZOOMED);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->color_style_combo), XFCE_BACKDROP_COLOR_SOLID);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->image_style_combo), EXPIDUS_BACKDROP_IMAGE_ZOOMED);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->color_style_combo), EXPIDUS_BACKDROP_COLOR_SOLID);
 
     /* Use these settings for all workspaces checkbox */
     panel->chk_apply_to_all =  GTK_WIDGET(gtk_builder_get_object(appearance_gxml,
                                                                  "chk_apply_to_all"));
 
-    if(xfconf_channel_get_bool(channel, SINGLE_WORKSPACE_MODE, TRUE)) {
+    if(esconf_channel_get_bool(channel, SINGLE_WORKSPACE_MODE, TRUE)) {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(panel->chk_apply_to_all), TRUE);
     }
 
     g_signal_connect(G_OBJECT(panel->chk_apply_to_all), "toggled",
-                    G_CALLBACK(cb_xfdesktop_chk_apply_to_all),
+                    G_CALLBACK(cb_esdesktop_chk_apply_to_all),
                     panel);
 
     /* background cycle timer */
@@ -1961,10 +1961,10 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
                                                                      "chk_random_backdrop_order"));
 
     /* Pick the first entry so something shows up */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period), XFCE_BACKDROP_PERIOD_MINUTES);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(panel->combo_backdrop_cycle_period), EXPIDUS_BACKDROP_PERIOD_MINUTES);
 
     g_signal_connect(G_OBJECT(panel->backdrop_cycle_chkbox), "toggled",
-                    G_CALLBACK(cb_xfdesktop_chk_cycle_backdrop_toggled),
+                    G_CALLBACK(cb_esdesktop_chk_cycle_backdrop_toggled),
                     panel);
 
     g_signal_connect(G_OBJECT(panel->combo_backdrop_cycle_period), "changed",
@@ -1976,56 +1976,56 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 
     /* Menus Tab */
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "chk_show_desktop_menu"));
-    xfconf_g_property_bind(channel, SHOW_DESKTOP_MENU_PROP, G_TYPE_BOOLEAN,
+    esconf_g_property_bind(channel, SHOW_DESKTOP_MENU_PROP, G_TYPE_BOOLEAN,
                            G_OBJECT(w), "active");
     box = GTK_WIDGET(gtk_builder_get_object(main_gxml, "box_menu_subopts"));
     g_signal_connect(G_OBJECT(w), "toggled",
                      G_CALLBACK(suboptions_set_sensitive), box);
     suboptions_set_sensitive(GTK_TOGGLE_BUTTON(w), box);
 
-    xfconf_g_property_bind(channel, DESKTOP_MENU_SHOW_ICONS_PROP,
+    esconf_g_property_bind(channel, DESKTOP_MENU_SHOW_ICONS_PROP,
                            G_TYPE_BOOLEAN,
                            G_OBJECT(GTK_WIDGET(gtk_builder_get_object(main_gxml,
                                                                       "chk_menu_show_app_icons"))),
                            "active");
 
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "chk_show_winlist_menu"));
-    xfconf_g_property_bind(channel, WINLIST_SHOW_WINDOWS_MENU_PROP,
+    esconf_g_property_bind(channel, WINLIST_SHOW_WINDOWS_MENU_PROP,
                            G_TYPE_BOOLEAN, G_OBJECT(w), "active");
     box = GTK_WIDGET(gtk_builder_get_object(main_gxml, "box_winlist_subopts"));
     g_signal_connect(G_OBJECT(w), "toggled",
                      G_CALLBACK(suboptions_set_sensitive), box);
     suboptions_set_sensitive(GTK_TOGGLE_BUTTON(w), box);
 
-    xfconf_g_property_bind(channel, WINLIST_SHOW_APP_ICONS_PROP, G_TYPE_BOOLEAN,
+    esconf_g_property_bind(channel, WINLIST_SHOW_APP_ICONS_PROP, G_TYPE_BOOLEAN,
                            gtk_builder_get_object(main_gxml, "chk_winlist_show_app_icons"),
                            "active");
 
-    xfconf_g_property_bind(channel, WINLIST_SHOW_STICKY_WIN_ONCE_PROP,
+    esconf_g_property_bind(channel, WINLIST_SHOW_STICKY_WIN_ONCE_PROP,
                            G_TYPE_BOOLEAN,
                            gtk_builder_get_object(main_gxml, "chk_show_winlist_sticky_once"),
                            "active");
 
-    xfconf_g_property_bind(channel, WINLIST_SHOW_ADD_REMOVE_WORKSPACES_PROP,
+    esconf_g_property_bind(channel, WINLIST_SHOW_ADD_REMOVE_WORKSPACES_PROP,
                            G_TYPE_BOOLEAN,
                            gtk_builder_get_object(main_gxml, "chk_show_app_remove_workspaces"),
                            "active");
 
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "chk_show_winlist_ws_names"));
-    xfconf_g_property_bind(channel, WINLIST_SHOW_WS_NAMES_PROP, G_TYPE_BOOLEAN,
+    esconf_g_property_bind(channel, WINLIST_SHOW_WS_NAMES_PROP, G_TYPE_BOOLEAN,
                            G_OBJECT(w), "active");
     box = GTK_WIDGET(gtk_builder_get_object(main_gxml, "box_winlist_names_subopts"));
     g_signal_connect(G_OBJECT(w), "toggled",
                      G_CALLBACK(suboptions_set_sensitive), box);
     suboptions_set_sensitive(GTK_TOGGLE_BUTTON(w), box);
 
-    xfconf_g_property_bind(channel, WINLIST_SHOW_WS_SUBMENUS_PROP,
+    esconf_g_property_bind(channel, WINLIST_SHOW_WS_SUBMENUS_PROP,
                            G_TYPE_BOOLEAN,
                            gtk_builder_get_object(main_gxml, "chk_show_winlist_ws_submenus"),
                            "active");
 
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "primary"));
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_ON_PRIMARY_PROP, G_TYPE_BOOLEAN,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_ON_PRIMARY_PROP, G_TYPE_BOOLEAN,
                           G_OBJECT(w), "active");
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "combo_icons"));
 #ifdef ENABLE_FILE_ICONS
@@ -2033,37 +2033,37 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 #else
     gtk_combo_box_set_active(GTK_COMBO_BOX(w), 1);
 #endif
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_STYLE_PROP, G_TYPE_INT,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_STYLE_PROP, G_TYPE_INT,
                            G_OBJECT(w), "active");
 
     /* Orientation combo */
     w = GTK_WIDGET(gtk_builder_get_object(main_gxml, "combo_orientation"));
     gtk_combo_box_set_active(GTK_COMBO_BOX(w), 0);
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_GRAVITY_PROP, G_TYPE_INT,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_GRAVITY_PROP, G_TYPE_INT,
                            G_OBJECT(w), "active");
     g_signal_connect(G_OBJECT(w), "changed",
-                     G_CALLBACK(cb_xfdesktop_icon_orientation_changed), NULL);
+                     G_CALLBACK(cb_esdesktop_icon_orientation_changed), NULL);
 
     /* bindings */
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_FONT_SIZE_PROP, G_TYPE_DOUBLE,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_FONT_SIZE_PROP, G_TYPE_DOUBLE,
                            G_OBJECT(gtk_spin_button_get_adjustment(GTK_SPIN_BUTTON(spin_font_size))),
                            "value");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_CUSTOM_FONT_SIZE_PROP,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_CUSTOM_FONT_SIZE_PROP,
                            G_TYPE_BOOLEAN, G_OBJECT(chk_custom_font_size),
                            "active");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_TOOLTIP_PROP,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_TOOLTIP_PROP,
                            G_TYPE_BOOLEAN, G_OBJECT(chk_show_tooltips),
                            "active");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_TOOLTIP_SIZE_PROP, G_TYPE_DOUBLE,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_TOOLTIP_SIZE_PROP, G_TYPE_DOUBLE,
                            G_OBJECT(gtk_spin_button_get_adjustment(GTK_SPIN_BUTTON(spin_tooltip_size))),
                            "value");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_HIDDEN_FILES,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_HIDDEN_FILES,
                            G_TYPE_BOOLEAN, G_OBJECT(chk_show_hidden_files),
                            "active");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_THUMBNAILS,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_SHOW_THUMBNAILS,
                            G_TYPE_BOOLEAN, G_OBJECT(chk_show_thumbnails),
                            "active");
-    xfconf_g_property_bind(channel, DESKTOP_ICONS_SINGLE_CLICK_PROP,
+    esconf_g_property_bind(channel, DESKTOP_ICONS_SINGLE_CLICK_PROP,
                            G_TYPE_BOOLEAN, G_OBJECT(chk_single_click),
                            "active");
 
@@ -2072,16 +2072,16 @@ xfdesktop_settings_dialog_setup_tabs(GtkBuilder *main_gxml,
 }
 
 static void
-xfdesktop_settings_response(GtkWidget *dialog, gint response_id, gpointer user_data)
+esdesktop_settings_response(GtkWidget *dialog, gint response_id, gpointer user_data)
 {
     if(response_id == GTK_RESPONSE_HELP) {
-        xfce_dialog_show_help_with_version(GTK_WINDOW(dialog),
-                                           "xfdesktop",
+        expidus_dialog_show_help_with_version(GTK_WINDOW(dialog),
+                                           "esdesktop",
                                            "start",
                                            NULL,
-                                           XFDESKTOP_VERSION_SHORT);
+                                           ESDESKTOP_VERSION_SHORT);
     } else {
-        XfconfChannel *channel = (XfconfChannel*) user_data;
+        EsconfChannel *channel = (EsconfChannel*) user_data;
         GdkWindowState state;
         gint width, height;
 
@@ -2091,8 +2091,8 @@ xfdesktop_settings_response(GtkWidget *dialog, gint response_id, gpointer user_d
         if ((state & (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_FULLSCREEN)) == 0) {
             /* save window size */
             gtk_window_get_size(GTK_WINDOW(dialog), &width, &height);
-            xfconf_channel_set_int(channel, SETTINGS_WINDOW_LAST_WIDTH, width);
-            xfconf_channel_set_int(channel, SETTINGS_WINDOW_LAST_HEIGHT, height);
+            esconf_channel_set_int(channel, SETTINGS_WINDOW_LAST_WIDTH, width);
+            esconf_channel_set_int(channel, SETTINGS_WINDOW_LAST_HEIGHT, height);
         }
 
         gtk_main_quit();
@@ -2112,7 +2112,7 @@ static GOptionEntry option_entries[] = {
 int
 main(int argc, char **argv)
 {
-    XfconfChannel *channel;
+    EsconfChannel *channel;
     GtkBuilder *gxml;
     gint screen;
     GError *error = NULL;
@@ -2124,7 +2124,7 @@ main(int argc, char **argv)
     g_log_set_always_fatal(G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_WARNING);
 #endif
 
-    xfce_textdomain(GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
+    expidus_textdomain(GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
     if(!gtk_init_with_args(&argc, &argv, "", option_entries, PACKAGE, &error)) {
         if(G_LIKELY(error)) {
@@ -2139,21 +2139,21 @@ main(int argc, char **argv)
     }
 
     if(G_UNLIKELY(opt_version)) {
-        g_print("%s %s (Xfce %s)\n\n", G_LOG_DOMAIN, VERSION, xfce_version_string());
+        g_print("%s %s (Expidus %s)\n\n", G_LOG_DOMAIN, VERSION, expidus_version_string());
         g_print("%s\n", "Copyright (c) 2004-2020");
-        g_print("\t%s\n\n", _("The Xfce development team. All rights reserved."));
+        g_print("\t%s\n\n", _("The Expidus development team. All rights reserved."));
         g_print(_("Please report bugs to <%s>."), PACKAGE_BUGREPORT);
         g_print("\n");
 
         return EXIT_SUCCESS;
     }
 
-    if(!xfconf_init(&error)) {
-        xfce_message_dialog(NULL, _("Desktop Settings"),
+    if(!esconf_init(&error)) {
+        expidus_message_dialog(NULL, _("Desktop Settings"),
                             "dialog-error",
                             _("Unable to contact settings server"),
                             error->message,
-                            XFCE_BUTTON_TYPE_MIXED, "application-exit", _("Quit"), GTK_RESPONSE_ACCEPT,
+                            EXPIDUS_BUTTON_TYPE_MIXED, "application-exit", _("Quit"), GTK_RESPONSE_ACCEPT,
                             NULL);
         g_clear_error(&error);
         return 1;
@@ -2161,8 +2161,8 @@ main(int argc, char **argv)
 
 
     gxml = gtk_builder_new();
-    if(!gtk_builder_add_from_string(gxml, xfdesktop_settings_ui,
-                                    xfdesktop_settings_ui_length,
+    if(!gtk_builder_add_from_string(gxml, esdesktop_settings_ui,
+                                    esdesktop_settings_ui_length,
                                     &error))
     {
         g_printerr("Failed to parse UI description: %s\n", error->message);
@@ -2170,21 +2170,21 @@ main(int argc, char **argv)
         return 1;
     }
 
-    channel = xfconf_channel_new(XFDESKTOP_CHANNEL);
+    channel = esconf_channel_new(ESDESKTOP_CHANNEL);
 
     if(opt_enable_debug)
-        xfdesktop_debug_set(TRUE);
+        esdesktop_debug_set(TRUE);
 
     if(opt_socket_id == 0) {
         GtkWidget *dialog;
         dialog = GTK_WIDGET(gtk_builder_get_object(gxml, "prefs_dialog"));
         g_signal_connect(dialog, "response",
-                         G_CALLBACK(xfdesktop_settings_response),
+                         G_CALLBACK(esdesktop_settings_response),
                          channel);
         gtk_window_set_default_size
             (GTK_WINDOW(dialog),
-             xfconf_channel_get_int(channel, SETTINGS_WINDOW_LAST_WIDTH, -1),
-             xfconf_channel_get_int(channel, SETTINGS_WINDOW_LAST_HEIGHT, -1));
+             esconf_channel_get_int(channel, SETTINGS_WINDOW_LAST_WIDTH, -1),
+             esconf_channel_get_int(channel, SETTINGS_WINDOW_LAST_HEIGHT, -1));
         gtk_window_present(GTK_WINDOW (dialog));
 
         screen = XScreenNumberOfScreen(gdk_x11_screen_get_xscreen(gtk_widget_get_screen(dialog)));
@@ -2204,7 +2204,7 @@ main(int argc, char **argv)
         gdk_notify_startup_complete();
 
         plug_child = GTK_WIDGET(gtk_builder_get_object(gxml, "alignment1"));
-        xfce_widget_reparent(plug_child, plug);
+        expidus_widget_reparent(plug_child, plug);
         gtk_widget_show(plug_child);
 
         screen = XScreenNumberOfScreen(gdk_x11_screen_get_xscreen(gtk_widget_get_screen(plug)));
@@ -2227,14 +2227,14 @@ main(int argc, char **argv)
     panel->channel = channel;
     panel->screen = screen;
 
-    xfdesktop_settings_dialog_setup_tabs(gxml, panel);
+    esdesktop_settings_dialog_setup_tabs(gxml, panel);
 
     gtk_main();
 
     g_object_unref(G_OBJECT(gxml));
 
     g_object_unref(G_OBJECT(channel));
-    xfconf_shutdown();
+    esconf_shutdown();
 
     g_free(panel);
 

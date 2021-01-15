@@ -1,13 +1,11 @@
 # backdrops/Makefile.am
 #
 
-backgroundsdir = $(datadir)/backgrounds/xfce
+backgroundsdir = $(datadir)/backgrounds/expidus
 
 backgrounds_DATA = \
-    xfce-blue.jpg \
-    xfce-stripes.png \
-    xfce-verticals.png \
-    xfce-teal.jpg
+    expidus-river.png \
+    expidus-road.png
 
 
 EXTRA_DIST = $(backgrounds_DATA)

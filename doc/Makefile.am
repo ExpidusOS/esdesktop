@@ -1,2 +1,2 @@
 
-EXTRA_DIST = README.kiosk README.xfconf
+EXTRA_DIST = README.kiosk README.esconf

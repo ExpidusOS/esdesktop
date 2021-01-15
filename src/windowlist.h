@@ -1,5 +1,5 @@
 /*
- *  xfdesktop - xfce4's desktop manager
+ *  esdesktop - expidus1's desktop manager
  *
  *  Copyright (c) 2004 Brian Tarricone, <bjt23@cornell.edu>
  *
@@ -17,22 +17,22 @@
  *  along with this program; if not, write to the Free Software Foundation,
  *  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  *
- *  Random portions taken from or inspired by the original xfdesktop for xfce4:
+ *  Random portions taken from or inspired by the original esdesktop for expidus1:
  *     Copyright (C) 2002-2003 Jasper Huijsmans (huysmans@users.sourceforge.net)
  *     Copyright (C) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  */
 
-#ifndef _XFDESKTOP__WINDOWLIST_H_
-#define _XFDESKTOP__WINDOWLIST_H_
+#ifndef _ESDESKTOP__WINDOWLIST_H_
+#define _ESDESKTOP__WINDOWLIST_H_
 
-#include "xfce-desktop.h"
+#include "expidus-desktop.h"
 
-#include <xfconf/xfconf.h>
+#include <esconf/esconf.h>
 
 G_BEGIN_DECLS
 
-void windowlist_init(XfconfChannel *channel);
-void windowlist_attach(XfceDesktop *desktop);
+void windowlist_init(EsconfChannel *channel);
+void windowlist_attach(ExpidusDesktop *desktop);
 void windowlist_cleanup(void);
 
 G_END_DECLS

@@ -1,5 +1,5 @@
 /*
- *  xfdesktop - xfce4's desktop manager
+ *  esdesktop - expidus1's desktop manager
  *
  *  Copyright (c) 2004-2008 Brian Tarricone <bjt23@cornell.edu>
  *
@@ -17,7 +17,7 @@
  *  along with this program; if not, write to the Free Software Foundation,
  *  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  *
- *  Random portions taken from or inspired by the original xfdesktop for xfce4:
+ *  Random portions taken from or inspired by the original esdesktop for expidus1:
  *     Copyright (C) 2002-2003 Jasper Huijsmans (huysmans@users.sourceforge.net)
  *     Copyright (C) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  */
@@ -37,11 +37,11 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <libwnck/libwnck.h>
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
+#include <libexpidus1util/libexpidus1util.h>
+#include <libexpidus1ui/libexpidus1ui.h>
 
 #include "windowlist.h"
-#include "xfdesktop-common.h"
+#include "esdesktop-common.h"
 
 #define WLIST_MAXLEN 30
 
@@ -83,7 +83,7 @@ set_num_workspaces(GtkWidget *w, gpointer data)
 
         /* Popup a dialog box confirming that the user wants to remove a
          * workspace */
-        if(!xfce_dialog_confirm(NULL, NULL, _("Remove"), rm_label_long,
+        if(!expidus_dialog_confirm(NULL, NULL, _("Remove"), rm_label_long,
                                 "%s", rm_label_short))
         {
             g_free(rm_label_short);
@@ -200,7 +200,7 @@ menu_item_from_wnck_window(WnckWindow *wnck_window, gint icon_width,
             img = gtk_image_new_from_pixbuf(icon);
     }
 
-    mi = xfdesktop_menu_create_menu_item_with_markup(label->str, img);
+    mi = esdesktop_menu_create_menu_item_with_markup(label->str, img);
 
     g_string_free(label, TRUE);
 
@@ -233,7 +233,7 @@ set_label_color_insensitive(GtkWidget *lbl)
 }
 
 static void
-windowlist_populate(XfceDesktop *desktop,
+windowlist_populate(ExpidusDesktop *desktop,
                     GtkMenuShell *menu,
                     gpointer user_data)
 {
@@ -390,7 +390,7 @@ windowlist_populate(XfceDesktop *desktop,
         /* 'add workspace' item */
         if(wl_show_icons) {
             img = gtk_image_new_from_icon_name("list-add", GTK_ICON_SIZE_MENU);
-            mi = xfdesktop_menu_create_menu_item_with_mnemonic(_("_Add Workspace"), img);
+            mi = esdesktop_menu_create_menu_item_with_mnemonic(_("_Add Workspace"), img);
         } else
             mi = gtk_menu_item_new_with_mnemonic(_("_Add Workspace"));
         gtk_widget_show(mi);
@@ -408,7 +408,7 @@ windowlist_populate(XfceDesktop *desktop,
         }
         if(wl_show_icons) {
             img = gtk_image_new_from_icon_name("list-remove", GTK_ICON_SIZE_MENU);
-            mi = xfdesktop_menu_create_menu_item_with_mnemonic(rm_label, img);
+            mi = esdesktop_menu_create_menu_item_with_mnemonic(rm_label, img);
         } else
             mi = gtk_menu_item_new_with_mnemonic(rm_label);
         g_free(rm_label);
@@ -423,7 +423,7 @@ windowlist_populate(XfceDesktop *desktop,
 }
 
 static void
-windowlist_settings_changed(XfconfChannel *channel,
+windowlist_settings_changed(EsconfChannel *channel,
                             const gchar *property,
                             const GValue *value,
                             gpointer user_data)
@@ -443,30 +443,30 @@ windowlist_settings_changed(XfconfChannel *channel,
 }
 
 void
-windowlist_init(XfconfChannel *channel)
+windowlist_init(EsconfChannel *channel)
 {
     if(channel) {
-        show_windowlist = xfconf_channel_get_bool(channel,
+        show_windowlist = esconf_channel_get_bool(channel,
                                                   "/windowlist-menu/show",
                                                   TRUE);
 
-        wl_show_icons = xfconf_channel_get_bool(channel,
+        wl_show_icons = esconf_channel_get_bool(channel,
                                                 "/windowlist-menu/show-icons",
                                                 TRUE);
 
-        wl_show_ws_names = xfconf_channel_get_bool(channel,
+        wl_show_ws_names = esconf_channel_get_bool(channel,
                                                    "/windowlist-menu/show-workspace-names",
                                                    TRUE);
 
-        wl_submenus = xfconf_channel_get_bool(channel,
+        wl_submenus = esconf_channel_get_bool(channel,
                                               "/windowlist-menu/show-submenus",
                                               FALSE);
 
-        wl_sticky_once = xfconf_channel_get_bool(channel,
+        wl_sticky_once = esconf_channel_get_bool(channel,
                                                  "/windowlist-menu/show-sticky-once",
                                                  FALSE);
 
-        wl_add_remove_options = xfconf_channel_get_bool(channel,
+        wl_add_remove_options = esconf_channel_get_bool(channel,
                                                         "/windowlist-menu/show-add-remove-workspaces",
                                                         TRUE);
 
@@ -476,7 +476,7 @@ windowlist_init(XfconfChannel *channel)
 }
 
 void
-windowlist_attach(XfceDesktop *desktop)
+windowlist_attach(ExpidusDesktop *desktop)
 {
     g_signal_connect_after(G_OBJECT(desktop), "populate-secondary-root-menu",
                            G_CALLBACK(windowlist_populate), NULL);

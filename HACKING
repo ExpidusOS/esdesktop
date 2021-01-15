@@ -1,5 +1,5 @@
-This file is inspired by Jasper's HACKING file for xfce4-panel, and gives a
-decent idea of the coding style I prefer for xfdesktop, as well as random
+This file is inspired by Jasper's HACKING file for expidus1-panel, and gives a
+decent idea of the coding style I prefer for esdesktop, as well as random
 hacking guidelines.  If you submit a patch, please be sure to conform to 
 these 'rules'.  If anything isn't clear, just ask (private mail is fine).
      -brian (bjt23@cornell.edu)
@@ -52,13 +52,13 @@ mind sometimes).  When in doubt, follow the style outlined above.
     much (not saying this is good or bad; just fact).
   - ChangeLog: don't bother modifying the toplevel ChangeLog.  It gets
     automatically generated using the 'svn2cl' script before releases.
-  - Other committers with access to the xfdesktop tree should feel free to
+  - Other committers with access to the esdesktop tree should feel free to
     make small commits related to minor one-line bugfixes and fixes for
     compiler warnings.  The release manager may make whatever changes needed
-    during the release process to make xfdesktop release-ready.  I do
+    during the release process to make esdesktop release-ready.  I do
     appreciate a quick note via email if you make any changes, though I'll
-    probably notice it via the xfce4-commits mailing list.  The po/ and
-    po-doc/ directories are under control of the xfce-i18n team.
+    probably notice it via the expidus1-commits mailing list.  The po/ and
+    po-doc/ directories are under control of the expidus-i18n team.
     
 * Code sample:
 
@@ -86,11 +86,11 @@ example_foo_function(FooObject *cheese,
   - /common/
     + Stuff that's used in multiple places.
   - /settings/
-    + This implements xfdesktop-settings a stand-alone program as well as a
-      plugin for the xfce4-settings-manager.
+    + This implements esdesktop-settings a stand-alone program as well as a
+      plugin for the expidus1-settings-manager.
   - /src/main.c
-    + This basically just the main function, it then calls the xfdesktop-application.
-  - /src/xfdesktop-application.c Handles the startup and shutdown of xfdesktop.
+    + This basically just the main function, it then calls the esdesktop-application.
+  - /src/esdesktop-application.c Handles the startup and shutdown of esdesktop.
       It uses GApplication to handle message passing, process uniqueness,
       parses the command line, and other related tasks.
   - /src/menu.c
@@ -99,21 +99,21 @@ example_foo_function(FooObject *cheese,
   - /src/windowlist.c
     + This guy assembles a list of open windows on each workspace and
       constructs a nifty menu to display them all.
-  - /src/xfce-backdrop.c
-    + This (XfceBackdrop) represents a backdrop image.  It handles scaling and
+  - /src/expidus-backdrop.c
+    + This (ExpidusBackdrop) represents a backdrop image.  It handles scaling and
       compositing as well and has code to handle rotating the backdrop image.
-  - /src/xfce-desktop.c
+  - /src/expidus-desktop.c
     + This is a GtkWindow subclass which is the actual desktop window.
-      xfdesktop displays one XfceDesktop window for each X screen, and may
-      have several XfceWorkspace objects associated with it based on the
+      esdesktop displays one ExpidusDesktop window for each X screen, and may
+      have several ExpidusWorkspace objects associated with it based on the
       number of workspaces configured.
-  - /src/xfce-workspace.c
+  - /src/expidus-workspace.c
     + This represents a workspace on the system and contains a list of
-      XfceBackdrops used to represent that workspace, usually one per
-      monitor. It also sets the properties of the XfceBackdrop and handles
-      the migration from the pre4.11 xfconf settings to the modern ones.
-  - /src/xfdesktop-icon-view.c
-    + XfdesktopIconView is a relatively simple (at least it started out that
+      ExpidusBackdrops used to represent that workspace, usually one per
+      monitor. It also sets the properties of the ExpidusBackdrop and handles
+      the migration from the pre4.11 esconf settings to the modern ones.
+  - /src/esdesktop-icon-view.c
+    + EsdesktopIconView is a relatively simple (at least it started out that
       way) icon view widget for the desktop.  It only supports a fixed grid
       of icons, which can be rearranged via drag-and-drop.  It does not
       support arbitrary positioning.  The grid resizes automatically if the
@@ -124,17 +124,17 @@ example_foo_function(FooObject *cheese,
       things onto icons, or what happens when a DnD event occurs from
       another application, etc.  The icon view doesn't even know where the
       icons come from or what they represent.
-  - /src/xfdesktop-icon.c
-    + XfdesktopIcon is an abstract icon object.  You can add them to or
-      remove them from an XfdesktopIconView.  You can set their positions,
+  - /src/esdesktop-icon.c
+    + EsdesktopIcon is an abstract icon object.  You can add them to or
+      remove them from an EsdesktopIconView.  You can set their positions,
       and figure out the icon's rectangular bounding box after it's been
       placed in the icon view.  The icon also reports what kinds of drag
       and drop actions it supports, and if it can display a tooltip.  It
       can also have its own special popup menu.
-  - /src/xfdesktop-icon-view-manager.c
-    + XfdesktopIconViewManager is an abstract controller for the icon view.
-      It's responsible for creating the XfdesktopIcon objects and adding them
-      to the XfdesktopIconView.  It handles drag and drop events for certain
+  - /src/esdesktop-icon-view-manager.c
+    + EsdesktopIconViewManager is an abstract controller for the icon view.
+      It's responsible for creating the EsdesktopIcon objects and adding them
+      to the EsdesktopIconView.  It handles drag and drop events for certain
       situations (like dropping data from another app onto an empty area of
       the desktop).  Most of the heavy lifting should go here.
 

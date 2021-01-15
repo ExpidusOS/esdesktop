@@ -1,13 +1,13 @@
-# Vietnamese translations for xfdesktop package.
-# Copyright (C) 2003-2006 The Xfce development team.
-# This file is distributed under the same license as the xfdesktop package.
+# Vietnamese translations for esdesktop package.
+# Copyright (C) 2003-2006 The Expidus development team.
+# This file is distributed under the same license as the esdesktop package.
 #
 # Lâm Vĩnh Niên <nienvl@yahoo.ca>, 2004.
 # Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006.
 # Phan Vĩnh Thịnh <teppi82@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfdesktop 4.4.0\n"
+"Project-Id-Version: esdesktop 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-16 17:44+0100\n"
 "PO-Revision-Date: 2006-09-05 03:05+0400\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: KBabel 1.11.2\n"
 "Plural-Forms: nplurals=1; nplural=0\n"
 
-#: ../common/xfdesktop-common.c:96 ../common/xfdesktop-common.c:200
+#: ../common/esdesktop-common.c:96 ../common/esdesktop-common.c:200
 #, fuzzy, c-format
 msgid "Backdrop list file is not valid"
 msgstr "Chọn tên tập tin danh sách phông nền"
@@ -33,8 +33,8 @@ msgid ""
 "<i>Size: %dx%d</i>"
 msgstr ""
 
-#: ../settings/main.c:272 ../src/xfdesktop-special-file-icon.c:247
-#: ../src/xfdesktop-special-file-icon.c:413
+#: ../settings/main.c:272 ../src/esdesktop-special-file-icon.c:247
+#: ../src/esdesktop-special-file-icon.c:413
 msgid "Home"
 msgstr "Cá nhân"
 
@@ -150,7 +150,7 @@ msgid "Type '%s --help' for usage."
 msgstr ""
 
 #: ../settings/main.c:1510
-msgid "The Xfce development team. All rights reserved."
+msgid "The Expidus development team. All rights reserved."
 msgstr ""
 
 #: ../settings/main.c:1511
@@ -167,331 +167,331 @@ msgstr "Các thiết lập desktop"
 msgid "Unable to contact settings server"
 msgstr "Không mở được sọt rác."
 
-#: ../settings/xfce-backdrop-settings.desktop.in.h:1
+#: ../settings/expidus-backdrop-settings.desktop.in.h:1
 #, fuzzy
 msgid "Desktop "
 msgstr "Desktop"
 
-#: ../settings/xfce-backdrop-settings.desktop.in.h:2
+#: ../settings/expidus-backdrop-settings.desktop.in.h:2
 msgid "Set desktop background and menu and icon behaviour"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:1
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:1
 msgid "<b>Adjustments</b>"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:2
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:2
 #, fuzzy
 msgid "<b>Colors</b>"
 msgstr "<b>Vùng làm việc %d</b>"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:3
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:3
 #, fuzzy
 msgid "<b>Image</b>"
 msgstr "_Vẻ ngoài"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:4
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:4
 #, fuzzy
 msgid "<b>Images</b>"
 msgstr "<b>Vùng làm việc %d</b>"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:5
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:5
 msgid "Add an image to the list"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:6
-#: ../settings/xfdesktop-settings-ui.glade.h:6
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:6
+#: ../settings/esdesktop-settings-ui.glade.h:6
 msgid "Auto"
 msgstr "Tự động"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:7
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:7
 msgid "Automatically pick a random image from a list file"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:8
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:8
 #, fuzzy
 msgid "B_rightness:"
 msgstr "Chỉnh độ _sáng:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:9
-#: ../settings/xfdesktop-settings-ui.glade.h:8
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:9
+#: ../settings/esdesktop-settings-ui.glade.h:8
 msgid "Centered"
 msgstr "Giữa"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:10
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:10
 msgid "Create a new list, or load an existing one"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:11
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:11
 msgid "Don't display an image at all"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:12
-#: ../settings/xfdesktop-settings-ui.glade.h:12
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:12
+#: ../settings/esdesktop-settings-ui.glade.h:12
 #, fuzzy
 msgid "Horizontal gradient"
 msgstr "Độ lệch ngang"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:13
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:13
 #, fuzzy
 msgid "Image _list"
 msgstr "Các tập tin hình ảnh"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:14
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:14
 msgid "Increase or decrease the brightness of the final image"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:15
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:15
 msgid "Increase or decrease the color saturation of the final image"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:16
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:16
 msgid "Remove the selected image(s) from the list"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:17
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:17
 msgid "Sa_turation:"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:18
-#: ../settings/xfdesktop-settings-ui.glade.h:23
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:18
+#: ../settings/esdesktop-settings-ui.glade.h:23
 msgid "Scaled"
 msgstr "Vảy"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:19
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:19
 #, fuzzy
 msgid "Select First Color"
 msgstr "Màu thứ _nhất:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:20
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:20
 #, fuzzy
 msgid "Select Second Color"
 msgstr "Màu thứ _hai:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:21
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:21
 msgid "Select a single image as the backdrop"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:22
-#: ../settings/xfdesktop-settings-ui.glade.h:32
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:22
+#: ../settings/esdesktop-settings-ui.glade.h:32
 #, fuzzy
 msgid "Solid color"
 msgstr "Màu đặc"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:23
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:23
 msgid "Specifies the \"right\" or \"bottom\" color of the gradient"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:24
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:24
 msgid ""
 "Specifies the solid color, or the \"left\" or \"top\" color of the gradient"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:25
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:25
 msgid "Specify how the image will be resized to fit the screen"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:26
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:26
 msgid "Specify the style of the color drawn behind the backdrop image"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:27
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:27
 #, fuzzy
 msgid "St_yle:"
 msgstr "Phong cách:"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:28
-#: ../settings/xfdesktop-settings-ui.glade.h:34
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:28
+#: ../settings/esdesktop-settings-ui.glade.h:34
 msgid "Stretched"
 msgstr "Trải"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:29
-#: ../settings/xfdesktop-settings-ui.glade.h:35
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:29
+#: ../settings/esdesktop-settings-ui.glade.h:35
 msgid "Tiled"
 msgstr "Lợp"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:30
-#: ../settings/xfdesktop-settings-ui.glade.h:36
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:30
+#: ../settings/esdesktop-settings-ui.glade.h:36
 msgid "Transparent"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:31
-#: ../settings/xfdesktop-settings-ui.glade.h:39
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:31
+#: ../settings/esdesktop-settings-ui.glade.h:39
 #, fuzzy
 msgid "Vertical gradient"
 msgstr "Độ lệch dọc"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:32
-#: ../settings/xfdesktop-settings-ui.glade.h:40
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:32
+#: ../settings/esdesktop-settings-ui.glade.h:40
 #, fuzzy
 msgid "Zoomed"
 msgstr "Cá nhân"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:33
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:33
 #, fuzzy
 msgid "_None"
 msgstr "Không"
 
-#: ../settings/xfdesktop-settings-appearance-frame-ui.glade.h:34
+#: ../settings/esdesktop-settings-appearance-frame-ui.glade.h:34
 msgid "_Single image"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:1
+#: ../settings/esdesktop-settings-ui.glade.h:1
 #, fuzzy
 msgid "<b>Appearance</b>"
 msgstr "_Vẻ ngoài"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:2
+#: ../settings/esdesktop-settings-ui.glade.h:2
 #, fuzzy
 msgid "<b>Default Icons</b>"
 msgstr "<b>Vùng làm việc %d</b>"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:3
+#: ../settings/esdesktop-settings-ui.glade.h:3
 msgid "<b>Desktop Menu</b>"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:4
+#: ../settings/esdesktop-settings-ui.glade.h:4
 msgid "<b>Window List Menu</b>"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:5
+#: ../settings/esdesktop-settings-ui.glade.h:5
 msgid "Alt"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:7
+#: ../settings/esdesktop-settings-ui.glade.h:7
 #, fuzzy
 msgid "B_utton:"
 msgstr "Nút"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:9
+#: ../settings/esdesktop-settings-ui.glade.h:9
 #, fuzzy
 msgid "Control"
 msgstr "Người đóng góp"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:10 ../src/xfce-desktop.c:729
+#: ../settings/esdesktop-settings-ui.glade.h:10 ../src/expidus-desktop.c:729
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:11
+#: ../settings/esdesktop-settings-ui.glade.h:11
 msgid "File/launcher icons"
 msgstr "Biểu tượng tập tin/trình gọi"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:13
+#: ../settings/esdesktop-settings-ui.glade.h:13
 #, fuzzy
 msgid "Icon _size:"
 msgstr "_Kích thước biểu tượng"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:14
+#: ../settings/esdesktop-settings-ui.glade.h:14
 #, fuzzy
 msgid "Icon _type:"
 msgstr "_Kích thước biểu tượng"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:15
+#: ../settings/esdesktop-settings-ui.glade.h:15
 msgid "Label trans_parency:"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:16
+#: ../settings/esdesktop-settings-ui.glade.h:16
 msgid "Left"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:17
+#: ../settings/esdesktop-settings-ui.glade.h:17
 msgid "Middle"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:18
+#: ../settings/esdesktop-settings-ui.glade.h:18
 #, fuzzy
 msgid "Minimized application icons"
 msgstr "Biểu tượng ứng dụng đã thu nhỏ"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:19
+#: ../settings/esdesktop-settings-ui.glade.h:19
 #, fuzzy
 msgid "Mo_difier:"
 msgstr "Đã sửa:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:20
+#: ../settings/esdesktop-settings-ui.glade.h:20
 #, fuzzy
 msgid "Modi_fier:"
 msgstr "Đã sửa:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:21
+#: ../settings/esdesktop-settings-ui.glade.h:21
 msgid "None"
 msgstr "Không"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:22
+#: ../settings/esdesktop-settings-ui.glade.h:22
 msgid "Right"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:24
+#: ../settings/esdesktop-settings-ui.glade.h:24
 msgid "Set desktop background and menu and icon behavior"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:25
+#: ../settings/esdesktop-settings-ui.glade.h:25
 #, fuzzy
 msgid "Sh_ow application icons in menu"
 msgstr "Hiển thị _biểu tượng trong trình đơn"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:26
+#: ../settings/esdesktop-settings-ui.glade.h:26
 msgid "Shift"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:27
+#: ../settings/esdesktop-settings-ui.glade.h:27
 #, fuzzy
 msgid "Show _application icons in menu"
 msgstr "Hiển thị _biểu tượng trong trình đơn"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:28
+#: ../settings/esdesktop-settings-ui.glade.h:28
 #, fuzzy
 msgid "Show _window list menu on desktop middle click"
 msgstr "Hiện _danh sách cửa sổ khi nhấn chuột giữa"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:29
+#: ../settings/esdesktop-settings-ui.glade.h:29
 #, fuzzy
 msgid "Include applications menu on _desktop right click"
 msgstr "Hiển thị thự_c đơn màn hình khi nhấn chuột phải"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:30
+#: ../settings/esdesktop-settings-ui.glade.h:30
 msgid "Show s_ticky windows only in active workspace"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:31
+#: ../settings/esdesktop-settings-ui.glade.h:31
 msgid "Show workspace _names in list"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:33
+#: ../settings/esdesktop-settings-ui.glade.h:33
 msgid ""
 "Specify the transparency level for the rounded label drawn behind the icon "
 "text"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:37
+#: ../settings/esdesktop-settings-ui.glade.h:37
 msgid "Use _submenus for the windows in each workspace"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:38
+#: ../settings/esdesktop-settings-ui.glade.h:38
 #, fuzzy
 msgid "Use custom _font size:"
 msgstr "Chọn cỡ _phông:"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:41
+#: ../settings/esdesktop-settings-ui.glade.h:41
 msgid "_Background"
 msgstr ""
 
-#: ../settings/xfdesktop-settings-ui.glade.h:42
+#: ../settings/esdesktop-settings-ui.glade.h:42
 #, fuzzy
 msgid "_Button:"
 msgstr "Nút"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:43
+#: ../settings/esdesktop-settings-ui.glade.h:43
 #, fuzzy
 msgid "_Edit desktop menu"
 msgstr "_Sửa trình đơn"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:44
+#: ../settings/esdesktop-settings-ui.glade.h:44
 #, fuzzy
 msgid "_Icons"
 msgstr "Biểu tượng"
 
-#: ../settings/xfdesktop-settings-ui.glade.h:45
+#: ../settings/esdesktop-settings-ui.glade.h:45
 #, fuzzy
 msgid "_Menus"
 msgstr "Thực đơn"
@@ -519,8 +519,8 @@ msgstr ""
 
 #: ../src/main.c:242
 #, fuzzy
-msgid "Cause xfdesktop to quit"
-msgstr "    -quit        Thoát xfdesktop\n"
+msgid "Cause esdesktop to quit"
+msgstr "    -quit        Thoát esdesktop\n"
 
 #: ../src/main.c:262
 #, fuzzy, c-format
@@ -529,8 +529,8 @@ msgstr "Lỗi chạy \"%s\":"
 
 #: ../src/main.c:270
 #, c-format
-msgid "This is %s version %s, running on Xfce %s.\n"
-msgstr "Đây là %s phiên bản %s, chạy trên Xfce %s.\n"
+msgid "This is %s version %s, running on Expidus %s.\n"
+msgstr "Đây là %s phiên bản %s, chạy trên Expidus %s.\n"
 
 #: ../src/main.c:272
 #, c-format
@@ -607,339 +607,339 @@ msgstr "Gỡ _bỏ vùng làm việc %d"
 msgid "_Remove Workspace '%s'"
 msgstr "Gỡ _bỏ vùng làm việc '%s'"
 
-#: ../src/xfce-desktop.c:1006
+#: ../src/expidus-desktop.c:1006
 #, fuzzy, c-format
 msgid "Unable to load image from backdrop list file \"%s\""
 msgstr "Không tạo được tập tin \"%s\":"
 
-#: ../src/xfce-desktop.c:1008
+#: ../src/expidus-desktop.c:1008
 #, fuzzy
 msgid "Desktop Error"
 msgstr "Desktop"
 
-#: ../src/xfdesktop-file-icon-manager.c:465
-#: ../src/xfdesktop-file-icon-manager.c:482
+#: ../src/esdesktop-file-icon-manager.c:465
+#: ../src/esdesktop-file-icon-manager.c:482
 #, fuzzy, c-format
 msgid "Could not create the desktop folder \"%s\""
 msgstr "Tạo danh sách phông nền"
 
-#: ../src/xfdesktop-file-icon-manager.c:470
-#: ../src/xfdesktop-file-icon-manager.c:487
+#: ../src/esdesktop-file-icon-manager.c:470
+#: ../src/esdesktop-file-icon-manager.c:487
 #, fuzzy
 msgid "Desktop Folder Error"
 msgstr "Desktop"
 
-#: ../src/xfdesktop-file-icon-manager.c:489
+#: ../src/esdesktop-file-icon-manager.c:489
 msgid ""
 "A normal file with the same name already exists. Please delete or rename it."
 msgstr ""
 
-#: ../src/xfdesktop-file-icon-manager.c:592
-#: ../src/xfdesktop-file-icon-manager.c:636 ../src/xfdesktop-file-utils.c:803
-#: ../src/xfdesktop-file-utils.c:818 ../src/xfdesktop-special-file-icon.c:447
+#: ../src/esdesktop-file-icon-manager.c:592
+#: ../src/esdesktop-file-icon-manager.c:636 ../src/esdesktop-file-utils.c:803
+#: ../src/esdesktop-file-utils.c:818 ../src/esdesktop-special-file-icon.c:447
 #, fuzzy
 msgid "Trash Error"
 msgstr "Lỗi chạy"
 
-#: ../src/xfdesktop-file-icon-manager.c:593
-#: ../src/xfdesktop-file-icon-manager.c:637
+#: ../src/esdesktop-file-icon-manager.c:593
+#: ../src/esdesktop-file-icon-manager.c:637
 #, fuzzy
 msgid "The selected files could not be trashed"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-icon-manager.c:594
-#: ../src/xfdesktop-file-icon-manager.c:638 ../src/xfdesktop-file-utils.c:652
-#: ../src/xfdesktop-file-utils.c:702 ../src/xfdesktop-file-utils.c:761
-#: ../src/xfdesktop-file-utils.c:873 ../src/xfdesktop-file-utils.c:929
-#: ../src/xfdesktop-file-utils.c:979 ../src/xfdesktop-file-utils.c:1029
-#: ../src/xfdesktop-file-utils.c:1106 ../src/xfdesktop-file-utils.c:1167
-#: ../src/xfdesktop-file-utils.c:1240 ../src/xfdesktop-file-utils.c:1318
+#: ../src/esdesktop-file-icon-manager.c:594
+#: ../src/esdesktop-file-icon-manager.c:638 ../src/esdesktop-file-utils.c:652
+#: ../src/esdesktop-file-utils.c:702 ../src/esdesktop-file-utils.c:761
+#: ../src/esdesktop-file-utils.c:873 ../src/esdesktop-file-utils.c:929
+#: ../src/esdesktop-file-utils.c:979 ../src/esdesktop-file-utils.c:1029
+#: ../src/esdesktop-file-utils.c:1106 ../src/esdesktop-file-utils.c:1167
+#: ../src/esdesktop-file-utils.c:1240 ../src/esdesktop-file-utils.c:1318
 #, fuzzy
 msgid ""
 "This feature requires a file manager service to be present (such as the one "
-"supplied by Thunar)."
+"supplied by Lunar)."
 msgstr ""
-"Tính năng này cần dịch vụ của một trình quản lý tập tin (Thunar có một dịch "
+"Tính năng này cần dịch vụ của một trình quản lý tập tin (Lunar có một dịch "
 "vụ như vậy)."
 
 #. printf is to be translator-friendly
-#: ../src/xfdesktop-file-icon-manager.c:738
-#: ../src/xfdesktop-file-icon-manager.c:1296
+#: ../src/esdesktop-file-icon-manager.c:738
+#: ../src/esdesktop-file-icon-manager.c:1296
 #, c-format
 msgid "Unable to launch \"%s\":"
 msgstr "Không chạy được \"%s\":"
 
-#: ../src/xfdesktop-file-icon-manager.c:740
-#: ../src/xfdesktop-file-icon-manager.c:984
-#: ../src/xfdesktop-file-icon-manager.c:1297 ../src/xfdesktop-file-utils.c:635
-#: ../src/xfdesktop-file-utils.c:650 ../src/xfdesktop-file-utils.c:1012
-#: ../src/xfdesktop-file-utils.c:1027 ../src/xfdesktop-file-utils.c:1079
-#: ../src/xfdesktop-file-utils.c:1104 ../src/xfdesktop-file-utils.c:1150
-#: ../src/xfdesktop-file-utils.c:1165
+#: ../src/esdesktop-file-icon-manager.c:740
+#: ../src/esdesktop-file-icon-manager.c:984
+#: ../src/esdesktop-file-icon-manager.c:1297 ../src/esdesktop-file-utils.c:635
+#: ../src/esdesktop-file-utils.c:650 ../src/esdesktop-file-utils.c:1012
+#: ../src/esdesktop-file-utils.c:1027 ../src/esdesktop-file-utils.c:1079
+#: ../src/esdesktop-file-utils.c:1104 ../src/esdesktop-file-utils.c:1150
+#: ../src/esdesktop-file-utils.c:1165
 msgid "Launch Error"
 msgstr "Lỗi chạy"
 
-#: ../src/xfdesktop-file-icon-manager.c:908
+#: ../src/esdesktop-file-icon-manager.c:908
 #, c-format
 msgid "_Open With \"%s\""
 msgstr "_Mở bằng \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:911
+#: ../src/esdesktop-file-icon-manager.c:911
 #, c-format
 msgid "Open With \"%s\""
 msgstr "Mở bằng \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:986
+#: ../src/esdesktop-file-icon-manager.c:986
 msgid ""
-"Unable to launch \"exo-desktop-item-edit\", which is required to create and "
+"Unable to launch \"endo-desktop-item-edit\", which is required to create and "
 "edit launchers and links on the desktop."
 msgstr ""
-"Không chạy được \"exo-desktop-item-edit\" cần thiết để tạo và sửa các trình "
+"Không chạy được \"endo-desktop-item-edit\" cần thiết để tạo và sửa các trình "
 "gọi và liên kết trên màn hình."
 
-#: ../src/xfdesktop-file-icon-manager.c:1354
+#: ../src/esdesktop-file-icon-manager.c:1354
 msgid "_Open all"
 msgstr "_Mở hết"
 
-#: ../src/xfdesktop-file-icon-manager.c:1370
+#: ../src/esdesktop-file-icon-manager.c:1370
 msgid "_Open in New Window"
 msgstr ""
 
-#: ../src/xfdesktop-file-icon-manager.c:1372
-#: ../src/xfdesktop-special-file-icon.c:570 ../src/xfdesktop-volume-icon.c:653
+#: ../src/esdesktop-file-icon-manager.c:1372
+#: ../src/esdesktop-special-file-icon.c:570 ../src/esdesktop-volume-icon.c:653
 msgid "_Open"
 msgstr "_Mở"
 
 #. create launcher item
-#: ../src/xfdesktop-file-icon-manager.c:1391
+#: ../src/esdesktop-file-icon-manager.c:1391
 msgid "Create _Launcher..."
 msgstr "Tạo trình _gọi..."
 
 #. create link item
-#: ../src/xfdesktop-file-icon-manager.c:1407
+#: ../src/esdesktop-file-icon-manager.c:1407
 msgid "Create _URL Link..."
 msgstr "Tạo liên kết _URL..."
 
 #. create folder item
-#: ../src/xfdesktop-file-icon-manager.c:1423
+#: ../src/esdesktop-file-icon-manager.c:1423
 msgid "Create _Folder..."
 msgstr "Tạo thư _mục..."
 
 #. create from template submenu
-#: ../src/xfdesktop-file-icon-manager.c:1438
+#: ../src/esdesktop-file-icon-manager.c:1438
 #, fuzzy
 msgid "Create From _Template"
 msgstr "Tạo thư mục từ mẫu \"%s\""
 
-#: ../src/xfdesktop-file-icon-manager.c:1464
+#: ../src/esdesktop-file-icon-manager.c:1464
 msgid "_Empty File"
 msgstr "Tậ_p tin rỗng"
 
-#: ../src/xfdesktop-file-icon-manager.c:1480
+#: ../src/esdesktop-file-icon-manager.c:1480
 msgid "_Execute"
 msgstr "_Chạy"
 
-#: ../src/xfdesktop-file-icon-manager.c:1500
+#: ../src/esdesktop-file-icon-manager.c:1500
 msgid "_Edit Launcher"
 msgstr "_Sửa trình gọi"
 
-#: ../src/xfdesktop-file-icon-manager.c:1535
+#: ../src/esdesktop-file-icon-manager.c:1535
 msgid "Open With"
 msgstr "Mở bằng"
 
-#: ../src/xfdesktop-file-icon-manager.c:1561
+#: ../src/esdesktop-file-icon-manager.c:1561
 msgid "Open With Other _Application..."
 msgstr "Mở bằng ứng dụng _khác..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1649
+#: ../src/esdesktop-file-icon-manager.c:1649
 msgid "_Rename..."
 msgstr "Đổi _tên"
 
-#: ../src/xfdesktop-file-icon-manager.c:1667
+#: ../src/esdesktop-file-icon-manager.c:1667
 msgid "Desktop _Settings..."
 msgstr "_Thiết lập desktop..."
 
-#: ../src/xfdesktop-file-icon-manager.c:1677
-#: ../src/xfdesktop-volume-icon.c:701
+#: ../src/esdesktop-file-icon-manager.c:1677
+#: ../src/esdesktop-volume-icon.c:701
 msgid "P_roperties..."
 msgstr "_Thuộc tính..."
 
-#: ../src/xfdesktop-file-icon-manager.c:2231
+#: ../src/esdesktop-file-icon-manager.c:2231
 #, fuzzy
 msgid "Load Error"
 msgstr "Lỗi chạy"
 
-#: ../src/xfdesktop-file-icon-manager.c:2233
+#: ../src/esdesktop-file-icon-manager.c:2233
 #, fuzzy
 msgid "Failed to load the desktop folder"
 msgstr "Tạo danh sách phông nền"
 
 #. TRANSLATORS: file was modified less than one day ago
-#: ../src/xfdesktop-file-utils.c:137
+#: ../src/esdesktop-file-utils.c:137
 #, c-format
 msgid "Today at %X"
 msgstr ""
 
 #. TRANSLATORS: file was modified less than two days ago
-#: ../src/xfdesktop-file-utils.c:141
+#: ../src/esdesktop-file-utils.c:141
 #, c-format
 msgid "Yesterday at %X"
 msgstr ""
 
 #. Days from last week
-#: ../src/xfdesktop-file-utils.c:146
+#: ../src/esdesktop-file-utils.c:146
 #, c-format
 msgid "%A at %X"
 msgstr ""
 
 #. Any other date
-#: ../src/xfdesktop-file-utils.c:149
+#: ../src/esdesktop-file-utils.c:149
 #, c-format
 msgid "%x at %X"
 msgstr ""
 
 #. the file_time is invalid
-#: ../src/xfdesktop-file-utils.c:159
+#: ../src/esdesktop-file-utils.c:159
 #, fuzzy
 msgid "Unknown"
 msgstr "(không rõ)"
 
-#: ../src/xfdesktop-file-utils.c:636 ../src/xfdesktop-file-utils.c:651
+#: ../src/esdesktop-file-utils.c:636 ../src/esdesktop-file-utils.c:651
 #, fuzzy
 msgid "The folder could not be opened"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:685 ../src/xfdesktop-file-utils.c:700
+#: ../src/esdesktop-file-utils.c:685 ../src/esdesktop-file-utils.c:700
 #, fuzzy
 msgid "Rename Error"
 msgstr "Lỗi chạy"
 
-#: ../src/xfdesktop-file-utils.c:686 ../src/xfdesktop-file-utils.c:701
+#: ../src/esdesktop-file-utils.c:686 ../src/esdesktop-file-utils.c:701
 #, fuzzy
 msgid "The file could not be renamed"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:744 ../src/xfdesktop-file-utils.c:759
+#: ../src/esdesktop-file-utils.c:744 ../src/esdesktop-file-utils.c:759
 #, fuzzy
 msgid "Delete Error"
 msgstr "Lỗi tạo"
 
-#: ../src/xfdesktop-file-utils.c:745 ../src/xfdesktop-file-utils.c:760
+#: ../src/esdesktop-file-utils.c:745 ../src/esdesktop-file-utils.c:760
 #, fuzzy
 msgid "The selected files could not be deleted"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:804 ../src/xfdesktop-file-utils.c:819
+#: ../src/esdesktop-file-utils.c:804 ../src/esdesktop-file-utils.c:819
 #, fuzzy
 msgid "The selected files could not be moved to the trash"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:820
+#: ../src/esdesktop-file-utils.c:820
 #, fuzzy
 msgid ""
 "This feature requires a trash service to be present (such as the one "
-"supplied by Thunar)."
+"supplied by Lunar)."
 msgstr ""
-"Tính năng này cần dịch vụ của một trình quản lý tập tin (Thunar có một dịch "
+"Tính năng này cần dịch vụ của một trình quản lý tập tin (Lunar có một dịch "
 "vụ như vậy)."
 
-#: ../src/xfdesktop-file-utils.c:856 ../src/xfdesktop-file-utils.c:871
+#: ../src/esdesktop-file-utils.c:856 ../src/esdesktop-file-utils.c:871
 #, fuzzy
 msgid "Create File Error"
 msgstr "Lỗi tạo"
 
-#: ../src/xfdesktop-file-utils.c:857 ../src/xfdesktop-file-utils.c:872
+#: ../src/esdesktop-file-utils.c:857 ../src/esdesktop-file-utils.c:872
 #, fuzzy
 msgid "Could not create a new file"
 msgstr "Tạo danh sách phông nền"
 
-#: ../src/xfdesktop-file-utils.c:912 ../src/xfdesktop-file-utils.c:927
+#: ../src/esdesktop-file-utils.c:912 ../src/esdesktop-file-utils.c:927
 #, fuzzy
 msgid "Create Document Error"
 msgstr "Lỗi tạo"
 
-#: ../src/xfdesktop-file-utils.c:913 ../src/xfdesktop-file-utils.c:928
+#: ../src/esdesktop-file-utils.c:913 ../src/esdesktop-file-utils.c:928
 #, fuzzy
 msgid "Could not create a new document from the template"
 msgstr "Tạo thư mục từ mẫu \"%s\""
 
-#: ../src/xfdesktop-file-utils.c:962 ../src/xfdesktop-file-utils.c:977
+#: ../src/esdesktop-file-utils.c:962 ../src/esdesktop-file-utils.c:977
 #, fuzzy
 msgid "File Properties Error"
 msgstr "Lỗi thuộc tính"
 
-#: ../src/xfdesktop-file-utils.c:963 ../src/xfdesktop-file-utils.c:978
+#: ../src/esdesktop-file-utils.c:963 ../src/esdesktop-file-utils.c:978
 #, fuzzy
 msgid "The file properties dialog could not be opened"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:1013 ../src/xfdesktop-file-utils.c:1028
+#: ../src/esdesktop-file-utils.c:1013 ../src/esdesktop-file-utils.c:1028
 #, fuzzy
 msgid "The file could not be opened"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:1076 ../src/xfdesktop-file-utils.c:1101
+#: ../src/esdesktop-file-utils.c:1076 ../src/esdesktop-file-utils.c:1101
 #, fuzzy, c-format
 msgid "Failed to run \"%s\""
 msgstr "Lỗi chạy \"%s\":"
 
-#: ../src/xfdesktop-file-utils.c:1151 ../src/xfdesktop-file-utils.c:1166
+#: ../src/esdesktop-file-utils.c:1151 ../src/esdesktop-file-utils.c:1166
 #, fuzzy
 msgid "The application chooser could not be opened"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#: ../src/xfdesktop-file-utils.c:1224 ../src/xfdesktop-file-utils.c:1238
-#: ../src/xfdesktop-file-utils.c:1300 ../src/xfdesktop-file-utils.c:1316
+#: ../src/esdesktop-file-utils.c:1224 ../src/esdesktop-file-utils.c:1238
+#: ../src/esdesktop-file-utils.c:1300 ../src/esdesktop-file-utils.c:1316
 #, fuzzy
 msgid "Transfer Error"
 msgstr "Lỗi chạy"
 
-#: ../src/xfdesktop-file-utils.c:1225 ../src/xfdesktop-file-utils.c:1239
-#: ../src/xfdesktop-file-utils.c:1301 ../src/xfdesktop-file-utils.c:1317
+#: ../src/esdesktop-file-utils.c:1225 ../src/esdesktop-file-utils.c:1239
+#: ../src/esdesktop-file-utils.c:1301 ../src/esdesktop-file-utils.c:1317
 #, fuzzy
 msgid "The file transfer could not be performed"
 msgstr "Không tìm thấy hoặc không chạy được ứng dụng để mở tập tin."
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:128
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:128
 #, fuzzy
 msgid "Unmounting device"
 msgstr "Lỗi khi bỏ gắn"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:131
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:131
 #, c-format
 msgid ""
 "The device \"%s\" is being unmounted by the system. Please do not remove the "
 "media or disconnect the drive"
 msgstr ""
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:138 ../src/xfdesktop-notify.c:262
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:138 ../src/esdesktop-notify.c:262
 msgid "Writing data to device"
 msgstr ""
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:141 ../src/xfdesktop-notify.c:265
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:141 ../src/esdesktop-notify.c:265
 #, c-format
 msgid ""
 "There is data that needs to be written to the device \"%s\" before it can be "
 "removed. Please do not remove the media or disconnect the drive"
 msgstr ""
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:253
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:253
 #, fuzzy
 msgid "Ejecting device"
 msgstr "Lỗi khi bỏ gắn"
 
-#. TRANSLATORS: Please use the same translation here as in Thunar
-#: ../src/xfdesktop-notify.c:256
+#. TRANSLATORS: Please use the same translation here as in Lunar
+#: ../src/esdesktop-notify.c:256
 #, c-format
 msgid "The device \"%s\" is being ejected. This may take some time"
 msgstr ""
 
-#: ../src/xfdesktop-regular-file-icon.c:468
+#: ../src/esdesktop-regular-file-icon.c:468
 #, c-format
 msgid ""
 "Type: %s\n"
@@ -947,26 +947,26 @@ msgid ""
 "Last modified: %s"
 msgstr ""
 
-#: ../src/xfdesktop-special-file-icon.c:249
-#: ../src/xfdesktop-special-file-icon.c:411
+#: ../src/esdesktop-special-file-icon.c:249
+#: ../src/esdesktop-special-file-icon.c:411
 #, fuzzy
 msgid "File System"
 msgstr "hệ thống"
 
-#: ../src/xfdesktop-special-file-icon.c:396
+#: ../src/esdesktop-special-file-icon.c:396
 msgid "Trash is empty"
 msgstr ""
 
-#: ../src/xfdesktop-special-file-icon.c:399
+#: ../src/esdesktop-special-file-icon.c:399
 msgid "Trash contains one item"
 msgstr ""
 
-#: ../src/xfdesktop-special-file-icon.c:400
+#: ../src/esdesktop-special-file-icon.c:400
 #, c-format
 msgid "Trash contains %d items"
 msgstr ""
 
-#: ../src/xfdesktop-special-file-icon.c:428
+#: ../src/esdesktop-special-file-icon.c:428
 #, c-format
 msgid ""
 "%s\n"
@@ -974,25 +974,25 @@ msgid ""
 "Last modified: %s"
 msgstr ""
 
-#: ../src/xfdesktop-special-file-icon.c:449
+#: ../src/esdesktop-special-file-icon.c:449
 #, fuzzy
-msgid "Unable to contact the Xfce Trash service."
+msgid "Unable to contact the Expidus Trash service."
 msgstr "Không mở được sọt rác."
 
-#: ../src/xfdesktop-special-file-icon.c:450
+#: ../src/esdesktop-special-file-icon.c:450
 #, fuzzy
 msgid ""
-"Make sure you have a file manager installed that supports the Xfce Trash "
-"service, such as Thunar."
+"Make sure you have a file manager installed that supports the Expidus Trash "
+"service, such as Lunar."
 msgstr ""
 "Để dọn sạch sọt rác cần dùng một trình quản lý tập tin hỗ trợ dịch vụ sọt "
-"rác của Xfce, như Thunar."
+"rác của Expidus, như Lunar."
 
-#: ../src/xfdesktop-special-file-icon.c:588
+#: ../src/esdesktop-special-file-icon.c:588
 msgid "_Empty Trash"
 msgstr "_Dọn sạch sọt rác"
 
-#: ../src/xfdesktop-volume-icon.c:413
+#: ../src/esdesktop-volume-icon.c:413
 #, c-format
 msgid ""
 "Removable Volume\n"
@@ -1000,35 +1000,35 @@ msgid ""
 "%s left (%s total)"
 msgstr ""
 
-#: ../src/xfdesktop-volume-icon.c:420
+#: ../src/esdesktop-volume-icon.c:420
 msgid ""
 "Removable Volume\n"
 "Not mounted yet"
 msgstr ""
 
-#: ../src/xfdesktop-volume-icon.c:446 ../src/xfdesktop-volume-icon.c:488
+#: ../src/esdesktop-volume-icon.c:446 ../src/esdesktop-volume-icon.c:488
 #, fuzzy, c-format
 msgid "Failed to eject \"%s\""
 msgstr "Không đẩy ra được \"%s\":"
 
-#: ../src/xfdesktop-volume-icon.c:451 ../src/xfdesktop-volume-icon.c:493
+#: ../src/esdesktop-volume-icon.c:451 ../src/esdesktop-volume-icon.c:493
 msgid "Eject Failed"
 msgstr "Đẩy ra không thành công"
 
-#: ../src/xfdesktop-volume-icon.c:525
+#: ../src/esdesktop-volume-icon.c:525
 #, fuzzy, c-format
 msgid "Failed to mount \"%s\""
 msgstr "Lỗi chạy \"%s\":"
 
-#: ../src/xfdesktop-volume-icon.c:528
+#: ../src/esdesktop-volume-icon.c:528
 msgid "Mount Failed"
 msgstr "Lỗi khi gắn"
 
-#: ../src/xfdesktop-volume-icon.c:669 ../src/xfdesktop-volume-icon.c:672
+#: ../src/esdesktop-volume-icon.c:669 ../src/esdesktop-volume-icon.c:672
 msgid "E_ject Volume"
 msgstr "Đẩy đĩa _ra"
 
-#: ../src/xfdesktop-volume-icon.c:679
+#: ../src/esdesktop-volume-icon.c:679
 msgid "_Mount Volume"
 msgstr "_Gắn ổ"
 
@@ -1047,8 +1047,8 @@ msgstr "_Gắn ổ"
 #~ msgid "Startup notification"
 #~ msgstr "Dùng thông _báo khởi động"
 
-#~ msgid "Unable to launch xfce4-menueditor: %s"
-#~ msgstr "Không thể gọi xfce4-menueditor: %s"
+#~ msgid "Unable to launch expidus1-menueditor: %s"
+#~ msgstr "Không thể gọi expidus1-menueditor: %s"
 
 #~ msgid "Select Icon"
 #~ msgstr "Chọn biểu tượng"
@@ -1065,8 +1065,8 @@ msgstr "_Gắn ổ"
 #~ msgid "Menu Files"
 #~ msgstr "Tập tin trình đơn"
 
-#~ msgid "Xfce Menu"
-#~ msgstr "Thực đơn Xfce"
+#~ msgid "Expidus Menu"
+#~ msgstr "Thực đơn Expidus"
 
 #~ msgid "Button"
 #~ msgstr "Nút"
@@ -1125,22 +1125,22 @@ msgstr "_Gắn ổ"
 #~ msgstr ""
 #~ "    -windowlist  Mở ra danh sách cửa sổ (ở vị trí con chuột hiện tại)\n"
 
-#~ msgid "    --quit        Cause xfdesktop to quit\n"
-#~ msgstr "    -quit        Thoát xfdesktop\n"
+#~ msgid "    --quit        Cause esdesktop to quit\n"
+#~ msgstr "    -quit        Thoát esdesktop\n"
 
 #~ msgid ""
-#~ "Xfdesktop was unable to create the folder \"%s\" to store desktop items:"
+#~ "Esdesktop was unable to create the folder \"%s\" to store desktop items:"
 #~ msgstr ""
-#~ "Xfdesktop không tạo được thư mục \"%s\" để phục hồi các mục màn hình:"
+#~ "Esdesktop không tạo được thư mục \"%s\" để phục hồi các mục màn hình:"
 
 #~ msgid "Create Folder Failed"
 #~ msgstr "Lỗi tạo thư mục"
 
 #~ msgid ""
-#~ "Xfdesktop is unable to use \"%s\" to hold desktop items because it is not "
+#~ "Esdesktop is unable to use \"%s\" to hold desktop items because it is not "
 #~ "a folder."
 #~ msgstr ""
-#~ "Xfdesktop không dùng được \"%s\" để chứa các mục màn hình vì nó không "
+#~ "Esdesktop không dùng được \"%s\" để chứa các mục màn hình vì nó không "
 #~ "phải là thư mục."
 
 #~ msgid "Please delete or rename the file."
@@ -1176,9 +1176,9 @@ msgstr "_Gắn ổ"
 
 #~ msgid ""
 #~ "This feature requires a file manager service present (such as that "
-#~ "supplied by Thunar)."
+#~ "supplied by Lunar)."
 #~ msgstr ""
-#~ "Tính năng này cần dịch vụ của một trình quản lý tập tin (Thunar có một "
+#~ "Tính năng này cần dịch vụ của một trình quản lý tập tin (Lunar có một "
 #~ "dịch vụ như vậy)."
 
 #~ msgid "Unable to create folder named \"%s\":"
@@ -1364,8 +1364,8 @@ msgstr "_Gắn ổ"
 #~ msgid "System"
 #~ msgstr "Hệ thống"
 
-#~ msgid "About Xfce"
-#~ msgstr "Giới thiệu Xfce"
+#~ msgid "About Expidus"
+#~ msgstr "Giới thiệu Expidus"
 
 #~ msgid "File Manager"
 #~ msgstr "Trình quản lí tập tin"
@@ -1375,8 +1375,8 @@ msgstr "_Gắn ổ"
 #~ msgstr "_Giúp đỡ"
 
 #, fuzzy
-#~ msgid "Log out of the Xfce Desktop"
-#~ msgstr "Thiết lập cho trình quản lý nền Xfce 4"
+#~ msgid "Log out of the Expidus Desktop"
+#~ msgstr "Thiết lập cho trình quản lý nền Expidus 4"
 
 #, fuzzy
 #~ msgid "Run Program..."
@@ -1505,8 +1505,8 @@ msgstr "_Gắn ổ"
 #~ msgid "Edit external menu entry"
 #~ msgstr "Sửa mục trình đơn ngoài."
 
-#~ msgid "Xfce4-MenuEditor"
-#~ msgstr "Trình soạn Xfce4-Menu"
+#~ msgid "Expidus4-MenuEditor"
+#~ msgstr "Trình soạn Expidus4-Menu"
 
 #, fuzzy
 #~ msgid "Menueditor Warning"
@@ -1555,8 +1555,8 @@ msgstr "_Gắn ổ"
 #~ msgid "_Quit"
 #~ msgstr "_Thoát"
 
-#~ msgid "Quit Xfce4-Menueditor"
-#~ msgstr "Thoát Xfce4-Menueditor"
+#~ msgid "Quit Expidus4-Menueditor"
+#~ msgstr "Thoát Expidus4-Menueditor"
 
 #~ msgid "_Edit"
 #~ msgstr "_Biên tập"
@@ -1603,8 +1603,8 @@ msgstr "_Gắn ổ"
 #~ msgid "_About..."
 #~ msgstr "_Về..."
 
-#~ msgid "Show informations about xfce4-menueditor"
-#~ msgstr "Hiển thị thông tin về xfce4-menueditor"
+#~ msgid "Show informations about expidus1-menueditor"
+#~ msgstr "Hiển thị thông tin về expidus1-menueditor"
 
 #~ msgid "Collapse all"
 #~ msgstr "Khép tất cả"
@@ -1663,8 +1663,8 @@ msgstr "_Gắn ổ"
 #~ msgid "Do you want to move the item into the submenu?"
 #~ msgstr "Bạn có muốn di chuyển mục vào trình đơn phụ?"
 
-#~ msgid "A menu editor for Xfce4"
-#~ msgstr "Trình biên tập trình đơn cho Xfce4"
+#~ msgid "A menu editor for Expidus4"
+#~ msgstr "Trình biên tập trình đơn cho Expidus4"
 
 #~ msgid "Author/Maintainer"
 #~ msgstr "Tác giả/Nhà duy trì"
@@ -1675,24 +1675,24 @@ msgstr "_Gắn ổ"
 #~ msgid "Forget modifications"
 #~ msgstr "Bỏ qua các thay đổi"
 
-#~ msgid "Graphical tool for editing the Xfce 4 menu"
+#~ msgid "Graphical tool for editing the Expidus 4 menu"
 #~ msgstr "Công cụ soạn thảo trình đơn đồ họa"
 
 #~ msgid "Menu Editor"
 #~ msgstr "Trình soạn thảo trình đơn"
 
-#~ msgid "Xfce 4 Menu Editor"
-#~ msgstr "Trình soạn thảo trình đơn Xfce 4"
+#~ msgid "Expidus 4 Menu Editor"
+#~ msgstr "Trình soạn thảo trình đơn Expidus 4"
 
-#~ msgid "Settings for the Xfce 4 Desktop Manager"
-#~ msgstr "Thiết lập cho trình quản lý nền Xfce 4"
+#~ msgid "Settings for the Expidus 4 Desktop Manager"
+#~ msgstr "Thiết lập cho trình quản lý nền Expidus 4"
 
-#~ msgid "Xfce 4 Desktop Settings"
-#~ msgstr "Thiết lập nền Xfce 4"
+#~ msgid "Expidus 4 Desktop Settings"
+#~ msgstr "Thiết lập nền Expidus 4"
 
 #, fuzzy
-#~ msgid "Use _Xfce to manage the desktop"
-#~ msgstr "Cho phép _Xfce quản lý nền"
+#~ msgid "Use _Expidus to manage the desktop"
+#~ msgstr "Cho phép _Expidus quản lý nền"
 
 #~ msgid ""
 #~ "Could not save file %s: %s\n"
@@ -1726,41 +1726,41 @@ msgstr "_Gắn ổ"
 #~ msgid "S_tyle:"
 #~ msgstr "_Phong cách:"
 
-#~ msgid "Xfce will be unable to manage your desktop (%s)."
-#~ msgstr "Xfce sẽ không thể quản lý nền (%s)."
+#~ msgid "Expidus will be unable to manage your desktop (%s)."
+#~ msgstr "Expidus sẽ không thể quản lý nền (%s)."
 
 #~ msgid "Unknown Error"
 #~ msgstr "Lỗi không rõ nguyên nhân"
 
-#~ msgid "Unable to start xfdesktop"
-#~ msgstr "Không chạy được xfdesktop"
+#~ msgid "Unable to start esdesktop"
+#~ msgstr "Không chạy được esdesktop"
 
 #, fuzzy
 #~ msgid ""
-#~ "To ensure that this setting takes effect the next time you start Xfce, "
+#~ "To ensure that this setting takes effect the next time you start Expidus, "
 #~ "please be sure to save your session when logging out.  If you are not "
-#~ "using the Xfce Session Manager (xfce4-session), you will need to manually "
-#~ "edit your ~/.config/xfce4/xinitrc file.  Details are available in the "
-#~ "documentation provided on http://xfce.org/."
+#~ "using the Expidus Session Manager (expidus1-session), you will need to manually "
+#~ "edit your ~/.config/expidus1/xinitrc file.  Details are available in the "
+#~ "documentation provided on http://expidus.org/."
 #~ msgstr ""
-#~ "Để chắc chắn là Xfce sẽ không quản lý nền trong lần khởi động tiếp theo, "
+#~ "Để chắc chắn là Expidus sẽ không quản lý nền trong lần khởi động tiếp theo, "
 #~ "xin hãy ghi nhớ lại buổi làm việc khi thoát.  Nếu không dùng Trình quản "
-#~ "lý buổi làm việc của Xfce (xfce4-session), thì cần tự sửa tập tin ~/."
-#~ "config/xfce4/xinitrc.  Chi tiết có trong tài liệu hướng dẫn trên http://"
-#~ "xfce.org/."
+#~ "lý buổi làm việc của Expidus (expidus1-session), thì cần tự sửa tập tin ~/."
+#~ "config/expidus1/xinitrc.  Chi tiết có trong tài liệu hướng dẫn trên http://"
+#~ "expidus.org/."
 
 #~ msgid ""
-#~ "To ensure that Xfce does not manage your desktop the next time you start "
-#~ "Xfce, please be sure to save your session when logging out.  If you are "
-#~ "not using the Xfce Session Manager (xfce4-session), you will need to "
-#~ "manually edit your ~/.config/xfce4/xinitrc file.  Details are available "
-#~ "in the documentation provided on http://xfce.org/."
+#~ "To ensure that Expidus does not manage your desktop the next time you start "
+#~ "Expidus, please be sure to save your session when logging out.  If you are "
+#~ "not using the Expidus Session Manager (expidus1-session), you will need to "
+#~ "manually edit your ~/.config/expidus1/xinitrc file.  Details are available "
+#~ "in the documentation provided on http://expidus.org/."
 #~ msgstr ""
-#~ "Để chắc chắn là Xfce sẽ không quản lý nền trong lần khởi động tiếp theo, "
+#~ "Để chắc chắn là Expidus sẽ không quản lý nền trong lần khởi động tiếp theo, "
 #~ "xin hãy ghi nhớ lại buổi làm việc khi thoát.  Nếu không dùng Trình quản "
-#~ "lý buổi làm việc của Xfce (xfce4-session), thì cần tự sửa tập tin ~/."
-#~ "config/xfce4/xinitrc.  Chi tiết có trong tài liệu hướng dẫn trên http://"
-#~ "xfce.org/."
+#~ "lý buổi làm việc của Expidus (expidus1-session), thì cần tự sửa tập tin ~/."
+#~ "config/expidus1/xinitrc.  Chi tiết có trong tài liệu hướng dẫn trên http://"
+#~ "expidus.org/."
 
 #~ msgid "_Do not show this again"
 #~ msgstr "_Không hiển thị lại nữa"
@@ -1818,17 +1818,17 @@ msgstr "_Gắn ổ"
 #~ msgstr "Không thoát được buổi làm việc."
 
 #~ msgid ""
-#~ "Quitting the session requires that Xfce's session manager (xfce4-session) "
-#~ "is running, but it was not detected.  Please quit Xfce via another means."
+#~ "Quitting the session requires that Expidus's session manager (expidus1-session) "
+#~ "is running, but it was not detected.  Please quit Expidus via another means."
 #~ msgstr ""
-#~ "Để thoát buổi làm việc cần trình quản lý xfce4-session đang chạy, nhưng "
-#~ "không tìm ra nó.  Xin hãy thoát Xfce bằng cách khác."
+#~ "Để thoát buổi làm việc cần trình quản lý expidus1-session đang chạy, nhưng "
+#~ "không tìm ra nó.  Xin hãy thoát Expidus bằng cách khác."
 
 #~ msgid ""
-#~ "Quitting the session requires the 'xfce4-session-logout' command, but it "
+#~ "Quitting the session requires the 'expidus1-session-logout' command, but it "
 #~ "could not be found: %s"
 #~ msgstr ""
-#~ "Để thoát buổi làm việc cần câu lệnh 'xfce4-session-logout', nhưng không "
+#~ "Để thoát buổi làm việc cần câu lệnh 'expidus1-session-logout', nhưng không "
 #~ "tìm thấy nó: %s"
 
 #~ msgid "Edit Properties"
@@ -1836,10 +1836,10 @@ msgstr "_Gắn ổ"
 
 #~ msgid ""
 #~ "Viewing the contents of the trash requires a file manager that supports "
-#~ "the Xfce trash service, such as Thunar."
+#~ "the Expidus trash service, such as Lunar."
 #~ msgstr ""
 #~ "Để xem nội dung của sọt rác cần dùng một trình quản lý tập tin hỗ trợ "
-#~ "dịch vụ sọt rác của Xfce, như Thunar."
+#~ "dịch vụ sọt rác của Expidus, như Lunar."
 
 #~ msgid "Unable to empty the trash."
 #~ msgstr "Không dọn sạch được sọt rác."
