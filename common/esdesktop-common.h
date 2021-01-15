@@ -43,7 +43,7 @@
 #define LIST_TEXT                "# expidus backdrop list"
 #define ESDESKTOP_SELECTION_FMT  "ESDESKTOP_SELECTION_%d"
 #define ESDESKTOP_IMAGE_FILE_FMT "ESDESKTOP_IMAGE_FILE_%d"
-#define ESDESKTOP_RC_VERSION_STAMP "esdesktop-version-4.10.3+-rcfile_format"
+#define ESDESKTOP_RC_VERSION_STAMP "esdesktop-version-1.0.0+-rcfile_format"
 
 #define RELOAD_MESSAGE     "reload"
 #define MENU_MESSAGE       "menu"
